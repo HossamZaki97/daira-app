@@ -4,7 +4,6 @@
   "retry": "Try again",
   "cancel": "Cancel",
   "close": "Close",
-  "later": "Later",
   "ok": "OK",
   "continueAction": "Continue",
   "loading": "Loading…",
@@ -91,35 +90,6 @@
   "themeSystem": "System",
   "themeLight": "Light",
   "themeDark": "Dark",
-  "previewTitle": "Daira foundation",
-  "previewBody": "This build checks the new design and the connection to the server. The full screens come next.",
-  "signedInAs": "Signed in as {name}",
-  "@signedInAs": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "serverStatus": "Server",
-  "connected": "Connected",
-  "activeCirclesCount": "{count, plural, =0{No active circles} =1{1 active circle} other{{count} active circles}}",
-  "@activeCirclesCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "actionsCount": "{count, plural, =0{Nothing needs you now} =1{1 thing needs you} other{{count} things need you}}",
-  "@actionsCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "componentsTitle": "Components",
   "emptyCirclesTitle": "No circles yet",
   "emptyCirclesBody": "Create a circle for your group, or join one with an invitation code.",
   "createCircle": "Create a circle",
@@ -135,12 +105,757 @@
       }
     }
   },
-  "dueOn": "Due {date}",
-  "@dueOn": {
+  "tabHome": "Home",
+  "tabCircles": "Circles",
+  "tabNotifications": "Notifications",
+  "tabAccount": "Account",
+  "welcomeTitle": "Your circles, clearly",
+  "welcomeBody": "Track every installment and every turn with your group. Money moves outside Daira.",
+  "welcomePoint1": "Every due date in one place",
+  "welcomePoint2": "Payments confirmed by the organizer",
+  "welcomePoint3": "Everyone knows their turn",
+  "welcomeTermsPrefix": "By continuing you agree to the ",
+  "createAccount": "Create account",
+  "terms": "Terms of use",
+  "privacy": "Privacy policy",
+  "faq": "Questions",
+  "help": "Help",
+  "signUpTitle": "Create your account",
+  "signUpBody": "We will send a code to confirm your email.",
+  "fullName": "Full name",
+  "passwordHint": "At least {min} characters.",
+  "@passwordHint": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "signUpTerms": "By creating an account you agree to the terms of use.",
+  "haveAccountSignIn": "I already have an account",
+  "noAccountCreate": "New here? Create an account",
+  "confirmEmailLink": "I have a confirmation code",
+  "errorWeakPassword": "Use a password of at least {min} characters.",
+  "@errorWeakPassword": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "errorSignupDisabled": "New accounts are paused for now. Try again later.",
+  "errorVerificationCode": "The code is wrong or expired. Check the latest email or send a new code.",
+  "verifyTitle": "Confirm your email",
+  "verifyBody": "Enter the 8-digit code from the email we sent. You can also tap the link in the same email.",
+  "verificationCode": "Confirmation code",
+  "verificationCodeHint": "Enter the 8 digits.",
+  "confirmEmail": "Confirm",
+  "resendCode": "Send a new code",
+  "resendIn": "Send again in {seconds}s",
+  "@resendIn": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "confirmationResent": "If the email needs confirming, a new code is on its way.",
+  "emailConfirmed": "Email confirmed. Sign in to continue.",
+  "backToSignIn": "Back to sign in",
+  "forgotTitle": "Reset your password",
+  "forgotBody": "Enter your email. We will send a link to choose a new password.",
+  "sendResetLink": "Send link",
+  "checkEmailTitle": "Check your email",
+  "resetSentBody": "If an account uses this email, a reset link is on its way. Choose the new password from the link, then sign in here.",
+  "useAnotherEmail": "Use another email",
+  "hello": "Hi {name}",
+  "@hello": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "needsYou": "Needs you",
+  "nothingNeeded": "You are all set. Nothing needs you now.",
+  "upcomingPayments": "Coming up",
+  "roundNumber": "Round {number}",
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "yourTurn": "Your turn",
+  "turnIsNow": "This round is yours",
+  "turnInRounds": "{count, plural, =1{Next round} other{In {count} rounds}}",
+  "@turnInRounds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "actionPayTitle": "Pay your installment",
+  "actionReceiptTitle": "Confirm you received the payout",
+  "actionConfirmTitle": "{count, plural, =1{1 payment to confirm} other{{count} payments to confirm}}",
+  "@actionConfirmTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "actionPayoutTitle": "Hand the amount to {name}",
+  "@actionPayoutTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "review": "Review",
+  "notReceivedReason": "Not received: {reason}",
+  "@notReceivedReason": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "dueToday": "Due today",
+  "dueInDays": "{count, plural, =1{Due tomorrow} other{Due in {count} days}}",
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysLate": "{count, plural, =1{1 day late} other{{count} days late}}",
+  "@daysLate": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "everyDays": "{count, plural, =1{Every day} other{Every {count} days}}",
+  "@everyDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "everyWeeks": "{count, plural, =1{Every week} other{Every {count} weeks}}",
+  "@everyWeeks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "everyMonths": "{count, plural, =1{Every month} other{Every {count} months}}",
+  "@everyMonths": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "justNow": "Just now",
+  "minutesAgo": "{count, plural, =1{1 min ago} other{{count} min ago}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 h ago} other{{count} h ago}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "filterActive": "Active",
+  "filterDrafts": "Drafts",
+  "filterCompleted": "Finished",
+  "noDrafts": "No drafts",
+  "noCompleted": "No finished circles yet",
+  "organizer": "Organizer",
+  "myTurnRound": "Your turn: round {round}",
+  "@myTurnRound": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "draftHint": "Draft — finish it and start the circle.",
+  "activityLog": "Activity",
+  "confirmPaidTitle": "Did you pay this installment?",
+  "confirmPaidBody": "Daira does not move money. This tells the organizer you paid so they can confirm it.",
+  "paidDone": "Sent to the organizer for confirmation.",
+  "approvedDone": "{member}'s payment confirmed.",
+  "@approvedDone": {
+    "placeholders": {
+      "member": {
+        "type": "String"
+      }
+    }
+  },
+  "rejectedDone": "The member will see your reason.",
+  "confirmPayoutTitle": "Did you hand over the amount?",
+  "confirmPayoutBody": "{recipient} will be asked to confirm receiving it.",
+  "@confirmPayoutBody": {
+    "placeholders": {
+      "recipient": {
+        "type": "String"
+      }
+    }
+  },
+  "payoutDone": "Waiting for the recipient to confirm.",
+  "confirmReceiptTitle": "Did you receive the amount?",
+  "confirmReceiptBody": "Confirming closes this round for everyone.",
+  "receiptDone": "Round closed. Thank you!",
+  "circleSuspendedTitle": "This circle is paused",
+  "circleSuspendedBody": "Daira support paused it. Payments resume when it is resumed.",
+  "circleCancelledTitle": "This circle was cancelled",
+  "circleCompletedTitle": "Circle completed — everyone got their turn",
+  "yourPayment": "Your installment",
+  "yourPayout": "Your payout",
+  "payoutSentToYou": "The organizer says {amount} was handed to you.",
+  "@payoutSentToYou": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "handOver": "Hand over",
+  "readyForPayoutBody": "Everyone paid. Hand the amount to {recipient}.",
+  "@readyForPayoutBody": {
+    "placeholders": {
+      "recipient": {
+        "type": "String"
+      }
+    }
+  },
+  "waitingRecipient": "Waiting for {name} to confirm receipt.",
+  "@waitingRecipient": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "paymentsThisRound": "Payments this round",
+  "toReview": "{count, plural, =1{1 to review} other{{count} to review}}",
+  "@toReview": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "membersCount": "{count, plural, =1{1 member} other{{count} members}}",
+  "@membersCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "turnOrder": "Turn order",
+  "perShare": "{amount} per share",
+  "@perShare": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "youOrganize": "You organize",
+  "yourTurnNow": "This round is yours",
+  "recipientIs": "{name} receives this round",
+  "@recipientIs": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "collectedOf": "{collected} of {total} confirmed",
+  "@collectedOf": {
+    "placeholders": {
+      "collected": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "notReceivedHint": "Pay again or talk to the organizer, then tap «I paid».",
+  "payHint": "Pay the organizer the way you agreed, then tell them here.",
+  "waitingOrganizer": "Waiting for the organizer to confirm.",
+  "paymentConfirmed": "Confirmed by the organizer.",
+  "youName": "{name} (you)",
+  "@youName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "reportedAt": "Paid {time}",
+  "@reportedAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "rejectTitle": "Payment from {member} did not arrive?",
+  "@rejectTitle": {
+    "placeholders": {
+      "member": {
+        "type": "String"
+      }
+    }
+  },
+  "rejectBody": "Write the reason. The member will see it and can pay again.",
+  "reason": "Reason",
+  "reasonHint": "e.g. no transfer received yet",
+  "sharesCount": "{count, plural, =1{1 share} other{{count} shares}}",
+  "@sharesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "memberJoined": "Joined",
+  "memberNotJoined": "Not joined yet",
+  "invite": "Invite",
+  "importedRound": "Before Daira",
+  "startCircleTitle": "Start this circle?",
+  "startCircleBody": "Members, amounts and turns can no longer change after the start.",
+  "startCircle": "Start the circle",
+  "circleStarted": "The circle has started.",
+  "draftTitle": "Draft",
+  "draftBody": "Only you can see it. Edit it or start it when ready.",
+  "editDraft": "Edit draft",
+  "inviteTitle": "Invite {name}",
+  "@inviteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "inviteBody": "Share a single-use code. It works for {hours} hours and links this member to their own account.",
+  "@inviteBody": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "createInvite": "Create invitation code",
+  "inviteActive": "An invitation is already active",
+  "inviteActiveBody": "Valid until {date}. For safety the code is shown only once — revoke it to create a new one.",
+  "@inviteActiveBody": {
     "placeholders": {
       "date": {
         "type": "String"
       }
     }
-  }
+  },
+  "revokeAndNew": "Revoke and create a new one",
+  "revoke": "Revoke invitation",
+  "revokeTitle": "Revoke this invitation?",
+  "revokeBody": "The code will stop working right away.",
+  "expiresOn": "Expires {date}",
+  "@expiresOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "share": "Share",
+  "copyCode": "Copy code",
+  "copied": "Copied",
+  "inviteMessage": "Hi {member}! Join \"{circle}\" on Daira with this code: {code}\nOr open: {link}",
+  "@inviteMessage": {
+    "placeholders": {
+      "member": {
+        "type": "String"
+      },
+      "circle": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      },
+      "link": {
+        "type": "String"
+      }
+    }
+  },
+  "joinTitle": "Enter your invitation code",
+  "joinBody": "The organizer shares a 12-character code with you.",
+  "inviteCode": "Invitation code",
+  "inviteCodeHint": "Enter the 12 characters of the code.",
+  "inviteInvalid": "This code is not valid. Ask the organizer for a new one.",
+  "inviteExpired": "This code expired. Ask the organizer for a new one.",
+  "inviteAlreadyMember": "You are already in this circle, or this place is taken.",
+  "featureDisabled": "This option is turned off for now.",
+  "joinPreviewTitle": "Join this circle?",
+  "organizedBy": "Organized by {name}",
+  "@organizedBy": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "joinAs": "You join as",
+  "yourTurnRound": "Your turn: round {round}",
+  "@yourTurnRound": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "joinNote": "You confirm your own payments here; the organizer confirms receiving them.",
+  "joinCircle": "Join the circle",
+  "joinedCircle": "You joined {circle}.",
+  "@joinedCircle": {
+    "placeholders": {
+      "circle": {
+        "type": "String"
+      }
+    }
+  },
+  "noActivity": "No activity yet",
+  "byDairaSupport": "Daira support",
+  "evCircleSaved": "Circle details saved",
+  "evReport": "{member} paid round {round}",
+  "@evReport": {
+    "placeholders": {
+      "member": {
+        "type": "String"
+      },
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "evApprove": "Payment of {member} for round {round} confirmed",
+  "@evApprove": {
+    "placeholders": {
+      "member": {
+        "type": "String"
+      },
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "evReject": "Payment of {member} for round {round} not received",
+  "@evReject": {
+    "placeholders": {
+      "member": {
+        "type": "String"
+      },
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "evCollectionCompleted": "Round {round} fully collected",
+  "@evCollectionCompleted": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "evPayout": "Round {round} amount handed over",
+  "@evPayout": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "evReceipt": "Round {round} received and closed",
+  "@evReceipt": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "evCircleCompleted": "Circle completed",
+  "evInvitationCreated": "Invitation created",
+  "evInvitationRevoked": "Invitation revoked",
+  "evInvitationAccepted": "Member joined",
+  "evCircleSuspended": "Circle paused by support",
+  "evCircleResumed": "Circle resumed",
+  "evCircleCancelled": "Circle cancelled",
+  "markAllRead": "Mark all read",
+  "noNotifications": "No notifications",
+  "noNotificationsBody": "Payments, confirmations and turns will show up here.",
+  "needsAction": "Needs your action",
+  "ntPaymentReported": "{actor} paid round {round} — confirm it",
+  "@ntPaymentReported": {
+    "placeholders": {
+      "actor": {
+        "type": "String"
+      },
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "ntPaymentConfirmed": "{actor} confirmed your payment for round {round}",
+  "@ntPaymentConfirmed": {
+    "placeholders": {
+      "actor": {
+        "type": "String"
+      },
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "ntPaymentNotReceived": "Your payment for round {round} did not arrive: {reason}",
+  "@ntPaymentNotReceived": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      },
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "ntReadyForPayout": "Round {round} is collected — hand it to {member}",
+  "@ntReadyForPayout": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      },
+      "member": {
+        "type": "String"
+      }
+    }
+  },
+  "ntPayoutSent": "{actor} handed you {amount} — confirm receipt",
+  "@ntPayoutSent": {
+    "placeholders": {
+      "actor": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ntPayoutReceived": "{actor} confirmed receiving round {round}",
+  "@ntPayoutReceived": {
+    "placeholders": {
+      "actor": {
+        "type": "String"
+      },
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "ntMemberJoined": "{actor} joined the circle",
+  "@ntMemberJoined": {
+    "placeholders": {
+      "actor": {
+        "type": "String"
+      }
+    }
+  },
+  "ntDueSoon": "Installment for round {round} is due soon ({amount})",
+  "@ntDueSoon": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ntOverdue": "Installment for round {round} is overdue ({amount})",
+  "@ntOverdue": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ntCircleCompleted": "The circle is complete",
+  "ntCircleSuspended": "The circle was paused by support",
+  "ntCircleResumed": "The circle is active again",
+  "ntCircleCancelled": "The circle was cancelled",
+  "ntGeneric": "New update",
+  "security": "Security",
+  "changePassword": "Change password",
+  "signedInDevices": "Signed-in devices",
+  "helpAndAbout": "Help and about",
+  "signOutTitle": "Sign out?",
+  "signOutBody": "You can sign back in any time.",
+  "deleteAccount": "Delete account",
+  "deleteBody": "Your account will be closed and your name removed from finished circles. You cannot undo this.",
+  "deleteBlocked": "You are still in an active circle. Finish it before deleting your account.",
+  "wrongPassword": "The password is not correct.",
+  "deleteForever": "Delete my account",
+  "versionLabel": "Version {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "editName": "Your name",
+  "editNameBody": "Shown to the members of your circles.",
+  "save": "Save",
+  "changePasswordBody": "Other devices will be signed out. This one stays signed in.",
+  "currentPassword": "Current password",
+  "newPassword": "New password",
+  "passwordChanged": "Password changed.",
+  "devicesBody": "End any session you do not recognise.",
+  "thisDevice": "This device",
+  "endSession": "Sign out device",
+  "endSessionTitle": "Sign out this device?",
+  "endOthersTitle": "Sign out all other devices?",
+  "endSessionBody": "It will need to sign in again.",
+  "endOthers": "Sign out all other devices",
+  "contentEmpty": "Nothing here yet.",
+  "lastUpdated": "Last updated {date}",
+  "@lastUpdated": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "newCircle": "New circle",
+  "stepOf": "Step {step} of {total} · {title}",
+  "@stepOf": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "stepBasics": "Basics",
+  "stepMembers": "Members",
+  "stepOrder": "Turns",
+  "stepReview": "Review",
+  "back": "Back",
+  "next": "Next",
+  "saveDraft": "Save as draft",
+  "draftSaved": "Draft saved.",
+  "discardTitle": "Discard this circle?",
+  "discardBody": "What you entered will be lost.",
+  "discard": "Discard",
+  "startDatePast": "The first due date is in the past. Choose today or later, or mark rounds already completed.",
+  "draftChanged": "This draft changed on another device. Reopen it and try again.",
+  "circleName": "Circle name",
+  "circleNameHint": "e.g. Family circle 2026",
+  "installmentPerShare": "Installment per share",
+  "amountInvalid": "Enter a valid amount.",
+  "currency": "Currency",
+  "cadence": "Payment schedule",
+  "cadenceDays": "Days",
+  "cadenceWeeks": "Weeks",
+  "cadenceMonths": "Months",
+  "firstDueDate": "First due date",
+  "lastDueDate": "Last due date",
+  "firstDueDateHint": "Each round follows the schedule from this date.",
+  "change": "Change",
+  "membersStepBody": "Add the other members by name. They can join with an invitation later.",
+  "memberNumber": "Member {number}",
+  "@memberNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "removeMember": "Remove member",
+  "addMember": "Add member",
+  "increase": "Increase",
+  "decrease": "Decrease",
+  "totalShares": "{count, plural, =1{1 share in total} other{{count} shares in total = {count} rounds}}",
+  "@totalShares": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "payoutPerRound": "Each round collects {amount}.",
+  "@payoutPerRound": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "sharesLimit": "A circle needs 2 to {max} shares in total.",
+  "@sharesLimit": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "orderBody": "Drag to set who receives each round. One turn per share.",
+  "orderFixedBody": "Turns follow the order members were added; you receive last.",
+  "resetOrder": "Reset order",
+  "noImportedRounds": "New circle (no rounds before Daira)",
+  "importedRounds": "{count, plural, =1{1 round already completed} other{{count} rounds already completed}}",
+  "@importedRounds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedHint": "For a circle that already started: the first rounds are marked done.",
+  "dragToReorder": "Drag to reorder",
+  "membersLabel": "Members",
+  "roundsLabel": "Rounds",
+  "importedLabel": "Completed before Daira",
+  "eachRoundCollects": "Each round collects",
+  "reviewNoteTitle": "Money moves outside Daira",
+  "reviewNoteBody": "Daira records who paid and who received, so everyone sees the same truth.",
+  "name": "Name"
 }

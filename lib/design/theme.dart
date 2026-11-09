@@ -173,6 +173,32 @@ abstract final class DairaTheme {
         padding: const EdgeInsets.symmetric(horizontal: Space.xs),
         showCheckmark: false,
       ),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: c.accent,
+        foregroundColor: c.onAccent,
+        elevation: 2,
+        focusElevation: 2,
+        hoverElevation: 3,
+        highlightElevation: 3,
+        extendedTextStyle: DairaType.label.copyWith(fontSize: 15, fontWeight: FontWeight.w700),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(Radii.lg)),
+      ),
+      badgeTheme: BadgeThemeData(backgroundColor: c.danger, textColor: c.surface),
+      tabBarTheme: TabBarThemeData(
+        labelColor: c.text,
+        unselectedLabelColor: c.textMuted,
+        indicatorColor: c.primary,
+        dividerColor: c.line,
+        labelStyle: DairaType.label.copyWith(fontSize: 14),
+        unselectedLabelStyle: DairaType.label.copyWith(fontSize: 14, fontWeight: FontWeight.w400),
+      ),
+      expansionTileTheme: ExpansionTileThemeData(iconColor: c.textMuted, collapsedIconColor: c.textMuted),
+      datePickerTheme: DatePickerThemeData(
+        backgroundColor: c.surface,
+        surfaceTintColor: Colors.transparent,
+        headerBackgroundColor: c.hero,
+        headerForegroundColor: c.onHero,
+      ),
       segmentedButtonTheme: SegmentedButtonThemeData(
         style: ButtonStyle(
           minimumSize: const WidgetStatePropertyAll(Size(48, 44)),

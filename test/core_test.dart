@@ -173,8 +173,14 @@ void main() {
     });
 
     test('session decides between sign-in and the app', () {
-      expect(go(StartupStatus.ready, false, Routes.home), Routes.signIn);
+      expect(go(StartupStatus.ready, false, Routes.home), Routes.welcome);
+      expect(go(StartupStatus.ready, false, Routes.circle('c1')), Routes.welcome);
       expect(go(StartupStatus.ready, false, Routes.signIn), isNull);
+      expect(go(StartupStatus.ready, false, Routes.verify), isNull);
+      expect(go(StartupStatus.ready, true, Routes.welcome), Routes.home);
+      expect(go(StartupStatus.ready, false, Routes.content('terms')), isNull);
+      expect(go(StartupStatus.ready, true, Routes.content('terms')), isNull);
+      expect(go(StartupStatus.ready, true, Routes.circle('c1')), isNull);
       expect(go(StartupStatus.ready, true, Routes.signIn), Routes.home);
       expect(go(StartupStatus.ready, true, Routes.splash), Routes.home);
       expect(go(StartupStatus.ready, true, Routes.home), isNull);

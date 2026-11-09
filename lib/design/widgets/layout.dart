@@ -233,3 +233,21 @@ Future<T?> showAppSheet<T>(BuildContext context, {required WidgetBuilder builder
     ),
   ),
 );
+
+/// Scrolls when the screen is short, otherwise fills it so a Column can use Spacer.
+class FillScrollView extends StatelessWidget {
+  const FillScrollView({required this.child, this.padding = EdgeInsets.zero, super.key});
+  final Widget child;
+  final EdgeInsets padding;
+
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, box) => SingleChildScrollView(
+      padding: padding,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(minHeight: (box.maxHeight - padding.vertical).clamp(0.0, double.infinity)),
+        child: IntrinsicHeight(child: child),
+      ),
+    ),
+  );
+}
