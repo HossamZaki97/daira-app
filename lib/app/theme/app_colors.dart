@@ -3,22 +3,22 @@ import 'package:flutter/material.dart';
 /// Raw brand palette. Presentation code consumes [DairaSemanticColors].
 abstract final class AppColors {
   static const primary = Color(0xFF356DF3);
-  static const primaryStrong = Color(0xFF2454D6);
+  static const primaryStrong = Color(0xFF285DD8);
   static const primaryContainer = Color(0xFFEBF1FF);
   static const primarySoft = Color(0xFFF2F5FF);
   static const violet = Color(0xFF7667F5);
   static const violetForeground = Color(0xFF5546D9);
   static const violetContainer = Color(0xFFF0EDFF);
   static const cyan = Color(0xFF27BED1);
-  static const cyanForeground = Color(0xFF087A87);
+  static const cyanForeground = Color(0xFF087F8C);
   static const cyanContainer = Color(0xFFE4F9FC);
 
-  static const backgroundLight = Color(0xFFF5F7FC);
+  static const backgroundLight = Color(0xFFF5F7FB);
   static const surface = Color(0xFFFFFFFF);
-  static const surfaceAlternative = Color(0xFFF0F3FA);
+  static const surfaceAlternative = Color(0xFFEDF3FF);
   static const border = Color(0xFFDDE3EF);
-  static const textPrimary = Color(0xFF172033);
-  static const textSecondary = Color(0xFF657087);
+  static const textPrimary = Color(0xFF182943);
+  static const textSecondary = Color(0xFF606F86);
   static const textDisabled = Color(0xFF8B95A9);
 
   static const success = Color(0xFF22A06B);
@@ -29,24 +29,24 @@ abstract final class AppColors {
   static const errorForeground = Color(0xFFC52F37);
   static const information = Color(0xFF356DF3);
 
-  static const backgroundDark = Color(0xFF0E1525);
-  static const surfaceDark = Color(0xFF172033);
-  static const elevatedSurfaceDark = Color(0xFF202C45);
+  static const backgroundDark = Color(0xFF101A2B);
+  static const surfaceDark = Color(0xFF182943);
+  static const elevatedSurfaceDark = Color(0xFF233759);
   static const borderDark = Color(0xFF30405E);
-  static const primaryDarkMode = Color(0xFF78A3FF);
-  static const primaryContainerDark = Color(0xFF202C45);
+  static const primaryDarkMode = Color(0xFF9BBCFF);
+  static const primaryContainerDark = Color(0xFF233759);
   static const violetDark = Color(0xFF9C91FF);
   static const violetContainerDark = Color(0xFF302B57);
   static const cyanDark = Color(0xFF50D2DF);
   static const cyanContainerDark = Color(0xFF173C4A);
   static const textPrimaryDark = Color(0xFFF4F7FF);
-  static const textSecondaryDark = Color(0xFFAAB5CA);
+  static const textSecondaryDark = Color(0xFFAFBED2);
   static const successDark = Color(0xFF42C98B);
   static const warningDark = Color(0xFFF2BA55);
   static const errorDark = Color(0xFFFF7075);
 
-  static const heroLight = Color(0xFF2454D6);
-  static const heroDark = Color(0xFF1A356D);
+  static const heroLight = Color(0xFF142C50);
+  static const heroDark = Color(0xFF203D67);
   static const onHero = Color(0xFFFFFFFF);
   static const onHeroMuted = Color(0xFFDDE7FF);
   static const cycleTrackLight = Color(0xFFBFD0FF);
@@ -56,12 +56,12 @@ abstract final class AppColors {
   static const warningContainer = Color(0xFFFFF3D8);
   static const errorContainer = Color(0xFFFFE8EA);
   static const informationContainer = Color(0xFFEBF1FF);
-  static const neutralContainer = Color(0xFFF0F3FA);
+  static const neutralContainer = Color(0xFFEDF3FF);
 
   static const successContainerDark = Color(0xFF1D3D35);
   static const warningContainerDark = Color(0xFF46391F);
   static const errorContainerDark = Color(0xFF4B2933);
-  static const informationContainerDark = Color(0xFF202C45);
+  static const informationContainerDark = Color(0xFF233759);
   static const neutralContainerDark = Color(0xFF27334A);
 }
 

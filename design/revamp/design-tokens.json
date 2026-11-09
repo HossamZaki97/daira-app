@@ -1,0 +1,310 @@
+{
+  "name": "Daira / Every turn, clear",
+  "status": "implemented-refined-ux",
+  "brand": {
+    "status": "approved",
+    "symbol": "../brand/people-circle/daira-people-circle.svg",
+    "icon": "../brand/people-circle/daira-app-icon.svg",
+    "referenceSize": 512,
+    "preferredInAppSize": 40,
+    "clearSpaceInReferenceUnits": 30.5
+  },
+  "figmaTarget": "https://www.figma.com/design/fygsh7qTdLuTvd0nqwSpV3/Daira---Odoo-App-Revamp",
+  "color": {
+    "light": {
+      "bg": "#F5F7FB",
+      "surface": "#FFFFFF",
+      "soft": "#EDF3FF",
+      "text": "#182943",
+      "muted": "#606F86",
+      "border": "#E1E7F0",
+      "blue": "#356DF3",
+      "primary": "#285DD8",
+      "navy": "#142C50",
+      "cyan": "#087F8C",
+      "cyan_bg": "#E8F6F8",
+      "good": "#147449",
+      "good_bg": "#E8F5ED",
+      "warn": "#965C00",
+      "warn_bg": "#FFF3DC",
+      "bad": "#BB3544",
+      "bad_bg": "#FFF0F1"
+    },
+    "dark": {
+      "bg": "#101A2B",
+      "surface": "#19263B",
+      "soft": "#233759",
+      "text": "#F1F5FC",
+      "muted": "#AFBED2",
+      "border": "#31425C",
+      "blue": "#356DF3",
+      "primary": "#9BBCFF",
+      "navy": "#203D67",
+      "cyan": "#8CDBE1",
+      "cyan_bg": "#173C48",
+      "good": "#87DEAF",
+      "good_bg": "#173F32",
+      "warn": "#F5CE89",
+      "warn_bg": "#443820",
+      "bad": "#FFACB5",
+      "bad_bg": "#4A2938"
+    }
+  },
+  "type": {
+    "family": "Cairo",
+    "weights": [
+      400,
+      600,
+      700
+    ],
+    "display": 28,
+    "title": 24,
+    "section": 18,
+    "body": 15,
+    "supporting": 12,
+    "caption": 11,
+    "money": 38
+  },
+  "spacing": [
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    32,
+    40,
+    48
+  ],
+  "radius": {
+    "field": 13,
+    "button": 15,
+    "card": 21,
+    "hero": 24,
+    "sheet": 28
+  },
+  "minimumTapTarget": 48,
+  "textScale": [
+    1,
+    1.5
+  ],
+  "motionMs": {
+    "feedback": 150,
+    "sheet": 180
+  },
+  "breakpoints": {
+    "compact": 320,
+    "reference": 390,
+    "tablet": 700
+  },
+  "frames": [
+    {
+      "name": "00 · Foundations",
+      "kind": "brand",
+      "options": {}
+    },
+    {
+      "name": "01 · Sign in",
+      "kind": "login",
+      "options": {}
+    },
+    {
+      "name": "02 · Create account",
+      "kind": "signup",
+      "options": {}
+    },
+    {
+      "name": "03 · Confirm email",
+      "kind": "verify",
+      "options": {}
+    },
+    {
+      "name": "04 · Recovery",
+      "kind": "forgot",
+      "options": {}
+    },
+    {
+      "name": "05 · New password / Odoo",
+      "kind": "reset",
+      "options": {}
+    },
+    {
+      "name": "06 · First circle",
+      "kind": "empty",
+      "options": {}
+    },
+    {
+      "name": "07 · Member home",
+      "kind": "home",
+      "options": {}
+    },
+    {
+      "name": "08 · Organizer home",
+      "kind": "home",
+      "options": {
+        "organizer": true
+      }
+    },
+    {
+      "name": "09 · My circles",
+      "kind": "circles",
+      "options": {}
+    },
+    {
+      "name": "10 · Setup / Basics",
+      "kind": "create",
+      "options": {
+        "step": 1
+      }
+    },
+    {
+      "name": "11 · Setup / Members",
+      "kind": "create",
+      "options": {
+        "step": 2
+      }
+    },
+    {
+      "name": "12 · Setup / Schedule",
+      "kind": "create",
+      "options": {
+        "step": 3
+      }
+    },
+    {
+      "name": "13 · Setup / Review",
+      "kind": "create",
+      "options": {
+        "step": 4
+      }
+    },
+    {
+      "name": "14 · Current round",
+      "kind": "round",
+      "options": {}
+    },
+    {
+      "name": "15 · Members / You + Organizer",
+      "kind": "members",
+      "options": {}
+    },
+    {
+      "name": "16 · Activity",
+      "kind": "activity",
+      "options": {}
+    },
+    {
+      "name": "17 · Report payment",
+      "kind": "transaction",
+      "options": {
+        "kind": "report"
+      }
+    },
+    {
+      "name": "18 · Review report",
+      "kind": "transaction",
+      "options": {
+        "kind": "review"
+      }
+    },
+    {
+      "name": "19 · Reject / Required reason",
+      "kind": "transaction",
+      "options": {
+        "kind": "reject"
+      }
+    },
+    {
+      "name": "20 · Record handover",
+      "kind": "transaction",
+      "options": {
+        "kind": "payout"
+      }
+    },
+    {
+      "name": "21 · Confirm receipt",
+      "kind": "transaction",
+      "options": {
+        "kind": "receipt"
+      }
+    },
+    {
+      "name": "22 · Share invitation",
+      "kind": "invite",
+      "options": {}
+    },
+    {
+      "name": "23 · Active / Secret unavailable",
+      "kind": "invite",
+      "options": {
+        "lost": true
+      }
+    },
+    {
+      "name": "24 · Enter invitation",
+      "kind": "join",
+      "options": {}
+    },
+    {
+      "name": "25 · Review membership",
+      "kind": "join-preview",
+      "options": {}
+    },
+    {
+      "name": "26 · Offline / No false success",
+      "kind": "offline",
+      "options": {}
+    },
+    {
+      "name": "27 · Expired link",
+      "kind": "expired",
+      "options": {}
+    },
+    {
+      "name": "28 · Settings",
+      "kind": "settings",
+      "options": {}
+    },
+    {
+      "name": "29 · Circle complete",
+      "kind": "complete",
+      "options": {}
+    },
+    {
+      "name": "30 · Dark / Member home",
+      "kind": "home",
+      "options": {
+        "dark": true
+      }
+    },
+    {
+      "name": "31 · English / LTR",
+      "kind": "english",
+      "options": {
+        "english": true
+      }
+    },
+    {
+      "name": "32 · Actions / Organizer",
+      "kind": "actions",
+      "options": {}
+    },
+    {
+      "name": "33 · Loading",
+      "kind": "loading",
+      "options": {}
+    },
+    {
+      "name": "34 · Session expired",
+      "kind": "session",
+      "options": {}
+    },
+    {
+      "name": "35 · Ready for handover",
+      "kind": "round",
+      "options": {
+        "stage": 1
+      }
+    }
+  ]
+}

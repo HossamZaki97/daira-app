@@ -66,7 +66,7 @@ abstract final class AppTypography {
       color: textColor,
     ),
     bodyMedium: TextStyle(
-      fontSize: 14,
+      fontSize: 15,
       height: 1.6,
       fontWeight: FontWeight.w400,
       color: textColor,

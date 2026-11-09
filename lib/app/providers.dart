@@ -20,6 +20,12 @@ final invitationSecretsProvider = StateProvider<Map<String, String>>((ref) {
   ref.watch(authProvider.select((state) => state.profile?['id']));
   return {};
 });
+final pendingCommandsProvider = StateProvider<Map<String, CommandRequest>>((
+  ref,
+) {
+  ref.watch(authProvider.select((state) => state.profile?['id']));
+  return {};
+});
 
 class AuthState {
   const AuthState({this.profile, this.loading = false, this.error});
@@ -66,32 +72,70 @@ final authProvider = StateNotifierProvider<AuthController, AuthState>(
 );
 
 class CirclesController extends StateNotifier<AsyncValue<List<Circle>>> {
-  CirclesController(this.api) : super(const AsyncLoading()) {
-    refresh();
+  CirclesController(this.api, {this.onSync}) : super(const AsyncLoading()) {
+    Future<void>.microtask(refresh);
   }
   final ApiClient api;
+  final void Function(SyncStatus status)? onSync;
+  int _revision = 0;
+  DateTime? _updated;
   Future<void> refresh() async {
+    if (!mounted) return;
+    final revision = ++_revision;
+    onSync?.call(SyncStatus(updated: _updated, refreshing: true));
     try {
       final response = await api.post('snapshot', {});
-      if (mounted) {
+      if (mounted && revision == _revision) {
         state = AsyncData(rows(response['circles']).map(Circle.new).toList());
+        _updated = DateTime.now();
+        onSync?.call(SyncStatus(updated: _updated));
       }
     } catch (error, stack) {
-      if (mounted) state = AsyncError(error, stack);
+      if (mounted && revision == _revision) {
+        // Keep useful data visible, but explicitly mark it as stale.
+        if (!state.hasValue) state = AsyncError(error, stack);
+        onSync?.call(SyncStatus(updated: _updated, error: error));
+      }
     }
   }
 
   Future<void> command(String action, Json body) async {
+    ++_revision;
     try {
-      await api.post(action, body);
-      await refresh();
-      if (state.hasError) throw const ApiFailure('offline');
+      final response = await api.post(action, body);
+      if (!mounted) return;
+      ++_revision;
+      final circle = Circle(response);
+      final existing = state.asData?.value ?? <Circle>[];
+      final previous = existing.where((c) => c.id == circle.id).firstOrNull;
+      state = AsyncData([
+        for (final item in existing)
+          if (item.id != circle.id) item,
+        if (previous == null || circle.version >= previous.version)
+          circle
+        else
+          previous,
+      ]);
+      // An acknowledged mutation succeeds independently of the next snapshot.
+      unawaited(refresh());
     } catch (_) {
-      await refresh();
+      if (mounted) unawaited(refresh());
       rethrow;
     }
   }
 }
+
+class SyncStatus {
+  const SyncStatus({this.updated, this.refreshing = false, this.error});
+  final DateTime? updated;
+  final bool refreshing;
+  final Object? error;
+}
+
+final syncStatusProvider = StateProvider<SyncStatus>((ref) {
+  ref.watch(authProvider.select((s) => s.profile?['id']));
+  return const SyncStatus();
+});
 
 final circlesProvider =
     StateNotifierProvider.autoDispose<
@@ -99,7 +143,13 @@ final circlesProvider =
       AsyncValue<List<Circle>>
     >((ref) {
       ref.watch(authProvider.select((s) => s.profile?['id']));
-      return CirclesController(ref.watch(apiProvider));
+      final sync = ref.watch(syncStatusProvider.notifier);
+      return CirclesController(
+        ref.watch(apiProvider),
+        onSync: (status) {
+          if (sync.mounted) sync.state = status;
+        },
+      );
     });
 final metadataProvider = FutureProvider<Json>(
   (ref) => ref.watch(apiProvider).post('meta', {}, authenticated: false),

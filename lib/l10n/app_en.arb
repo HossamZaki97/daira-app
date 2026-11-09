@@ -13,8 +13,8 @@
   "forgotPassword": "Forgot password?",
   "sendReset": "Send recovery link",
   "confirmEmail": "Confirm your email",
-  "neutralEmail": "If this email is eligible, a message will arrive. If you already have an account, sign in or reset your password. Open the latest message to continue.",
-  "resetSent": "If this address has an account, a recovery link will arrive.",
+  "neutralEmail": "If this email is eligible for confirmation, you will receive a link and a code. You can use either. If your account is already confirmed, sign in or reset your password.",
+  "resetSent": "If this email is eligible, you will receive password recovery instructions or a request to confirm your email first.",
   "resend": "Resend confirmation email",
   "useAnotherEmail": "Use another email",
   "waitToResend": "Please wait 60 seconds before sending again.",
@@ -72,7 +72,7 @@
   "dueDate": "Due date",
   "expected": "Expected payout",
   "collected": "Approved collection",
-  "remaining": "Remaining",
+  "remaining": "Remaining to approve",
   "collecting": "Collecting contributions",
   "readyForPayout": "Collection complete; waiting for payout report",
   "payoutReported": "Organizer reported payout; waiting for recipient acknowledgment",
@@ -112,5 +112,197 @@
   "darkMode": "Dark appearance",
   "language": "Language",
   "arabic": "العربية",
-  "english": "English"
+  "english": "English",
+  "greeting": "Hello, {name}",
+  "@greeting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "roundOf": "Round {number} of {total}",
+  "@roundOf": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "currentRound": "Current round",
+  "currentRecipient": "Current recipient",
+  "yourReceivingTurn": "Your turn to receive",
+  "nextRound": "Next round",
+  "upcoming": "Upcoming",
+  "overdue": "Overdue",
+  "ownContribution": "Your contribution",
+  "roundAmount": "Round amount",
+  "yourTurns": "Your receiving turns",
+  "receivingTurns": "Receiving turns",
+  "latestActivity": "Latest activity",
+  "allCircles": "View all ({count})",
+  "@allCircles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "filterCount": "{label} ({count})",
+  "@filterCount": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "allFilter": "All",
+  "memberCount": "{count, plural, =1{1 member} other{{count} members}}",
+  "@memberCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shareCount": "{count, plural, =1{1 share} other{{count} shares}}",
+  "@shareCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "approvalCount": "{approved} of {total} contributions approved",
+  "@approvalCount": {
+    "placeholders": {
+      "approved": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "collectionDone": "Collection complete",
+  "awaitingReceipt": "Waiting for receipt confirmation",
+  "lastSync": "Updated {time}",
+  "@lastSync": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "updating": "Updating",
+  "syncPending": "Could not refresh. Showing the last available information.",
+  "unknownOutcome": "We could not confirm the result. Retry to resolve this request without duplicating it.",
+  "resolveRequest": "Resolve and retry",
+  "actionSuccess": "Action recorded.",
+  "roundFinished": "Round complete. The next round is now available.",
+  "circleFinished": "The circle is complete.",
+  "approveNotice": "Approve after verifying that the contribution was received outside the app.",
+  "reportedToday": "{name} reported today at {time}",
+  "@reportedToday": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "reportedOn": "{name} reported on {date} at {time}",
+  "@reportedOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "basicsStep": "Basics",
+  "membersStep": "Members and shares",
+  "scheduleStep": "Schedule",
+  "reviewStep": "Review",
+  "stepOf": "Step {number} of {total}",
+  "@stepOf": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "continueLabel": "Continue",
+  "back": "Back",
+  "edit": "Edit",
+  "schedulePreview": "Receiving schedule",
+  "viewSchedule": "View full schedule",
+  "hideSchedule": "Show less",
+  "deleteMember": "Remove member",
+  "amountInvalid": "Enter a positive amount with the correct currency precision.",
+  "countInvalid": "Enter a number from {min} to {max}.",
+  "@countInvalid": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "activationNotice": "Activation fixes the amounts, shares and schedule. Review them before continuing.",
+  "continueSetup": "Continue setup",
+  "noActivity": "No activity yet.",
+  "linked": "Account linked",
+  "notLinked": "Not joined yet",
+  "inviteRecipient": "Invite recipient",
+  "recipientNeedsAccount": "The recipient needs to join to confirm receipt.",
+  "joinSuccess": "You joined the circle.",
+  "emptyTitle": "Start your first circle?",
+  "settingsAccount": "Account",
+  "appearance": "Appearance and language",
+  "roundCompleted": "Round complete",
+  "noActionsTitle": "You’re all caught up",
+  "startDateInvalid": "Choose today or a future start date.",
+  "activeFilter": "Active",
+  "draftFilter": "Drafts",
+  "completedFilter": "Completed",
+  "thisIsYou": "This is you",
+  "continueVerification": "Complete email confirmation",
+  "emailVerificationCode": "Email verification code",
+  "verifyCode": "Verify code",
+  "codeValidity": "8 digits · valid for 10 minutes",
+  "codeFormat": "Enter the 8-digit code.",
+  "verificationCodeInvalid": "The code is invalid, expired or already used. Use the latest email or request a new one.",
+  "emailVerifiedLogin": "Email confirmed. Sign in with your account password.",
+  "resendCountdown": "Resend confirmation ({seconds})",
+  "@resendCountdown": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "signInTitle": "Welcome back",
+  "signUpTitle": "Start with Daira",
+  "recoveryTitle": "Reset your password",
+  "noCirclesTitle": "No circles yet",
+  "memberContributions": "Member contributions"
 }

@@ -13,8 +13,8 @@
   "forgotPassword": "نسيت كلمة المرور؟",
   "sendReset": "إرسال رابط الاستعادة",
   "confirmEmail": "تأكيد البريد الإلكتروني",
-  "neutralEmail": "إذا كان هذا البريد مؤهلًا، ستصلك رسالة. وإذا كان لديك حساب بالفعل، يمكنك تسجيل الدخول أو استعادة كلمة المرور. افتح أحدث رسالة للمتابعة.",
-  "resetSent": "إذا كان البريد مرتبطًا بحساب، سيصلك رابط الاستعادة.",
+  "neutralEmail": "إذا كان البريد مؤهلًا للتأكيد، تصلك رسالة برابط ورمز. يمكنك استخدام أيهما. إن كان لديك حساب مؤكد، سجّل الدخول أو استعد كلمة المرور.",
+  "resetSent": "إذا كان البريد مؤهلًا، تصلك رسالة لاستعادة كلمة المرور أو لاستكمال تأكيد البريد أولًا.",
   "resend": "إعادة إرسال رسالة التأكيد",
   "useAnotherEmail": "استخدام بريد آخر",
   "waitToResend": "انتظر 60 ثانية قبل إعادة الإرسال.",
@@ -72,7 +72,7 @@
   "dueDate": "الاستحقاق",
   "expected": "قيمة الاستحقاق",
   "collected": "المعتمد تحصيله",
-  "remaining": "المتبقي",
+  "remaining": "المتبقي للاعتماد",
   "collecting": "جارٍ تحصيل الأقساط",
   "readyForPayout": "اكتمل التحصيل، بانتظار تسجيل التسليم",
   "payoutReported": "أقر المنظم بالتسليم، بانتظار تأكيد المستفيد",
@@ -112,5 +112,197 @@
   "darkMode": "المظهر الداكن",
   "language": "اللغة",
   "arabic": "العربية",
-  "english": "English"
+  "english": "English",
+  "greeting": "أهلًا، {name}",
+  "@greeting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "roundOf": "الدور {number} من {total}",
+  "@roundOf": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "currentRound": "الدور الحالي",
+  "currentRecipient": "مستفيد الدور",
+  "yourReceivingTurn": "دور استلامك الآن",
+  "nextRound": "الدور التالي",
+  "upcoming": "قادم",
+  "overdue": "متأخر",
+  "ownContribution": "قسطك",
+  "roundAmount": "قيمة الدور",
+  "yourTurns": "أدوار استلامك",
+  "receivingTurns": "أدوار الاستلام",
+  "latestActivity": "أحدث النشاط",
+  "allCircles": "عرض الكل ({count})",
+  "@allCircles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "filterCount": "{label} ({count})",
+  "@filterCount": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "allFilter": "الكل",
+  "memberCount": "{count, plural, =1{عضو واحد} =2{عضوان} few{{count} أعضاء} many{{count} عضوًا} other{{count} عضو}}",
+  "@memberCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shareCount": "{count, plural, =1{سهم واحد} =2{سهمان} few{{count} أسهم} other{{count} سهم}}",
+  "@shareCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "approvalCount": "أقساط معتمدة {approved} من {total}",
+  "@approvalCount": {
+    "placeholders": {
+      "approved": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "collectionDone": "اكتمل التحصيل",
+  "awaitingReceipt": "بانتظار تأكيد الاستلام",
+  "lastSync": "آخر تحديث {time}",
+  "@lastSync": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "updating": "جارٍ التحديث",
+  "syncPending": "تعذر تحديث البيانات. المعروض هو آخر تحديث متاح.",
+  "unknownOutcome": "لم نتمكن من تأكيد نتيجة الطلب. أعد المحاولة للتحقق دون تكرار العملية.",
+  "resolveRequest": "تحقق وأعد المحاولة",
+  "actionSuccess": "تم تسجيل الإجراء.",
+  "roundFinished": "اكتمل الدور وأصبح الدور التالي متاحًا.",
+  "circleFinished": "اكتملت الجمعية.",
+  "approveNotice": "اعتمد الإقرار بعد التحقق من وصول القسط خارج التطبيق.",
+  "reportedToday": "أبلغ {name} اليوم، {time}",
+  "@reportedToday": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "reportedOn": "أبلغ {name} في {date}، {time}",
+  "@reportedOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "basicsStep": "الأساسيات",
+  "membersStep": "الأعضاء والأسهم",
+  "scheduleStep": "المواعيد",
+  "reviewStep": "المراجعة",
+  "stepOf": "الخطوة {number} من {total}",
+  "@stepOf": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "continueLabel": "متابعة",
+  "back": "رجوع",
+  "edit": "تعديل",
+  "schedulePreview": "جدول الاستلام",
+  "viewSchedule": "عرض الجدول الكامل",
+  "hideSchedule": "اختصار الجدول",
+  "deleteMember": "حذف العضو",
+  "amountInvalid": "أدخل مبلغًا موجبًا يناسب دقة العملة.",
+  "countInvalid": "أدخل عددًا من {min} إلى {max}.",
+  "@countInvalid": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "activationNotice": "بعد التفعيل تثبت المبالغ والأسهم والجدول. راجع البيانات قبل المتابعة.",
+  "continueSetup": "متابعة الإعداد",
+  "noActivity": "لا نشاط حتى الآن.",
+  "linked": "مرتبط بحساب",
+  "notLinked": "لم ينضم بعد",
+  "inviteRecipient": "دعوة المستفيد",
+  "recipientNeedsAccount": "يلزم انضمام المستفيد لتأكيد الاستلام.",
+  "joinSuccess": "تم الانضمام إلى الجمعية.",
+  "emptyTitle": "نبدأ أول دايرة؟",
+  "settingsAccount": "الحساب",
+  "appearance": "المظهر واللغة",
+  "roundCompleted": "الدور مكتمل",
+  "noActionsTitle": "كل شيء واضح",
+  "startDateInvalid": "اختر موعد بداية اليوم أو بعده.",
+  "activeFilter": "النشطة",
+  "draftFilter": "المسودات",
+  "completedFilter": "المكتملة",
+  "thisIsYou": "هذا أنت",
+  "continueVerification": "استكمال تأكيد البريد",
+  "emailVerificationCode": "رمز تأكيد البريد",
+  "verifyCode": "تأكيد الرمز",
+  "codeValidity": "8 أرقام · صالح 10 دقائق",
+  "codeFormat": "أدخل الرمز المكون من 8 أرقام.",
+  "verificationCodeInvalid": "الرمز غير صحيح أو انتهت صلاحيته أو استُخدم. استخدم أحدث رسالة أو اطلب رسالة جديدة.",
+  "emailVerifiedLogin": "تم تأكيد بريدك. سجّل الدخول بكلمة مرور حسابك.",
+  "resendCountdown": "إعادة إرسال التأكيد ({seconds})",
+  "@resendCountdown": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "signInTitle": "أهلًا بعودتك",
+  "signUpTitle": "ابدأ مع دايرة",
+  "recoveryTitle": "استعادة كلمة المرور",
+  "noCirclesTitle": "لا توجد جمعيات بعد",
+  "memberContributions": "أقساط الأعضاء"
 }

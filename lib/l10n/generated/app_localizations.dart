@@ -179,13 +179,13 @@ abstract class AppLocalizations {
   /// No description provided for @neutralEmail.
   ///
   /// In en, this message translates to:
-  /// **'If this email is eligible, a message will arrive. If you already have an account, sign in or reset your password. Open the latest message to continue.'**
+  /// **'If this email is eligible for confirmation, you will receive a link and a code. You can use either. If your account is already confirmed, sign in or reset your password.'**
   String get neutralEmail;
 
   /// No description provided for @resetSent.
   ///
   /// In en, this message translates to:
-  /// **'If this address has an account, a recovery link will arrive.'**
+  /// **'If this email is eligible, you will receive password recovery instructions or a request to confirm your email first.'**
   String get resetSent;
 
   /// No description provided for @resend.
@@ -533,7 +533,7 @@ abstract class AppLocalizations {
   /// No description provided for @remaining.
   ///
   /// In en, this message translates to:
-  /// **'Remaining'**
+  /// **'Remaining to approve'**
   String get remaining;
 
   /// No description provided for @collecting.
@@ -775,6 +775,468 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'English'**
   String get english;
+
+  /// No description provided for @greeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello, {name}'**
+  String greeting(String name);
+
+  /// No description provided for @roundOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {number} of {total}'**
+  String roundOf(int number, int total);
+
+  /// No description provided for @currentRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Current round'**
+  String get currentRound;
+
+  /// No description provided for @currentRecipient.
+  ///
+  /// In en, this message translates to:
+  /// **'Current recipient'**
+  String get currentRecipient;
+
+  /// No description provided for @yourReceivingTurn.
+  ///
+  /// In en, this message translates to:
+  /// **'Your turn to receive'**
+  String get yourReceivingTurn;
+
+  /// No description provided for @nextRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Next round'**
+  String get nextRound;
+
+  /// No description provided for @upcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get upcoming;
+
+  /// No description provided for @overdue.
+  ///
+  /// In en, this message translates to:
+  /// **'Overdue'**
+  String get overdue;
+
+  /// No description provided for @ownContribution.
+  ///
+  /// In en, this message translates to:
+  /// **'Your contribution'**
+  String get ownContribution;
+
+  /// No description provided for @roundAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Round amount'**
+  String get roundAmount;
+
+  /// No description provided for @yourTurns.
+  ///
+  /// In en, this message translates to:
+  /// **'Your receiving turns'**
+  String get yourTurns;
+
+  /// No description provided for @receivingTurns.
+  ///
+  /// In en, this message translates to:
+  /// **'Receiving turns'**
+  String get receivingTurns;
+
+  /// No description provided for @latestActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Latest activity'**
+  String get latestActivity;
+
+  /// No description provided for @allCircles.
+  ///
+  /// In en, this message translates to:
+  /// **'View all ({count})'**
+  String allCircles(int count);
+
+  /// No description provided for @filterCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{label} ({count})'**
+  String filterCount(String label, int count);
+
+  /// No description provided for @allFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get allFilter;
+
+  /// No description provided for @memberCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 member} other{{count} members}}'**
+  String memberCount(int count);
+
+  /// No description provided for @shareCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 share} other{{count} shares}}'**
+  String shareCount(int count);
+
+  /// No description provided for @approvalCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{approved} of {total} contributions approved'**
+  String approvalCount(int approved, int total);
+
+  /// No description provided for @collectionDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Collection complete'**
+  String get collectionDone;
+
+  /// No description provided for @awaitingReceipt.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for receipt confirmation'**
+  String get awaitingReceipt;
+
+  /// No description provided for @lastSync.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated {time}'**
+  String lastSync(String time);
+
+  /// No description provided for @updating.
+  ///
+  /// In en, this message translates to:
+  /// **'Updating'**
+  String get updating;
+
+  /// No description provided for @syncPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not refresh. Showing the last available information.'**
+  String get syncPending;
+
+  /// No description provided for @unknownOutcome.
+  ///
+  /// In en, this message translates to:
+  /// **'We could not confirm the result. Retry to resolve this request without duplicating it.'**
+  String get unknownOutcome;
+
+  /// No description provided for @resolveRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Resolve and retry'**
+  String get resolveRequest;
+
+  /// No description provided for @actionSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Action recorded.'**
+  String get actionSuccess;
+
+  /// No description provided for @roundFinished.
+  ///
+  /// In en, this message translates to:
+  /// **'Round complete. The next round is now available.'**
+  String get roundFinished;
+
+  /// No description provided for @circleFinished.
+  ///
+  /// In en, this message translates to:
+  /// **'The circle is complete.'**
+  String get circleFinished;
+
+  /// No description provided for @approveNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Approve after verifying that the contribution was received outside the app.'**
+  String get approveNotice;
+
+  /// No description provided for @reportedToday.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} reported today at {time}'**
+  String reportedToday(String name, String time);
+
+  /// No description provided for @reportedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} reported on {date} at {time}'**
+  String reportedOn(String name, String date, String time);
+
+  /// No description provided for @basicsStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Basics'**
+  String get basicsStep;
+
+  /// No description provided for @membersStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Members and shares'**
+  String get membersStep;
+
+  /// No description provided for @scheduleStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule'**
+  String get scheduleStep;
+
+  /// No description provided for @reviewStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Review'**
+  String get reviewStep;
+
+  /// No description provided for @stepOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Step {number} of {total}'**
+  String stepOf(int number, int total);
+
+  /// No description provided for @continueLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueLabel;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @schedulePreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Receiving schedule'**
+  String get schedulePreview;
+
+  /// No description provided for @viewSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'View full schedule'**
+  String get viewSchedule;
+
+  /// No description provided for @hideSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Show less'**
+  String get hideSchedule;
+
+  /// No description provided for @deleteMember.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove member'**
+  String get deleteMember;
+
+  /// No description provided for @amountInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a positive amount with the correct currency precision.'**
+  String get amountInvalid;
+
+  /// No description provided for @countInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a number from {min} to {max}.'**
+  String countInvalid(int min, int max);
+
+  /// No description provided for @activationNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Activation fixes the amounts, shares and schedule. Review them before continuing.'**
+  String get activationNotice;
+
+  /// No description provided for @continueSetup.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue setup'**
+  String get continueSetup;
+
+  /// No description provided for @noActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'No activity yet.'**
+  String get noActivity;
+
+  /// No description provided for @linked.
+  ///
+  /// In en, this message translates to:
+  /// **'Account linked'**
+  String get linked;
+
+  /// No description provided for @notLinked.
+  ///
+  /// In en, this message translates to:
+  /// **'Not joined yet'**
+  String get notLinked;
+
+  /// No description provided for @inviteRecipient.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite recipient'**
+  String get inviteRecipient;
+
+  /// No description provided for @recipientNeedsAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'The recipient needs to join to confirm receipt.'**
+  String get recipientNeedsAccount;
+
+  /// No description provided for @joinSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'You joined the circle.'**
+  String get joinSuccess;
+
+  /// No description provided for @emptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Start your first circle?'**
+  String get emptyTitle;
+
+  /// No description provided for @settingsAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get settingsAccount;
+
+  /// No description provided for @appearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance and language'**
+  String get appearance;
+
+  /// No description provided for @roundCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Round complete'**
+  String get roundCompleted;
+
+  /// No description provided for @noActionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You’re all caught up'**
+  String get noActionsTitle;
+
+  /// No description provided for @startDateInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose today or a future start date.'**
+  String get startDateInvalid;
+
+  /// No description provided for @activeFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get activeFilter;
+
+  /// No description provided for @draftFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Drafts'**
+  String get draftFilter;
+
+  /// No description provided for @completedFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get completedFilter;
+
+  /// No description provided for @thisIsYou.
+  ///
+  /// In en, this message translates to:
+  /// **'This is you'**
+  String get thisIsYou;
+
+  /// No description provided for @continueVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete email confirmation'**
+  String get continueVerification;
+
+  /// No description provided for @emailVerificationCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Email verification code'**
+  String get emailVerificationCode;
+
+  /// No description provided for @verifyCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify code'**
+  String get verifyCode;
+
+  /// No description provided for @codeValidity.
+  ///
+  /// In en, this message translates to:
+  /// **'8 digits · valid for 10 minutes'**
+  String get codeValidity;
+
+  /// No description provided for @codeFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the 8-digit code.'**
+  String get codeFormat;
+
+  /// No description provided for @verificationCodeInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'The code is invalid, expired or already used. Use the latest email or request a new one.'**
+  String get verificationCodeInvalid;
+
+  /// No description provided for @emailVerifiedLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Email confirmed. Sign in with your account password.'**
+  String get emailVerifiedLogin;
+
+  /// No description provided for @resendCountdown.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend confirmation ({seconds})'**
+  String resendCountdown(int seconds);
+
+  /// No description provided for @signInTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back'**
+  String get signInTitle;
+
+  /// No description provided for @signUpTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Start with Daira'**
+  String get signUpTitle;
+
+  /// No description provided for @recoveryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset your password'**
+  String get recoveryTitle;
+
+  /// No description provided for @noCirclesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No circles yet'**
+  String get noCirclesTitle;
+
+  /// No description provided for @memberContributions.
+  ///
+  /// In en, this message translates to:
+  /// **'Member contributions'**
+  String get memberContributions;
 }
 
 class _AppLocalizationsDelegate

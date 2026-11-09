@@ -17,6 +17,9 @@ Json fixture({
   'currency': currency,
   'decimals': currency == 'KWD' ? 3 : 2,
   'installment_minor': 10025,
+  'cadence': 'month',
+  'interval': 1,
+  'start_date': '2030-01-31',
   'current_round': 1,
   'members': [
     {
@@ -104,10 +107,14 @@ void main() {
   );
   test('actions follow authenticated membership and organizer permission', () {
     final circle = Circle(fixture());
-    expect(actionsFor([circle], 'owner').map((a) => a.action), [
-      'report',
-      'review',
-    ]);
+    expect(
+      actionsFor(
+        [circle],
+        'owner',
+        now: DateTime(2030, 1, 31),
+      ).map((a) => a.action),
+      ['report', 'review'],
+    );
     final memberData = fixture()..['actor_member_id'] = 'member';
     expect(actionsFor([Circle(memberData)], 'other'), isEmpty);
     expect(

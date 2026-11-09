@@ -49,11 +49,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get neutralEmail =>
-      'If this email is eligible, a message will arrive. If you already have an account, sign in or reset your password. Open the latest message to continue.';
+      'If this email is eligible for confirmation, you will receive a link and a code. You can use either. If your account is already confirmed, sign in or reset your password.';
 
   @override
   String get resetSent =>
-      'If this address has an account, a recovery link will arrive.';
+      'If this email is eligible, you will receive password recovery instructions or a request to confirm your email first.';
 
   @override
   String get resend => 'Resend confirmation email';
@@ -236,7 +236,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get collected => 'Approved collection';
 
   @override
-  String get remaining => 'Remaining';
+  String get remaining => 'Remaining to approve';
 
   @override
   String get collecting => 'Collecting contributions';
@@ -364,4 +364,282 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get english => 'English';
+
+  @override
+  String greeting(String name) {
+    return 'Hello, $name';
+  }
+
+  @override
+  String roundOf(int number, int total) {
+    return 'Round $number of $total';
+  }
+
+  @override
+  String get currentRound => 'Current round';
+
+  @override
+  String get currentRecipient => 'Current recipient';
+
+  @override
+  String get yourReceivingTurn => 'Your turn to receive';
+
+  @override
+  String get nextRound => 'Next round';
+
+  @override
+  String get upcoming => 'Upcoming';
+
+  @override
+  String get overdue => 'Overdue';
+
+  @override
+  String get ownContribution => 'Your contribution';
+
+  @override
+  String get roundAmount => 'Round amount';
+
+  @override
+  String get yourTurns => 'Your receiving turns';
+
+  @override
+  String get receivingTurns => 'Receiving turns';
+
+  @override
+  String get latestActivity => 'Latest activity';
+
+  @override
+  String allCircles(int count) {
+    return 'View all ($count)';
+  }
+
+  @override
+  String filterCount(String label, int count) {
+    return '$label ($count)';
+  }
+
+  @override
+  String get allFilter => 'All';
+
+  @override
+  String memberCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count members',
+      one: '1 member',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String shareCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count shares',
+      one: '1 share',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String approvalCount(int approved, int total) {
+    return '$approved of $total contributions approved';
+  }
+
+  @override
+  String get collectionDone => 'Collection complete';
+
+  @override
+  String get awaitingReceipt => 'Waiting for receipt confirmation';
+
+  @override
+  String lastSync(String time) {
+    return 'Updated $time';
+  }
+
+  @override
+  String get updating => 'Updating';
+
+  @override
+  String get syncPending =>
+      'Could not refresh. Showing the last available information.';
+
+  @override
+  String get unknownOutcome =>
+      'We could not confirm the result. Retry to resolve this request without duplicating it.';
+
+  @override
+  String get resolveRequest => 'Resolve and retry';
+
+  @override
+  String get actionSuccess => 'Action recorded.';
+
+  @override
+  String get roundFinished =>
+      'Round complete. The next round is now available.';
+
+  @override
+  String get circleFinished => 'The circle is complete.';
+
+  @override
+  String get approveNotice =>
+      'Approve after verifying that the contribution was received outside the app.';
+
+  @override
+  String reportedToday(String name, String time) {
+    return '$name reported today at $time';
+  }
+
+  @override
+  String reportedOn(String name, String date, String time) {
+    return '$name reported on $date at $time';
+  }
+
+  @override
+  String get basicsStep => 'Basics';
+
+  @override
+  String get membersStep => 'Members and shares';
+
+  @override
+  String get scheduleStep => 'Schedule';
+
+  @override
+  String get reviewStep => 'Review';
+
+  @override
+  String stepOf(int number, int total) {
+    return 'Step $number of $total';
+  }
+
+  @override
+  String get continueLabel => 'Continue';
+
+  @override
+  String get back => 'Back';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get schedulePreview => 'Receiving schedule';
+
+  @override
+  String get viewSchedule => 'View full schedule';
+
+  @override
+  String get hideSchedule => 'Show less';
+
+  @override
+  String get deleteMember => 'Remove member';
+
+  @override
+  String get amountInvalid =>
+      'Enter a positive amount with the correct currency precision.';
+
+  @override
+  String countInvalid(int min, int max) {
+    return 'Enter a number from $min to $max.';
+  }
+
+  @override
+  String get activationNotice =>
+      'Activation fixes the amounts, shares and schedule. Review them before continuing.';
+
+  @override
+  String get continueSetup => 'Continue setup';
+
+  @override
+  String get noActivity => 'No activity yet.';
+
+  @override
+  String get linked => 'Account linked';
+
+  @override
+  String get notLinked => 'Not joined yet';
+
+  @override
+  String get inviteRecipient => 'Invite recipient';
+
+  @override
+  String get recipientNeedsAccount =>
+      'The recipient needs to join to confirm receipt.';
+
+  @override
+  String get joinSuccess => 'You joined the circle.';
+
+  @override
+  String get emptyTitle => 'Start your first circle?';
+
+  @override
+  String get settingsAccount => 'Account';
+
+  @override
+  String get appearance => 'Appearance and language';
+
+  @override
+  String get roundCompleted => 'Round complete';
+
+  @override
+  String get noActionsTitle => 'You’re all caught up';
+
+  @override
+  String get startDateInvalid => 'Choose today or a future start date.';
+
+  @override
+  String get activeFilter => 'Active';
+
+  @override
+  String get draftFilter => 'Drafts';
+
+  @override
+  String get completedFilter => 'Completed';
+
+  @override
+  String get thisIsYou => 'This is you';
+
+  @override
+  String get continueVerification => 'Complete email confirmation';
+
+  @override
+  String get emailVerificationCode => 'Email verification code';
+
+  @override
+  String get verifyCode => 'Verify code';
+
+  @override
+  String get codeValidity => '8 digits · valid for 10 minutes';
+
+  @override
+  String get codeFormat => 'Enter the 8-digit code.';
+
+  @override
+  String get verificationCodeInvalid =>
+      'The code is invalid, expired or already used. Use the latest email or request a new one.';
+
+  @override
+  String get emailVerifiedLogin =>
+      'Email confirmed. Sign in with your account password.';
+
+  @override
+  String resendCountdown(int seconds) {
+    return 'Resend confirmation ($seconds)';
+  }
+
+  @override
+  String get signInTitle => 'Welcome back';
+
+  @override
+  String get signUpTitle => 'Start with Daira';
+
+  @override
+  String get recoveryTitle => 'Reset your password';
+
+  @override
+  String get noCirclesTitle => 'No circles yet';
+
+  @override
+  String get memberContributions => 'Member contributions';
 }

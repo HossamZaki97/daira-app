@@ -8,6 +8,7 @@ import '../../core/config.dart';
 import '../../core/models.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../shared/components.dart';
+import '../../shared/formatters.dart';
 
 String normalizeCode(String value) =>
     value.replaceAll(RegExp(r'[\s\-\u2010-\u2015]'), '').toUpperCase();
@@ -53,7 +54,12 @@ class _JoinSheetState extends ConsumerState<JoinSheet> {
           'command_id': _command,
         });
         await ref.read(circlesProvider.notifier).refresh();
-        if (mounted) Navigator.pop(context);
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(AppLocalizations.of(context).joinSuccess)),
+          );
+          Navigator.pop(context);
+        }
       }
     } catch (error) {
       if (mounted) setState(() => _failure = error);
@@ -90,7 +96,10 @@ class _JoinSheetState extends ConsumerState<JoinSheet> {
               enabled: !_busy,
               textDirection: TextDirection.ltr,
               maxLength: 40,
-              decoration: InputDecoration(labelText: t.invitationCode),
+              decoration: InputDecoration(
+                labelText: t.invitationCode,
+                counterText: '',
+              ),
             )
           else ...[
             Text(
@@ -98,7 +107,9 @@ class _JoinSheetState extends ConsumerState<JoinSheet> {
               style: Theme.of(context).textTheme.titleMedium,
             ),
             Text(_preview!['member'] as String),
-            Text('${t.expires}: ${_preview!['expires_at']}'),
+            Text(
+              '${t.expires}: ${timestampLabel(_preview!['expires_at'] as String, t.localeName)}',
+            ),
           ],
           if (_failure != null) Text(errorText(t, _failure!)),
           const SizedBox(height: 20),
@@ -246,7 +257,9 @@ class _ManageInvitationSheetState extends ConsumerState<ManageInvitationSheet> {
           const SizedBox(height: 16),
           if (_invitation != null) ...[
             Text(t.activeInvite),
-            Text('${t.expires}: ${_invitation!['expires_at']}'),
+            Text(
+              '${t.expires}: ${timestampLabel(_invitation!['expires_at'] as String, t.localeName)}',
+            ),
             const SizedBox(height: 12),
             if (_code != null) ...[
               SelectableText(

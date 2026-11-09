@@ -1,0 +1,55 @@
+{
+  "status": "approved-identity-integrated",
+  "viewBox": [
+    0,
+    0,
+    512,
+    512
+  ],
+  "primaryColor": "#356DF3",
+  "background": "white for app icon; transparent for symbol",
+  "equalPeople": 3,
+  "rotationDegrees": 120,
+  "headRadius": 30.5,
+  "visibleBounds": {
+    "left": 65.28530029987883,
+    "top": 78.25,
+    "right": 446.7146997001212,
+    "bottom": 433.75
+  },
+  "opticalTranslationY": 37.75,
+  "clearSpaceMinimum": 30.5,
+  "preferredInAppSizes": [
+    32,
+    40,
+    48
+  ],
+  "smallUtilitySize": 24,
+  "previewSizes": [
+    24,
+    32,
+    48,
+    96,
+    192,
+    512
+  ],
+  "smallRasterAlignment": {
+    "size": 24,
+    "asset": "daira-people-circle-24.svg",
+    "verticalPixelShift": -0.25,
+    "geometryChanged": false
+  },
+  "circularMask": {
+    "radius": 256,
+    "artworkMaximumRadius": 236.97956920722206,
+    "minimumClearance": 19.020430792777944
+  },
+  "adaptiveDesignGuide": {
+    "canvasDp": 108,
+    "safeCircleDiameterDp": 66,
+    "foregroundScaleWithin512Canvas": 0.65,
+    "maximumArtworkRadiusDp": 32.49212062177146,
+    "source": "https://developer.android.com/develop/ui/compose/system/icon_design_adaptive"
+  },
+  "launcherResourcesChanged": true
+}

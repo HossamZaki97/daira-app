@@ -113,7 +113,18 @@ void main() {
           expect(tester.takeException(), isNull);
           await tester.pumpWidget(app(const CircleDetailsScreen(id: 'circle')));
           await tester.pumpAndSettle();
-          await tester.tap(find.text(t.members));
+          await tester.ensureVisible(
+            find.descendant(
+              of: find.byType(TabBar),
+              matching: find.text(t.members),
+            ),
+          );
+          await tester.tap(
+            find.descendant(
+              of: find.byType(TabBar),
+              matching: find.text(t.members),
+            ),
+          );
           await tester.pumpAndSettle();
           expect(find.text(t.you), findsOneWidget);
           expect(find.text(t.organizer), findsOneWidget);
