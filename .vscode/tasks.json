@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Daira: connect USB to Odoo",
+      "type": "process",
+      "command": "${env:LOCALAPPDATA}/Android/Sdk/platform-tools/adb.exe",
+      "args": ["reverse", "tcp:8019", "tcp:8019"],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated"
+      }
+    }
+  ]
+}

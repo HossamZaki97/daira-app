@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Daira</title>
+  <desc id="description">Three equal abstract people with curved shoulders and tapered arms. Their narrow rounded hands meet. One figure repeats by 120-degree rotations.</desc>
+  <rect width="512" height="512" fill="#356DF3"/>
+  <defs>
+    <!-- Shoulder and torso contours are smooth cubic curves, not annular sectors.
+         Hands have a 14-unit diameter and share their centers with the next
+         figure after a 120-degree rotation. -->
+    <path id="member" d="M 282 84 A 26 26 0 1 1 230 84 A 26 26 0 1 1 282 84 Z
+          M 141.684647 190
+          C 156 161 192 137 228 130
+          Q 256 124 284 130
+          C 320 137 356 161 370.315353 190
+          A 7 7 0 0 1 358.190998 197
+          C 346 184 326 167 308 166
+          C 298 165 300 187 282 191
+          C 267 194 245 194 230 191
+          C 212 187 214 165 204 166
+          C 185 167 166 184 153.809002 197
+          A 7 7 0 0 1 141.684647 190 Z"/>
+  </defs>
+  <g id="people" fill="#FFFFFF" transform="translate(256 256) scale(1.15) translate(-256 -256)">
+    <use href="#member" xlink:href="#member"/>
+    <use href="#member" xlink:href="#member" transform="rotate(120 256 256)"/>
+    <use href="#member" xlink:href="#member" transform="rotate(240 256 256)"/>
+  </g>
+</svg>
