@@ -12,25 +12,37 @@ class AppLocalizationsAr extends AppLocalizations {
   String get appName => 'دايرة';
 
   @override
-  String get home => 'الرئيسية';
+  String get retry => 'حاول مجددًا';
 
   @override
-  String get circles => 'جمعياتي';
+  String get cancel => 'إلغاء';
 
   @override
-  String get actions => 'الإجراءات';
+  String get close => 'إغلاق';
 
   @override
-  String get settings => 'الإعدادات';
+  String get later => 'لاحقًا';
+
+  @override
+  String get ok => 'حسنًا';
+
+  @override
+  String get continueAction => 'متابعة';
+
+  @override
+  String get loading => 'جارٍ التحميل…';
 
   @override
   String get signIn => 'تسجيل الدخول';
 
   @override
-  String get signUp => 'إنشاء حساب';
+  String get signOut => 'تسجيل الخروج';
 
   @override
-  String get name => 'الاسم';
+  String get signInTitle => 'أهلًا بعودتك';
+
+  @override
+  String get signInBody => 'سجّل الدخول لمتابعة جمعياتك.';
 
   @override
   String get email => 'البريد الإلكتروني';
@@ -39,33 +51,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get password => 'كلمة المرور';
 
   @override
+  String get showPassword => 'إظهار كلمة المرور';
+
+  @override
+  String get hidePassword => 'إخفاء كلمة المرور';
+
+  @override
   String get forgotPassword => 'نسيت كلمة المرور؟';
-
-  @override
-  String get sendReset => 'إرسال رابط الاستعادة';
-
-  @override
-  String get confirmEmail => 'تأكيد البريد الإلكتروني';
-
-  @override
-  String get neutralEmail =>
-      'إذا كان البريد مؤهلًا للتأكيد، تصلك رسالة برابط ورمز. يمكنك استخدام أيهما. إن كان لديك حساب مؤكد، سجّل الدخول أو استعد كلمة المرور.';
-
-  @override
-  String get resetSent =>
-      'إذا كان البريد مؤهلًا، تصلك رسالة لاستعادة كلمة المرور أو لاستكمال تأكيد البريد أولًا.';
-
-  @override
-  String get resend => 'إعادة إرسال رسالة التأكيد';
-
-  @override
-  String get useAnotherEmail => 'استخدام بريد آخر';
-
-  @override
-  String get waitToResend => 'انتظر 60 ثانية قبل إعادة الإرسال.';
-
-  @override
-  String get passwordHint => 'استخدم 8 أحرف على الأقل.';
 
   @override
   String get requiredField => 'أكمل هذا الحقل.';
@@ -74,280 +66,146 @@ class AppLocalizationsAr extends AppLocalizations {
   String get invalidEmail => 'أدخل بريدًا إلكترونيًا صحيحًا.';
 
   @override
-  String get errorOffline => 'تعذر الاتصال. راجع اتصالك وحاول مجددًا.';
+  String get errorOffline => 'لا يوجد اتصال. تحقّق من الإنترنت وحاول مجددًا.';
+
+  @override
+  String get errorUnavailable => 'دايرة لا تستجيب الآن. حاول بعد قليل.';
 
   @override
   String get errorCredentials =>
-      'راجع بيانات الدخول، وتأكد من تأكيد بريدك قبل الدخول.';
+      'راجع البريد وكلمة المرور. الحساب الجديد يحتاج تأكيد البريد أولًا.';
+
+  @override
+  String get errorSuspended => 'هذا الحساب موقوف. تواصل مع دعم دايرة.';
+
+  @override
+  String get errorSessionEnded => 'انتهت جلستك. سجّل الدخول مجددًا.';
 
   @override
   String get errorConflict =>
-      'تغيرت البيانات. تم تحديثها؛ راجع الحالة وحاول مجددًا.';
+      'تغيّرت البيانات في الأثناء. حدّثناها — راجعها وحاول مجددًا.';
 
   @override
-  String get errorForbidden => 'هذا الإجراء غير متاح لعضويتك.';
+  String get errorForbidden => 'لا يمكنك تنفيذ هذا الإجراء في هذه الجمعية.';
 
   @override
-  String get errorRate => 'انتظر قليلًا قبل المحاولة مجددًا.';
+  String get errorRateLimited => 'محاولات كثيرة. انتظر قليلًا ثم حاول مجددًا.';
 
   @override
-  String get errorGeneric => 'تعذر إكمال الطلب. حاول مجددًا.';
+  String get errorInvalidInput => 'راجع البيانات المحددة.';
 
   @override
-  String get invalidCode => 'الرمز غير صالح أو منتهي أو ملغى أو مستخدم.';
+  String get errorNotFound => 'هذا العنصر لم يعد متاحًا.';
 
   @override
-  String get alreadyMember =>
-      'الحساب عضو بالفعل في الجمعية، أو العضوية مرتبطة بحساب.';
+  String get errorCircleSuspended => 'هذه الجمعية موقوفة من دعم دايرة.';
 
   @override
-  String get retry => 'إعادة المحاولة';
+  String get errorGeneric => 'حدث خطأ. حاول مجددًا.';
 
   @override
-  String get cancel => 'إلغاء';
+  String get maintenanceTitle => 'دايرة تحت الصيانة';
 
   @override
-  String get confirm => 'تأكيد';
+  String get maintenanceBody =>
+      'نحسّن الخدمة الآن. بياناتك في أمان — عُد بعد قليل.';
 
   @override
-  String get close => 'إغلاق';
+  String maintenanceUntil(String until) {
+    return 'العودة المتوقعة: $until';
+  }
 
   @override
-  String get welcome => 'جمعياتك، بوضوح';
+  String get updateRequiredTitle => 'حدّث دايرة للمتابعة';
 
   @override
-  String get homeBody =>
-      'تابع المساهمات ودور كل عضو. الأموال تتحرك خارج دايرة.';
+  String get updateRequiredBody =>
+      'هذا الإصدار لم يعد مدعومًا. حدّث التطبيق من المتجر لتواصل استخدام دايرة.';
 
   @override
-  String get createCircle => 'إنشاء جمعية';
+  String get updateAvailableTitle => 'يتوفر إصدار جديد';
 
   @override
-  String get joinInvite => 'الانضمام بدعوة';
+  String updateAvailableBody(String version) {
+    return 'الإصدار $version متاح الآن في المتجر.';
+  }
 
   @override
-  String get noCircles => 'ستظهر جمعياتك هنا. أنشئ جمعية أو انضم بدعوة.';
+  String updateRequiredFrom(String date) {
+    return 'سيصبح إلزاميًا من $date';
+  }
 
   @override
-  String get nothingRequired => 'لا توجد إجراءات مطلوبة منك الآن.';
+  String get updateNow => 'تحديث';
 
   @override
-  String get requiredActions => 'مطلوب منك';
+  String get whatsNew => 'الجديد';
 
   @override
-  String get waitingOthers => 'بانتظار الآخرين';
+  String get offlineTitle => 'لا يوجد اتصال';
 
   @override
-  String get recentlyCompleted => 'اعتُمد مؤخرًا';
+  String get offlineBody => 'دايرة تحتاج الإنترنت لتبقى جمعياتك محدّثة.';
 
   @override
-  String get allActions => 'عرض كل الإجراءات';
+  String get unavailableTitle => 'تعذّر الوصول إلى دايرة';
 
   @override
-  String get circleName => 'اسم الجمعية';
+  String get unavailableBody => 'لم تستجب الخدمة. حاول مجددًا بعد لحظات.';
 
   @override
-  String get installment => 'قيمة القسط لكل سهم';
+  String get obligationPending => 'مستحق';
 
   @override
-  String get currency => 'العملة';
+  String get obligationReported => 'بانتظار التأكيد';
 
   @override
-  String get cadence => 'الدورية';
+  String get obligationApproved => 'مؤكَّد';
 
   @override
-  String get days => 'أيام';
+  String get obligationOverdue => 'متأخر';
 
   @override
-  String get weeks => 'أسابيع';
+  String get actionPaid => 'دفعت القسط';
 
   @override
-  String get months => 'أشهر';
+  String get actionReceived => 'وصلني';
 
   @override
-  String get interval => 'كل';
+  String get actionNotReceived => 'لم يصلني';
 
   @override
-  String get startDate => 'موعد أول استحقاق';
+  String get actionPayout => 'سلّمت المبلغ';
 
   @override
-  String get members => 'الأعضاء';
+  String get actionReceipt => 'استلمت';
 
   @override
-  String get addMember => 'إضافة عضو';
+  String get circleDraft => 'مسودة';
 
   @override
-  String get memberName => 'اسم العضو';
+  String get circleActive => 'نشطة';
 
   @override
-  String get shares => 'الأسهم';
+  String get circleSuspended => 'موقوفة';
 
   @override
-  String get organizerShares => 'أسهمك';
+  String get circleCompleted => 'مكتملة';
 
   @override
-  String get orderHint =>
-      'الأدوار حسب ترتيب الأعضاء، دور لكل سهم؛ أدوارك تأتي أخيرًا.';
+  String get circleCancelled => 'ملغاة';
 
   @override
-  String get saveDraft => 'حفظ كمسودة';
+  String get roundCollecting => 'جارٍ التحصيل';
 
   @override
-  String get saveCircle => 'حفظ الجمعية';
+  String get roundReady => 'جاهزة للتسليم';
 
   @override
-  String get activate => 'تفعيل الجمعية';
+  String get roundPayoutReported => 'بانتظار الاستلام';
 
   @override
-  String get draft => 'مسودة';
-
-  @override
-  String get active => 'نشطة';
-
-  @override
-  String get completed => 'مكتملة';
-
-  @override
-  String get you => 'أنت';
-
-  @override
-  String get organizer => 'المنظم';
-
-  @override
-  String get round => 'الدور';
-
-  @override
-  String get rounds => 'الأدوار';
-
-  @override
-  String get beneficiary => 'المستفيد';
-
-  @override
-  String get dueDate => 'الاستحقاق';
-
-  @override
-  String get expected => 'قيمة الاستحقاق';
-
-  @override
-  String get collected => 'المعتمد تحصيله';
-
-  @override
-  String get remaining => 'المتبقي للاعتماد';
-
-  @override
-  String get collecting => 'جارٍ تحصيل الأقساط';
-
-  @override
-  String get readyForPayout => 'اكتمل التحصيل، بانتظار تسجيل التسليم';
-
-  @override
-  String get payoutReported => 'أقر المنظم بالتسليم، بانتظار تأكيد المستفيد';
-
-  @override
-  String get historical => 'دور تاريخي؛ لم يتحقق دايرة من التسليم';
-
-  @override
-  String get pending => 'لم يُبلغ بالدفع';
-
-  @override
-  String get reported => 'بانتظار اعتماد المنظم';
-
-  @override
-  String get approved => 'معتمد';
-
-  @override
-  String get report => 'أبلغت بالدفع';
-
-  @override
-  String get paymentNotice => 'الدفع يتم خارج دايرة. هذا تسجيل لإقرارك فقط.';
-
-  @override
-  String get review => 'مراجعة الإقرار';
-
-  @override
-  String get reportedAt => 'وقت الإبلاغ';
-
-  @override
-  String get approve => 'اعتماد';
-
-  @override
-  String get reject => 'رفض وطلب تصحيح';
-
-  @override
-  String get reason => 'السبب (إلزامي، حتى 500 حرف)';
-
-  @override
-  String get payout => 'تسجيل تسليم الدور';
-
-  @override
-  String get payoutNotice =>
-      'هذا تسجيل لإقرار المنظم، وليس تحويلًا بنكيًا أو تأكيد استلام من المستفيد.';
-
-  @override
-  String get receipt => 'تأكيد الاستلام';
-
-  @override
-  String get receiptNotice =>
-      'أكد فقط بعد استلام قيمة الدور كاملة خارج التطبيق.';
-
-  @override
-  String get audit => 'سجل النشاط';
-
-  @override
-  String get saved => 'تم الحفظ بنجاح.';
-
-  @override
-  String get invite => 'دعوة';
-
-  @override
-  String get manageInvite => 'إدارة الدعوة';
-
-  @override
-  String get activeInvite => 'دعوة فعالة';
-
-  @override
-  String get expires => 'تنتهي في';
-
-  @override
-  String get invitationCode => 'رمز الدعوة';
-
-  @override
-  String get copy => 'نسخ الرمز';
-
-  @override
-  String get share => 'مشاركة الدعوة';
-
-  @override
-  String get copied => 'تم نسخ الرمز.';
-
-  @override
-  String get revoke => 'إلغاء الدعوة';
-
-  @override
-  String get replace => 'إلغاء وإصدار رمز جديد';
-
-  @override
-  String get replaceNotice =>
-      'سيتوقف الرمز السابق عن العمل. شارك الرمز البديل مع العضو مجددًا.';
-
-  @override
-  String get codeLost =>
-      'الدعوة ما زالت صالحة لمن استلمها. لا يمكن استرجاع الرمز بعد انتهاء هذه الجلسة.';
-
-  @override
-  String get checkCode => 'فحص الرمز';
-
-  @override
-  String get acceptInvite => 'قبول الدعوة';
-
-  @override
-  String get inviteShare => 'انضم إلى جمعيتي في دايرة باستخدام رمز الدعوة:';
-
-  @override
-  String get logout => 'تسجيل الخروج';
-
-  @override
-  String get darkMode => 'المظهر الداكن';
+  String get roundCompleted => 'مكتملة';
 
   @override
   String get language => 'اللغة';
@@ -359,9 +217,80 @@ class AppLocalizationsAr extends AppLocalizations {
   String get english => 'English';
 
   @override
-  String greeting(String name) {
-    return 'أهلًا، $name';
+  String get appearance => 'المظهر';
+
+  @override
+  String get themeSystem => 'حسب الجهاز';
+
+  @override
+  String get themeLight => 'فاتح';
+
+  @override
+  String get themeDark => 'داكن';
+
+  @override
+  String get previewTitle => 'أساس دايرة';
+
+  @override
+  String get previewBody =>
+      'هذه النسخة لاختبار التصميم الجديد والاتصال بالخادم. الشاشات الكاملة في المرحلة القادمة.';
+
+  @override
+  String signedInAs(String name) {
+    return 'مسجّل باسم $name';
   }
+
+  @override
+  String get serverStatus => 'الخادم';
+
+  @override
+  String get connected => 'متصل';
+
+  @override
+  String activeCirclesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count جمعية نشطة',
+      many: '$count جمعية نشطة',
+      few: '$count جمعيات نشطة',
+      two: 'جمعيتان نشطتان',
+      one: 'جمعية نشطة واحدة',
+      zero: 'لا توجد جمعيات نشطة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String actionsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count إجراء مطلوب منك',
+      many: '$count إجراءً مطلوبًا منك',
+      few: '$count إجراءات مطلوبة منك',
+      two: 'إجراءان مطلوبان منك',
+      one: 'إجراء واحد مطلوب منك',
+      zero: 'لا شيء مطلوب منك الآن',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get componentsTitle => 'المكوّنات';
+
+  @override
+  String get emptyCirclesTitle => 'لا توجد جمعيات بعد';
+
+  @override
+  String get emptyCirclesBody =>
+      'أنشئ جمعية لمجموعتك، أو انضم لجمعية برمز دعوة.';
+
+  @override
+  String get createCircle => 'إنشاء جمعية';
+
+  @override
+  String get joinWithCode => 'الانضمام برمز';
 
   @override
   String roundOf(int number, int total) {
@@ -369,271 +298,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get currentRound => 'الدور الحالي';
-
-  @override
-  String get currentRecipient => 'مستفيد الدور';
-
-  @override
-  String get yourReceivingTurn => 'دور استلامك الآن';
-
-  @override
-  String get nextRound => 'الدور التالي';
-
-  @override
-  String get upcoming => 'قادم';
-
-  @override
-  String get overdue => 'متأخر';
-
-  @override
-  String get ownContribution => 'قسطك';
-
-  @override
-  String get roundAmount => 'قيمة الدور';
-
-  @override
-  String get yourTurns => 'أدوار استلامك';
-
-  @override
-  String get receivingTurns => 'أدوار الاستلام';
-
-  @override
-  String get latestActivity => 'أحدث النشاط';
-
-  @override
-  String allCircles(int count) {
-    return 'عرض الكل ($count)';
+  String dueOn(String date) {
+    return 'يستحق $date';
   }
-
-  @override
-  String filterCount(String label, int count) {
-    return '$label ($count)';
-  }
-
-  @override
-  String get allFilter => 'الكل';
-
-  @override
-  String memberCount(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count عضو',
-      many: '$count عضوًا',
-      few: '$count أعضاء',
-      two: 'عضوان',
-      one: 'عضو واحد',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String shareCount(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count سهم',
-      few: '$count أسهم',
-      two: 'سهمان',
-      one: 'سهم واحد',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String approvalCount(int approved, int total) {
-    return 'أقساط معتمدة $approved من $total';
-  }
-
-  @override
-  String get collectionDone => 'اكتمل التحصيل';
-
-  @override
-  String get awaitingReceipt => 'بانتظار تأكيد الاستلام';
-
-  @override
-  String lastSync(String time) {
-    return 'آخر تحديث $time';
-  }
-
-  @override
-  String get updating => 'جارٍ التحديث';
-
-  @override
-  String get syncPending => 'تعذر تحديث البيانات. المعروض هو آخر تحديث متاح.';
-
-  @override
-  String get unknownOutcome =>
-      'لم نتمكن من تأكيد نتيجة الطلب. أعد المحاولة للتحقق دون تكرار العملية.';
-
-  @override
-  String get resolveRequest => 'تحقق وأعد المحاولة';
-
-  @override
-  String get actionSuccess => 'تم تسجيل الإجراء.';
-
-  @override
-  String get roundFinished => 'اكتمل الدور وأصبح الدور التالي متاحًا.';
-
-  @override
-  String get circleFinished => 'اكتملت الجمعية.';
-
-  @override
-  String get approveNotice =>
-      'اعتمد الإقرار بعد التحقق من وصول القسط خارج التطبيق.';
-
-  @override
-  String reportedToday(String name, String time) {
-    return 'أبلغ $name اليوم، $time';
-  }
-
-  @override
-  String reportedOn(String name, String date, String time) {
-    return 'أبلغ $name في $date، $time';
-  }
-
-  @override
-  String get basicsStep => 'الأساسيات';
-
-  @override
-  String get membersStep => 'الأعضاء والأسهم';
-
-  @override
-  String get scheduleStep => 'المواعيد';
-
-  @override
-  String get reviewStep => 'المراجعة';
-
-  @override
-  String stepOf(int number, int total) {
-    return 'الخطوة $number من $total';
-  }
-
-  @override
-  String get continueLabel => 'متابعة';
-
-  @override
-  String get back => 'رجوع';
-
-  @override
-  String get edit => 'تعديل';
-
-  @override
-  String get schedulePreview => 'جدول الاستلام';
-
-  @override
-  String get viewSchedule => 'عرض الجدول الكامل';
-
-  @override
-  String get hideSchedule => 'اختصار الجدول';
-
-  @override
-  String get deleteMember => 'حذف العضو';
-
-  @override
-  String get amountInvalid => 'أدخل مبلغًا موجبًا يناسب دقة العملة.';
-
-  @override
-  String countInvalid(int min, int max) {
-    return 'أدخل عددًا من $min إلى $max.';
-  }
-
-  @override
-  String get activationNotice =>
-      'بعد التفعيل تثبت المبالغ والأسهم والجدول. راجع البيانات قبل المتابعة.';
-
-  @override
-  String get continueSetup => 'متابعة الإعداد';
-
-  @override
-  String get noActivity => 'لا نشاط حتى الآن.';
-
-  @override
-  String get linked => 'مرتبط بحساب';
-
-  @override
-  String get notLinked => 'لم ينضم بعد';
-
-  @override
-  String get inviteRecipient => 'دعوة المستفيد';
-
-  @override
-  String get recipientNeedsAccount => 'يلزم انضمام المستفيد لتأكيد الاستلام.';
-
-  @override
-  String get joinSuccess => 'تم الانضمام إلى الجمعية.';
-
-  @override
-  String get emptyTitle => 'نبدأ أول دايرة؟';
-
-  @override
-  String get settingsAccount => 'الحساب';
-
-  @override
-  String get appearance => 'المظهر واللغة';
-
-  @override
-  String get roundCompleted => 'الدور مكتمل';
-
-  @override
-  String get noActionsTitle => 'كل شيء واضح';
-
-  @override
-  String get startDateInvalid => 'اختر موعد بداية اليوم أو بعده.';
-
-  @override
-  String get activeFilter => 'النشطة';
-
-  @override
-  String get draftFilter => 'المسودات';
-
-  @override
-  String get completedFilter => 'المكتملة';
-
-  @override
-  String get thisIsYou => 'هذا أنت';
-
-  @override
-  String get continueVerification => 'استكمال تأكيد البريد';
-
-  @override
-  String get emailVerificationCode => 'رمز تأكيد البريد';
-
-  @override
-  String get verifyCode => 'تأكيد الرمز';
-
-  @override
-  String get codeValidity => '8 أرقام · صالح 10 دقائق';
-
-  @override
-  String get codeFormat => 'أدخل الرمز المكون من 8 أرقام.';
-
-  @override
-  String get verificationCodeInvalid =>
-      'الرمز غير صحيح أو انتهت صلاحيته أو استُخدم. استخدم أحدث رسالة أو اطلب رسالة جديدة.';
-
-  @override
-  String get emailVerifiedLogin =>
-      'تم تأكيد بريدك. سجّل الدخول بكلمة مرور حسابك.';
-
-  @override
-  String resendCountdown(int seconds) {
-    return 'إعادة إرسال التأكيد ($seconds)';
-  }
-
-  @override
-  String get signInTitle => 'أهلًا بعودتك';
-
-  @override
-  String get signUpTitle => 'ابدأ مع دايرة';
-
-  @override
-  String get recoveryTitle => 'استعادة كلمة المرور';
-
-  @override
-  String get noCirclesTitle => 'لا توجد جمعيات بعد';
-
-  @override
-  String get memberContributions => 'أقساط الأعضاء';
 }

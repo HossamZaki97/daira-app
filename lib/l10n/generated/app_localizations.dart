@@ -104,29 +104,47 @@ abstract class AppLocalizations {
   /// **'Daira'**
   String get appName;
 
-  /// No description provided for @home.
+  /// No description provided for @retry.
   ///
   /// In en, this message translates to:
-  /// **'Home'**
-  String get home;
+  /// **'Try again'**
+  String get retry;
 
-  /// No description provided for @circles.
+  /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
-  /// **'Circles'**
-  String get circles;
+  /// **'Cancel'**
+  String get cancel;
 
-  /// No description provided for @actions.
+  /// No description provided for @close.
   ///
   /// In en, this message translates to:
-  /// **'Actions'**
-  String get actions;
+  /// **'Close'**
+  String get close;
 
-  /// No description provided for @settings.
+  /// No description provided for @later.
   ///
   /// In en, this message translates to:
-  /// **'Settings'**
-  String get settings;
+  /// **'Later'**
+  String get later;
+
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get ok;
+
+  /// No description provided for @continueAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueAction;
+
+  /// No description provided for @loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading…'**
+  String get loading;
 
   /// No description provided for @signIn.
   ///
@@ -134,17 +152,23 @@ abstract class AppLocalizations {
   /// **'Sign in'**
   String get signIn;
 
-  /// No description provided for @signUp.
+  /// No description provided for @signOut.
   ///
   /// In en, this message translates to:
-  /// **'Create account'**
-  String get signUp;
+  /// **'Sign out'**
+  String get signOut;
 
-  /// No description provided for @name.
+  /// No description provided for @signInTitle.
   ///
   /// In en, this message translates to:
-  /// **'Name'**
-  String get name;
+  /// **'Welcome back'**
+  String get signInTitle;
+
+  /// No description provided for @signInBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to follow your circles.'**
+  String get signInBody;
 
   /// No description provided for @email.
   ///
@@ -158,605 +182,299 @@ abstract class AppLocalizations {
   /// **'Password'**
   String get password;
 
+  /// No description provided for @showPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Show password'**
+  String get showPassword;
+
+  /// No description provided for @hidePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide password'**
+  String get hidePassword;
+
   /// No description provided for @forgotPassword.
   ///
   /// In en, this message translates to:
   /// **'Forgot password?'**
   String get forgotPassword;
 
-  /// No description provided for @sendReset.
-  ///
-  /// In en, this message translates to:
-  /// **'Send recovery link'**
-  String get sendReset;
-
-  /// No description provided for @confirmEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'Confirm your email'**
-  String get confirmEmail;
-
-  /// No description provided for @neutralEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'If this email is eligible for confirmation, you will receive a link and a code. You can use either. If your account is already confirmed, sign in or reset your password.'**
-  String get neutralEmail;
-
-  /// No description provided for @resetSent.
-  ///
-  /// In en, this message translates to:
-  /// **'If this email is eligible, you will receive password recovery instructions or a request to confirm your email first.'**
-  String get resetSent;
-
-  /// No description provided for @resend.
-  ///
-  /// In en, this message translates to:
-  /// **'Resend confirmation email'**
-  String get resend;
-
-  /// No description provided for @useAnotherEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'Use another email'**
-  String get useAnotherEmail;
-
-  /// No description provided for @waitToResend.
-  ///
-  /// In en, this message translates to:
-  /// **'Please wait 60 seconds before sending again.'**
-  String get waitToResend;
-
-  /// No description provided for @passwordHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Use at least 8 characters.'**
-  String get passwordHint;
-
   /// No description provided for @requiredField.
   ///
   /// In en, this message translates to:
-  /// **'Complete this field.'**
+  /// **'Fill in this field.'**
   String get requiredField;
 
   /// No description provided for @invalidEmail.
   ///
   /// In en, this message translates to:
-  /// **'Enter a valid email address.'**
+  /// **'Enter a valid email.'**
   String get invalidEmail;
 
   /// No description provided for @errorOffline.
   ///
   /// In en, this message translates to:
-  /// **'Connection unavailable. Check your connection and try again.'**
+  /// **'No connection. Check your internet and try again.'**
   String get errorOffline;
+
+  /// No description provided for @errorUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Daira is not responding right now. Try again shortly.'**
+  String get errorUnavailable;
 
   /// No description provided for @errorCredentials.
   ///
   /// In en, this message translates to:
-  /// **'Check your credentials and confirm your email before signing in.'**
+  /// **'Check your email and password. New accounts must confirm their email first.'**
   String get errorCredentials;
+
+  /// No description provided for @errorSuspended.
+  ///
+  /// In en, this message translates to:
+  /// **'This account is suspended. Contact Daira support.'**
+  String get errorSuspended;
+
+  /// No description provided for @errorSessionEnded.
+  ///
+  /// In en, this message translates to:
+  /// **'Your session ended. Sign in again.'**
+  String get errorSessionEnded;
 
   /// No description provided for @errorConflict.
   ///
   /// In en, this message translates to:
-  /// **'The information changed. It has been refreshed; please review it.'**
+  /// **'This changed in the meantime. We refreshed it — check and try again.'**
   String get errorConflict;
 
   /// No description provided for @errorForbidden.
   ///
   /// In en, this message translates to:
-  /// **'This action is not available to your membership.'**
+  /// **'You can\'t do this in this circle.'**
   String get errorForbidden;
 
-  /// No description provided for @errorRate.
+  /// No description provided for @errorRateLimited.
   ///
   /// In en, this message translates to:
-  /// **'Please wait before trying again.'**
-  String get errorRate;
+  /// **'Too many attempts. Wait a little and try again.'**
+  String get errorRateLimited;
+
+  /// No description provided for @errorInvalidInput.
+  ///
+  /// In en, this message translates to:
+  /// **'Check the highlighted information.'**
+  String get errorInvalidInput;
+
+  /// No description provided for @errorNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'This item is no longer available.'**
+  String get errorNotFound;
+
+  /// No description provided for @errorCircleSuspended.
+  ///
+  /// In en, this message translates to:
+  /// **'This circle is suspended by Daira support.'**
+  String get errorCircleSuspended;
 
   /// No description provided for @errorGeneric.
   ///
   /// In en, this message translates to:
-  /// **'The request could not be completed. Try again.'**
+  /// **'Something went wrong. Try again.'**
   String get errorGeneric;
 
-  /// No description provided for @invalidCode.
+  /// No description provided for @maintenanceTitle.
   ///
   /// In en, this message translates to:
-  /// **'This code is invalid, expired, revoked or already used.'**
-  String get invalidCode;
+  /// **'Daira is under maintenance'**
+  String get maintenanceTitle;
 
-  /// No description provided for @alreadyMember.
+  /// No description provided for @maintenanceBody.
   ///
   /// In en, this message translates to:
-  /// **'This account already belongs to the circle, or the membership is linked.'**
-  String get alreadyMember;
+  /// **'We\'re improving the service. Your data is safe — come back shortly.'**
+  String get maintenanceBody;
 
-  /// No description provided for @retry.
+  /// No description provided for @maintenanceUntil.
   ///
   /// In en, this message translates to:
-  /// **'Retry'**
-  String get retry;
+  /// **'Expected back: {until}'**
+  String maintenanceUntil(String until);
 
-  /// No description provided for @cancel.
+  /// No description provided for @updateRequiredTitle.
   ///
   /// In en, this message translates to:
-  /// **'Cancel'**
-  String get cancel;
+  /// **'Update Daira to continue'**
+  String get updateRequiredTitle;
 
-  /// No description provided for @confirm.
+  /// No description provided for @updateRequiredBody.
   ///
   /// In en, this message translates to:
-  /// **'Confirm'**
-  String get confirm;
+  /// **'This version is no longer supported. Update from the store to keep using Daira.'**
+  String get updateRequiredBody;
 
-  /// No description provided for @close.
+  /// No description provided for @updateAvailableTitle.
   ///
   /// In en, this message translates to:
-  /// **'Close'**
-  String get close;
+  /// **'A new version is available'**
+  String get updateAvailableTitle;
 
-  /// No description provided for @welcome.
+  /// No description provided for @updateAvailableBody.
   ///
   /// In en, this message translates to:
-  /// **'Your circles, clearly'**
-  String get welcome;
+  /// **'Version {version} is ready in the store.'**
+  String updateAvailableBody(String version);
 
-  /// No description provided for @homeBody.
+  /// No description provided for @updateRequiredFrom.
   ///
   /// In en, this message translates to:
-  /// **'Track contributions and each member’s turn. Money moves outside Daira.'**
-  String get homeBody;
+  /// **'Required from {date}'**
+  String updateRequiredFrom(String date);
 
-  /// No description provided for @createCircle.
+  /// No description provided for @updateNow.
   ///
   /// In en, this message translates to:
-  /// **'Create circle'**
-  String get createCircle;
+  /// **'Update'**
+  String get updateNow;
 
-  /// No description provided for @joinInvite.
+  /// No description provided for @whatsNew.
   ///
   /// In en, this message translates to:
-  /// **'Join with invitation'**
-  String get joinInvite;
+  /// **'What\'s new'**
+  String get whatsNew;
 
-  /// No description provided for @noCircles.
+  /// No description provided for @offlineTitle.
   ///
   /// In en, this message translates to:
-  /// **'Your circles will appear here. Create one or join with an invitation.'**
-  String get noCircles;
+  /// **'You\'re offline'**
+  String get offlineTitle;
 
-  /// No description provided for @nothingRequired.
+  /// No description provided for @offlineBody.
   ///
   /// In en, this message translates to:
-  /// **'Nothing needs your action right now.'**
-  String get nothingRequired;
+  /// **'Daira needs the internet to keep your circles in sync.'**
+  String get offlineBody;
 
-  /// No description provided for @requiredActions.
+  /// No description provided for @unavailableTitle.
   ///
   /// In en, this message translates to:
-  /// **'Needs your action'**
-  String get requiredActions;
+  /// **'Can\'t reach Daira'**
+  String get unavailableTitle;
 
-  /// No description provided for @waitingOthers.
+  /// No description provided for @unavailableBody.
   ///
   /// In en, this message translates to:
-  /// **'Waiting for others'**
-  String get waitingOthers;
+  /// **'The service didn\'t respond. Try again in a moment.'**
+  String get unavailableBody;
 
-  /// No description provided for @recentlyCompleted.
+  /// No description provided for @obligationPending.
   ///
   /// In en, this message translates to:
-  /// **'Recently approved'**
-  String get recentlyCompleted;
+  /// **'Due'**
+  String get obligationPending;
 
-  /// No description provided for @allActions.
+  /// No description provided for @obligationReported.
   ///
   /// In en, this message translates to:
-  /// **'View all actions'**
-  String get allActions;
+  /// **'Awaiting confirmation'**
+  String get obligationReported;
 
-  /// No description provided for @circleName.
+  /// No description provided for @obligationApproved.
   ///
   /// In en, this message translates to:
-  /// **'Circle name'**
-  String get circleName;
+  /// **'Confirmed'**
+  String get obligationApproved;
 
-  /// No description provided for @installment.
+  /// No description provided for @obligationOverdue.
   ///
   /// In en, this message translates to:
-  /// **'Contribution per share'**
-  String get installment;
+  /// **'Overdue'**
+  String get obligationOverdue;
 
-  /// No description provided for @currency.
+  /// No description provided for @actionPaid.
   ///
   /// In en, this message translates to:
-  /// **'Currency'**
-  String get currency;
+  /// **'I paid'**
+  String get actionPaid;
 
-  /// No description provided for @cadence.
+  /// No description provided for @actionReceived.
   ///
   /// In en, this message translates to:
-  /// **'Schedule'**
-  String get cadence;
+  /// **'Received'**
+  String get actionReceived;
 
-  /// No description provided for @days.
+  /// No description provided for @actionNotReceived.
   ///
   /// In en, this message translates to:
-  /// **'Days'**
-  String get days;
+  /// **'Not received'**
+  String get actionNotReceived;
 
-  /// No description provided for @weeks.
+  /// No description provided for @actionPayout.
   ///
   /// In en, this message translates to:
-  /// **'Weeks'**
-  String get weeks;
+  /// **'I handed it over'**
+  String get actionPayout;
 
-  /// No description provided for @months.
+  /// No description provided for @actionReceipt.
   ///
   /// In en, this message translates to:
-  /// **'Months'**
-  String get months;
+  /// **'I received it'**
+  String get actionReceipt;
 
-  /// No description provided for @interval.
-  ///
-  /// In en, this message translates to:
-  /// **'Every'**
-  String get interval;
-
-  /// No description provided for @startDate.
-  ///
-  /// In en, this message translates to:
-  /// **'First due date'**
-  String get startDate;
-
-  /// No description provided for @members.
-  ///
-  /// In en, this message translates to:
-  /// **'Members'**
-  String get members;
-
-  /// No description provided for @addMember.
-  ///
-  /// In en, this message translates to:
-  /// **'Add member'**
-  String get addMember;
-
-  /// No description provided for @memberName.
-  ///
-  /// In en, this message translates to:
-  /// **'Member name'**
-  String get memberName;
-
-  /// No description provided for @shares.
-  ///
-  /// In en, this message translates to:
-  /// **'Shares'**
-  String get shares;
-
-  /// No description provided for @organizerShares.
-  ///
-  /// In en, this message translates to:
-  /// **'Your shares'**
-  String get organizerShares;
-
-  /// No description provided for @orderHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Turns follow the member order, one turn per share; your turns come last.'**
-  String get orderHint;
-
-  /// No description provided for @saveDraft.
-  ///
-  /// In en, this message translates to:
-  /// **'Save as draft'**
-  String get saveDraft;
-
-  /// No description provided for @saveCircle.
-  ///
-  /// In en, this message translates to:
-  /// **'Save circle'**
-  String get saveCircle;
-
-  /// No description provided for @activate.
-  ///
-  /// In en, this message translates to:
-  /// **'Activate circle'**
-  String get activate;
-
-  /// No description provided for @draft.
+  /// No description provided for @circleDraft.
   ///
   /// In en, this message translates to:
   /// **'Draft'**
-  String get draft;
+  String get circleDraft;
 
-  /// No description provided for @active.
+  /// No description provided for @circleActive.
   ///
   /// In en, this message translates to:
   /// **'Active'**
-  String get active;
+  String get circleActive;
 
-  /// No description provided for @completed.
+  /// No description provided for @circleSuspended.
+  ///
+  /// In en, this message translates to:
+  /// **'Suspended'**
+  String get circleSuspended;
+
+  /// No description provided for @circleCompleted.
   ///
   /// In en, this message translates to:
   /// **'Completed'**
-  String get completed;
+  String get circleCompleted;
 
-  /// No description provided for @you.
+  /// No description provided for @circleCancelled.
   ///
   /// In en, this message translates to:
-  /// **'You'**
-  String get you;
+  /// **'Cancelled'**
+  String get circleCancelled;
 
-  /// No description provided for @organizer.
+  /// No description provided for @roundCollecting.
   ///
   /// In en, this message translates to:
-  /// **'Organizer'**
-  String get organizer;
+  /// **'Collecting'**
+  String get roundCollecting;
 
-  /// No description provided for @round.
+  /// No description provided for @roundReady.
   ///
   /// In en, this message translates to:
-  /// **'Round'**
-  String get round;
+  /// **'Ready to hand over'**
+  String get roundReady;
 
-  /// No description provided for @rounds.
+  /// No description provided for @roundPayoutReported.
   ///
   /// In en, this message translates to:
-  /// **'Rounds'**
-  String get rounds;
+  /// **'Awaiting receipt'**
+  String get roundPayoutReported;
 
-  /// No description provided for @beneficiary.
+  /// No description provided for @roundCompleted.
   ///
   /// In en, this message translates to:
-  /// **'Recipient'**
-  String get beneficiary;
-
-  /// No description provided for @dueDate.
-  ///
-  /// In en, this message translates to:
-  /// **'Due date'**
-  String get dueDate;
-
-  /// No description provided for @expected.
-  ///
-  /// In en, this message translates to:
-  /// **'Expected payout'**
-  String get expected;
-
-  /// No description provided for @collected.
-  ///
-  /// In en, this message translates to:
-  /// **'Approved collection'**
-  String get collected;
-
-  /// No description provided for @remaining.
-  ///
-  /// In en, this message translates to:
-  /// **'Remaining to approve'**
-  String get remaining;
-
-  /// No description provided for @collecting.
-  ///
-  /// In en, this message translates to:
-  /// **'Collecting contributions'**
-  String get collecting;
-
-  /// No description provided for @readyForPayout.
-  ///
-  /// In en, this message translates to:
-  /// **'Collection complete; waiting for payout report'**
-  String get readyForPayout;
-
-  /// No description provided for @payoutReported.
-  ///
-  /// In en, this message translates to:
-  /// **'Organizer reported payout; waiting for recipient acknowledgment'**
-  String get payoutReported;
-
-  /// No description provided for @historical.
-  ///
-  /// In en, this message translates to:
-  /// **'Historical round; payout was not verified by Daira'**
-  String get historical;
-
-  /// No description provided for @pending.
-  ///
-  /// In en, this message translates to:
-  /// **'Not reported'**
-  String get pending;
-
-  /// No description provided for @reported.
-  ///
-  /// In en, this message translates to:
-  /// **'Waiting for organizer approval'**
-  String get reported;
-
-  /// No description provided for @approved.
-  ///
-  /// In en, this message translates to:
-  /// **'Approved'**
-  String get approved;
-
-  /// No description provided for @report.
-  ///
-  /// In en, this message translates to:
-  /// **'Report payment'**
-  String get report;
-
-  /// No description provided for @paymentNotice.
-  ///
-  /// In en, this message translates to:
-  /// **'Payment happens outside Daira. This records your declaration only.'**
-  String get paymentNotice;
-
-  /// No description provided for @review.
-  ///
-  /// In en, this message translates to:
-  /// **'Review report'**
-  String get review;
-
-  /// No description provided for @reportedAt.
-  ///
-  /// In en, this message translates to:
-  /// **'Reported at'**
-  String get reportedAt;
-
-  /// No description provided for @approve.
-  ///
-  /// In en, this message translates to:
-  /// **'Approve'**
-  String get approve;
-
-  /// No description provided for @reject.
-  ///
-  /// In en, this message translates to:
-  /// **'Reject and request correction'**
-  String get reject;
-
-  /// No description provided for @reason.
-  ///
-  /// In en, this message translates to:
-  /// **'Reason (required, up to 500 characters)'**
-  String get reason;
-
-  /// No description provided for @payout.
-  ///
-  /// In en, this message translates to:
-  /// **'Record round payout'**
-  String get payout;
-
-  /// No description provided for @payoutNotice.
-  ///
-  /// In en, this message translates to:
-  /// **'This records the organizer’s declaration; it is not a bank transfer or recipient acknowledgment.'**
-  String get payoutNotice;
-
-  /// No description provided for @receipt.
-  ///
-  /// In en, this message translates to:
-  /// **'Confirm receipt'**
-  String get receipt;
-
-  /// No description provided for @receiptNotice.
-  ///
-  /// In en, this message translates to:
-  /// **'Confirm only after you receive the full round amount outside the app.'**
-  String get receiptNotice;
-
-  /// No description provided for @audit.
-  ///
-  /// In en, this message translates to:
-  /// **'Activity log'**
-  String get audit;
-
-  /// No description provided for @saved.
-  ///
-  /// In en, this message translates to:
-  /// **'Saved successfully.'**
-  String get saved;
-
-  /// No description provided for @invite.
-  ///
-  /// In en, this message translates to:
-  /// **'Invite'**
-  String get invite;
-
-  /// No description provided for @manageInvite.
-  ///
-  /// In en, this message translates to:
-  /// **'Manage invitation'**
-  String get manageInvite;
-
-  /// No description provided for @activeInvite.
-  ///
-  /// In en, this message translates to:
-  /// **'Active invitation'**
-  String get activeInvite;
-
-  /// No description provided for @expires.
-  ///
-  /// In en, this message translates to:
-  /// **'Expires'**
-  String get expires;
-
-  /// No description provided for @invitationCode.
-  ///
-  /// In en, this message translates to:
-  /// **'Invitation code'**
-  String get invitationCode;
-
-  /// No description provided for @copy.
-  ///
-  /// In en, this message translates to:
-  /// **'Copy code'**
-  String get copy;
-
-  /// No description provided for @share.
-  ///
-  /// In en, this message translates to:
-  /// **'Share invitation'**
-  String get share;
-
-  /// No description provided for @copied.
-  ///
-  /// In en, this message translates to:
-  /// **'Code copied.'**
-  String get copied;
-
-  /// No description provided for @revoke.
-  ///
-  /// In en, this message translates to:
-  /// **'Revoke invitation'**
-  String get revoke;
-
-  /// No description provided for @replace.
-  ///
-  /// In en, this message translates to:
-  /// **'Revoke and issue new code'**
-  String get replace;
-
-  /// No description provided for @replaceNotice.
-  ///
-  /// In en, this message translates to:
-  /// **'The previous code will stop working. Share the replacement with the member again.'**
-  String get replaceNotice;
-
-  /// No description provided for @codeLost.
-  ///
-  /// In en, this message translates to:
-  /// **'The invitation is still valid for its recipient. Its code cannot be recovered after this session ends.'**
-  String get codeLost;
-
-  /// No description provided for @checkCode.
-  ///
-  /// In en, this message translates to:
-  /// **'Check code'**
-  String get checkCode;
-
-  /// No description provided for @acceptInvite.
-  ///
-  /// In en, this message translates to:
-  /// **'Accept invitation'**
-  String get acceptInvite;
-
-  /// No description provided for @inviteShare.
-  ///
-  /// In en, this message translates to:
-  /// **'Join my circle in Daira using this invitation code:'**
-  String get inviteShare;
-
-  /// No description provided for @logout.
-  ///
-  /// In en, this message translates to:
-  /// **'Sign out'**
-  String get logout;
-
-  /// No description provided for @darkMode.
-  ///
-  /// In en, this message translates to:
-  /// **'Dark appearance'**
-  String get darkMode;
+  /// **'Completed'**
+  String get roundCompleted;
 
   /// No description provided for @language.
   ///
@@ -776,11 +494,101 @@ abstract class AppLocalizations {
   /// **'English'**
   String get english;
 
-  /// No description provided for @greeting.
+  /// No description provided for @appearance.
   ///
   /// In en, this message translates to:
-  /// **'Hello, {name}'**
-  String greeting(String name);
+  /// **'Appearance'**
+  String get appearance;
+
+  /// No description provided for @themeSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get themeSystem;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get themeLight;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get themeDark;
+
+  /// No description provided for @previewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Daira foundation'**
+  String get previewTitle;
+
+  /// No description provided for @previewBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This build checks the new design and the connection to the server. The full screens come next.'**
+  String get previewBody;
+
+  /// No description provided for @signedInAs.
+  ///
+  /// In en, this message translates to:
+  /// **'Signed in as {name}'**
+  String signedInAs(String name);
+
+  /// No description provided for @serverStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Server'**
+  String get serverStatus;
+
+  /// No description provided for @connected.
+  ///
+  /// In en, this message translates to:
+  /// **'Connected'**
+  String get connected;
+
+  /// No description provided for @activeCirclesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No active circles} =1{1 active circle} other{{count} active circles}}'**
+  String activeCirclesCount(int count);
+
+  /// No description provided for @actionsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Nothing needs you now} =1{1 thing needs you} other{{count} things need you}}'**
+  String actionsCount(int count);
+
+  /// No description provided for @componentsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Components'**
+  String get componentsTitle;
+
+  /// No description provided for @emptyCirclesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No circles yet'**
+  String get emptyCirclesTitle;
+
+  /// No description provided for @emptyCirclesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a circle for your group, or join one with an invitation code.'**
+  String get emptyCirclesBody;
+
+  /// No description provided for @createCircle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a circle'**
+  String get createCircle;
+
+  /// No description provided for @joinWithCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Join with a code'**
+  String get joinWithCode;
 
   /// No description provided for @roundOf.
   ///
@@ -788,455 +596,11 @@ abstract class AppLocalizations {
   /// **'Round {number} of {total}'**
   String roundOf(int number, int total);
 
-  /// No description provided for @currentRound.
+  /// No description provided for @dueOn.
   ///
   /// In en, this message translates to:
-  /// **'Current round'**
-  String get currentRound;
-
-  /// No description provided for @currentRecipient.
-  ///
-  /// In en, this message translates to:
-  /// **'Current recipient'**
-  String get currentRecipient;
-
-  /// No description provided for @yourReceivingTurn.
-  ///
-  /// In en, this message translates to:
-  /// **'Your turn to receive'**
-  String get yourReceivingTurn;
-
-  /// No description provided for @nextRound.
-  ///
-  /// In en, this message translates to:
-  /// **'Next round'**
-  String get nextRound;
-
-  /// No description provided for @upcoming.
-  ///
-  /// In en, this message translates to:
-  /// **'Upcoming'**
-  String get upcoming;
-
-  /// No description provided for @overdue.
-  ///
-  /// In en, this message translates to:
-  /// **'Overdue'**
-  String get overdue;
-
-  /// No description provided for @ownContribution.
-  ///
-  /// In en, this message translates to:
-  /// **'Your contribution'**
-  String get ownContribution;
-
-  /// No description provided for @roundAmount.
-  ///
-  /// In en, this message translates to:
-  /// **'Round amount'**
-  String get roundAmount;
-
-  /// No description provided for @yourTurns.
-  ///
-  /// In en, this message translates to:
-  /// **'Your receiving turns'**
-  String get yourTurns;
-
-  /// No description provided for @receivingTurns.
-  ///
-  /// In en, this message translates to:
-  /// **'Receiving turns'**
-  String get receivingTurns;
-
-  /// No description provided for @latestActivity.
-  ///
-  /// In en, this message translates to:
-  /// **'Latest activity'**
-  String get latestActivity;
-
-  /// No description provided for @allCircles.
-  ///
-  /// In en, this message translates to:
-  /// **'View all ({count})'**
-  String allCircles(int count);
-
-  /// No description provided for @filterCount.
-  ///
-  /// In en, this message translates to:
-  /// **'{label} ({count})'**
-  String filterCount(String label, int count);
-
-  /// No description provided for @allFilter.
-  ///
-  /// In en, this message translates to:
-  /// **'All'**
-  String get allFilter;
-
-  /// No description provided for @memberCount.
-  ///
-  /// In en, this message translates to:
-  /// **'{count, plural, =1{1 member} other{{count} members}}'**
-  String memberCount(int count);
-
-  /// No description provided for @shareCount.
-  ///
-  /// In en, this message translates to:
-  /// **'{count, plural, =1{1 share} other{{count} shares}}'**
-  String shareCount(int count);
-
-  /// No description provided for @approvalCount.
-  ///
-  /// In en, this message translates to:
-  /// **'{approved} of {total} contributions approved'**
-  String approvalCount(int approved, int total);
-
-  /// No description provided for @collectionDone.
-  ///
-  /// In en, this message translates to:
-  /// **'Collection complete'**
-  String get collectionDone;
-
-  /// No description provided for @awaitingReceipt.
-  ///
-  /// In en, this message translates to:
-  /// **'Waiting for receipt confirmation'**
-  String get awaitingReceipt;
-
-  /// No description provided for @lastSync.
-  ///
-  /// In en, this message translates to:
-  /// **'Updated {time}'**
-  String lastSync(String time);
-
-  /// No description provided for @updating.
-  ///
-  /// In en, this message translates to:
-  /// **'Updating'**
-  String get updating;
-
-  /// No description provided for @syncPending.
-  ///
-  /// In en, this message translates to:
-  /// **'Could not refresh. Showing the last available information.'**
-  String get syncPending;
-
-  /// No description provided for @unknownOutcome.
-  ///
-  /// In en, this message translates to:
-  /// **'We could not confirm the result. Retry to resolve this request without duplicating it.'**
-  String get unknownOutcome;
-
-  /// No description provided for @resolveRequest.
-  ///
-  /// In en, this message translates to:
-  /// **'Resolve and retry'**
-  String get resolveRequest;
-
-  /// No description provided for @actionSuccess.
-  ///
-  /// In en, this message translates to:
-  /// **'Action recorded.'**
-  String get actionSuccess;
-
-  /// No description provided for @roundFinished.
-  ///
-  /// In en, this message translates to:
-  /// **'Round complete. The next round is now available.'**
-  String get roundFinished;
-
-  /// No description provided for @circleFinished.
-  ///
-  /// In en, this message translates to:
-  /// **'The circle is complete.'**
-  String get circleFinished;
-
-  /// No description provided for @approveNotice.
-  ///
-  /// In en, this message translates to:
-  /// **'Approve after verifying that the contribution was received outside the app.'**
-  String get approveNotice;
-
-  /// No description provided for @reportedToday.
-  ///
-  /// In en, this message translates to:
-  /// **'{name} reported today at {time}'**
-  String reportedToday(String name, String time);
-
-  /// No description provided for @reportedOn.
-  ///
-  /// In en, this message translates to:
-  /// **'{name} reported on {date} at {time}'**
-  String reportedOn(String name, String date, String time);
-
-  /// No description provided for @basicsStep.
-  ///
-  /// In en, this message translates to:
-  /// **'Basics'**
-  String get basicsStep;
-
-  /// No description provided for @membersStep.
-  ///
-  /// In en, this message translates to:
-  /// **'Members and shares'**
-  String get membersStep;
-
-  /// No description provided for @scheduleStep.
-  ///
-  /// In en, this message translates to:
-  /// **'Schedule'**
-  String get scheduleStep;
-
-  /// No description provided for @reviewStep.
-  ///
-  /// In en, this message translates to:
-  /// **'Review'**
-  String get reviewStep;
-
-  /// No description provided for @stepOf.
-  ///
-  /// In en, this message translates to:
-  /// **'Step {number} of {total}'**
-  String stepOf(int number, int total);
-
-  /// No description provided for @continueLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Continue'**
-  String get continueLabel;
-
-  /// No description provided for @back.
-  ///
-  /// In en, this message translates to:
-  /// **'Back'**
-  String get back;
-
-  /// No description provided for @edit.
-  ///
-  /// In en, this message translates to:
-  /// **'Edit'**
-  String get edit;
-
-  /// No description provided for @schedulePreview.
-  ///
-  /// In en, this message translates to:
-  /// **'Receiving schedule'**
-  String get schedulePreview;
-
-  /// No description provided for @viewSchedule.
-  ///
-  /// In en, this message translates to:
-  /// **'View full schedule'**
-  String get viewSchedule;
-
-  /// No description provided for @hideSchedule.
-  ///
-  /// In en, this message translates to:
-  /// **'Show less'**
-  String get hideSchedule;
-
-  /// No description provided for @deleteMember.
-  ///
-  /// In en, this message translates to:
-  /// **'Remove member'**
-  String get deleteMember;
-
-  /// No description provided for @amountInvalid.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter a positive amount with the correct currency precision.'**
-  String get amountInvalid;
-
-  /// No description provided for @countInvalid.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter a number from {min} to {max}.'**
-  String countInvalid(int min, int max);
-
-  /// No description provided for @activationNotice.
-  ///
-  /// In en, this message translates to:
-  /// **'Activation fixes the amounts, shares and schedule. Review them before continuing.'**
-  String get activationNotice;
-
-  /// No description provided for @continueSetup.
-  ///
-  /// In en, this message translates to:
-  /// **'Continue setup'**
-  String get continueSetup;
-
-  /// No description provided for @noActivity.
-  ///
-  /// In en, this message translates to:
-  /// **'No activity yet.'**
-  String get noActivity;
-
-  /// No description provided for @linked.
-  ///
-  /// In en, this message translates to:
-  /// **'Account linked'**
-  String get linked;
-
-  /// No description provided for @notLinked.
-  ///
-  /// In en, this message translates to:
-  /// **'Not joined yet'**
-  String get notLinked;
-
-  /// No description provided for @inviteRecipient.
-  ///
-  /// In en, this message translates to:
-  /// **'Invite recipient'**
-  String get inviteRecipient;
-
-  /// No description provided for @recipientNeedsAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'The recipient needs to join to confirm receipt.'**
-  String get recipientNeedsAccount;
-
-  /// No description provided for @joinSuccess.
-  ///
-  /// In en, this message translates to:
-  /// **'You joined the circle.'**
-  String get joinSuccess;
-
-  /// No description provided for @emptyTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Start your first circle?'**
-  String get emptyTitle;
-
-  /// No description provided for @settingsAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Account'**
-  String get settingsAccount;
-
-  /// No description provided for @appearance.
-  ///
-  /// In en, this message translates to:
-  /// **'Appearance and language'**
-  String get appearance;
-
-  /// No description provided for @roundCompleted.
-  ///
-  /// In en, this message translates to:
-  /// **'Round complete'**
-  String get roundCompleted;
-
-  /// No description provided for @noActionsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'You’re all caught up'**
-  String get noActionsTitle;
-
-  /// No description provided for @startDateInvalid.
-  ///
-  /// In en, this message translates to:
-  /// **'Choose today or a future start date.'**
-  String get startDateInvalid;
-
-  /// No description provided for @activeFilter.
-  ///
-  /// In en, this message translates to:
-  /// **'Active'**
-  String get activeFilter;
-
-  /// No description provided for @draftFilter.
-  ///
-  /// In en, this message translates to:
-  /// **'Drafts'**
-  String get draftFilter;
-
-  /// No description provided for @completedFilter.
-  ///
-  /// In en, this message translates to:
-  /// **'Completed'**
-  String get completedFilter;
-
-  /// No description provided for @thisIsYou.
-  ///
-  /// In en, this message translates to:
-  /// **'This is you'**
-  String get thisIsYou;
-
-  /// No description provided for @continueVerification.
-  ///
-  /// In en, this message translates to:
-  /// **'Complete email confirmation'**
-  String get continueVerification;
-
-  /// No description provided for @emailVerificationCode.
-  ///
-  /// In en, this message translates to:
-  /// **'Email verification code'**
-  String get emailVerificationCode;
-
-  /// No description provided for @verifyCode.
-  ///
-  /// In en, this message translates to:
-  /// **'Verify code'**
-  String get verifyCode;
-
-  /// No description provided for @codeValidity.
-  ///
-  /// In en, this message translates to:
-  /// **'8 digits · valid for 10 minutes'**
-  String get codeValidity;
-
-  /// No description provided for @codeFormat.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter the 8-digit code.'**
-  String get codeFormat;
-
-  /// No description provided for @verificationCodeInvalid.
-  ///
-  /// In en, this message translates to:
-  /// **'The code is invalid, expired or already used. Use the latest email or request a new one.'**
-  String get verificationCodeInvalid;
-
-  /// No description provided for @emailVerifiedLogin.
-  ///
-  /// In en, this message translates to:
-  /// **'Email confirmed. Sign in with your account password.'**
-  String get emailVerifiedLogin;
-
-  /// No description provided for @resendCountdown.
-  ///
-  /// In en, this message translates to:
-  /// **'Resend confirmation ({seconds})'**
-  String resendCountdown(int seconds);
-
-  /// No description provided for @signInTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Welcome back'**
-  String get signInTitle;
-
-  /// No description provided for @signUpTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Start with Daira'**
-  String get signUpTitle;
-
-  /// No description provided for @recoveryTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Reset your password'**
-  String get recoveryTitle;
-
-  /// No description provided for @noCirclesTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'No circles yet'**
-  String get noCirclesTitle;
-
-  /// No description provided for @memberContributions.
-  ///
-  /// In en, this message translates to:
-  /// **'Member contributions'**
-  String get memberContributions;
+  /// **'Due {date}'**
+  String dueOn(String date);
 }
 
 class _AppLocalizationsDelegate

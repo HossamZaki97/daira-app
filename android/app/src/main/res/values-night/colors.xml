@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="daira_launch_background">#0C111D</color>
+    <color name="daira_ring">#C9D3EC</color>
+    <color name="daira_accent">#F5B321</color>
+</resources>

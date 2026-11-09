@@ -1,0 +1,789 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body>
+<title>دليل هوية دايرة</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: sticky section nav, then long reference page; every mockup reads the C1 tokens through --d-* variables */
+:root{
+  --pg-bg:#F3F4F7; --pg-panel:#FFFFFF; --pg-fg:#141A2B; --pg-muted:#5F6779; --pg-line:#E1E4EC; --pg-focus:#F0A202; --pg-chip:#E6E9F2;
+  --font:'Cairo',system-ui,'Segoe UI',Tahoma,sans-serif; --mono:ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--pg-bg:#0A0E17;--pg-panel:#121826;--pg-fg:#EDF0F7;--pg-muted:#9AA4B8;--pg-line:#252E42;--pg-focus:#F5B321;--pg-chip:#1E2840;color-scheme:dark}}
+:root[data-theme="dark"]{--pg-bg:#0A0E17;--pg-panel:#121826;--pg-fg:#EDF0F7;--pg-muted:#9AA4B8;--pg-line:#252E42;--pg-focus:#F5B321;--pg-chip:#1E2840;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--pg-bg);color:var(--pg-fg);font-family:var(--font);font-size:15px;line-height:1.7;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--pg-bg)}
+.wrap{max-width:1180px;margin:0 auto;padding-block:24px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:40px}
+header.top{display:grid;gap:6px}
+h1{font-size:30px;font-weight:800;margin:0;text-wrap:balance;line-height:1.3}
+h2{font-size:22px;font-weight:800;margin:0;text-wrap:balance}
+h3{font-size:15px;font-weight:700;margin:0;color:var(--pg-fg)}
+.lead{color:var(--pg-muted);margin:0;max-width:72ch}
+.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--pg-bg);padding-block:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--pg-line)}
+.toc a{color:var(--pg-fg);text-decoration:none;font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px;background:var(--pg-chip)}
+.toc a:focus-visible,.seg button:focus-visible{outline:2px solid var(--pg-focus);outline-offset:2px}
+.toc .sp{flex:1}
+.seg{display:inline-flex;background:var(--pg-panel);border:1px solid var(--pg-line);border-radius:999px;padding:3px}
+.seg button{all:unset;cursor:pointer;padding:4px 14px;border-radius:999px;font-size:13px;font-weight:700;color:var(--pg-muted)}
+.seg button[aria-pressed="true"]{background:var(--pg-fg);color:var(--pg-bg)}
+section.s{display:grid;gap:18px;scroll-margin-top:72px}
+.s-head{display:grid;gap:4px}
+.panel{background:var(--pg-panel);border:1px solid var(--pg-line);border-radius:18px;padding:20px;display:grid;gap:16px;min-width:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.rule{display:grid;gap:6px;margin:0;padding-inline-start:20px;color:var(--pg-muted)}
+.rule b{color:var(--pg-fg)}
+.lbl{font-size:12px;color:var(--pg-muted);font-weight:600;letter-spacing:.2px}
+code,.code{font-family:var(--mono);font-size:12.5px;direction:ltr;unicode-bidi:isolate}
+
+/* ---------- Mock device tokens ---------- */
+.dz{--d-primary:#1E2A4A;--d-primaryP:#151E36;--d-onPrimary:#fff;--d-pc:#E6E9F2;--d-onPc:#1E2A4A;--d-accent:#F0A202;--d-accentP:#D68F00;--d-onAccent:#1E2A4A;--d-ac:#FFF3D6;
+  --d-hero:#1E2A4A;--d-onHero:#fff;--d-onHeroM:#C3CADB;--d-bg:#F5F6F9;--d-surface:#fff;--d-sunken:#ECEEF3;--d-track:#ECEEF3;--d-text:#141A2B;--d-muted:#5F6779;--d-dis:#9AA1B0;--d-line:#E3E6EE;--d-lineS:#CDD2DE;--d-focus:#F0A202;--d-scrim:rgba(12,17,29,.6);--d-sk:#E9EBF1;--d-skH:#F4F5F9;
+  --d-ok:#1F7A47;--d-okc:#E3F3EA;--d-wait:#4A5876;--d-waitc:#E9ECF3;--d-bad:#B4372F;--d-badc:#FBE7E5;--d-nav-on:#1E2A4A;--d-shadow:0 1px 2px rgba(20,26,43,.04)}
+.dz.dark{--d-primary:#C9D3EC;--d-primaryP:#AEBBDD;--d-onPrimary:#0C111D;--d-pc:#1E2840;--d-onPc:#C9D3EC;--d-accent:#F5B321;--d-accentP:#E0A010;--d-onAccent:#16141A;--d-ac:#3A2F12;
+  --d-hero:#1C2742;--d-onHero:#fff;--d-onHeroM:#AEB8D0;--d-bg:#0C111D;--d-surface:#151C2C;--d-sunken:#10172A;--d-track:#222B3F;--d-text:#EDF0F7;--d-muted:#9AA4B8;--d-dis:#5E6880;--d-line:#273047;--d-lineS:#34405C;--d-focus:#F5B321;--d-scrim:rgba(0,0,0,.7);--d-sk:#1D2537;--d-skH:#263049;
+  --d-ok:#5FD08F;--d-okc:#16302A;--d-wait:#AEB8D0;--d-waitc:#232B3D;--d-bad:#F38A80;--d-badc:#3A1F22;--d-nav-on:#F5B321;--d-shadow:none}
+
+.dz svg.i{width:1.6em;height:1.6em;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.board{background:var(--d-bg);color:var(--d-text);border-radius:16px;padding:18px;display:grid;gap:14px;border:1px solid var(--pg-line)}
+
+/* phones */
+.phones{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px 16px;justify-items:center}
+.ph{display:grid;gap:8px;justify-items:center;width:100%;max-width:262px}
+.ph figcaption{font-size:13px;font-weight:700;text-align:center}
+.ph figcaption small{display:block;font-weight:400;color:var(--pg-muted);font-size:12px;line-height:1.5}
+figure{margin:0}
+.dev{width:100%;max-width:262px;aspect-ratio:9/18.5;border-radius:34px;padding:7px;background:#0B0E14;box-shadow:0 12px 28px rgba(10,14,25,.16)}
+.scr{position:relative;height:100%;border-radius:28px;overflow:hidden;background:var(--d-bg);color:var(--d-text);display:flex;flex-direction:column;font-size:11.5px;line-height:1.55}
+.sb{display:flex;justify-content:space-between;padding:8px 16px 2px;font-size:10px;font-weight:700;color:var(--d-muted);flex:none}
+.body{flex:1;overflow:hidden;padding:4px 12px 12px;display:flex;flex-direction:column;gap:10px;min-height:0}
+.body.center{justify-content:center;align-items:center;text-align:center;gap:12px;padding:20px}
+.ab{display:flex;align-items:center;gap:8px;padding:2px 12px 8px;flex:none}
+.ab h4{margin:0;font-size:14px;font-weight:700;flex:1}
+.ab .ib{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;color:var(--d-text)}
+.t-title{font-size:17px;font-weight:800;line-height:1.35;margin:0}
+.t-head{font-size:13px;font-weight:700;margin:0}
+.t-cap{font-size:10.5px;color:var(--d-muted)}
+.t-muted{color:var(--d-muted)}
+.num{font-variant-numeric:tabular-nums}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.col{display:flex;flex-direction:column;gap:6px}
+.sp1{flex:1}
+
+/* components */
+.btn{display:flex;align-items:center;justify-content:center;gap:6px;height:38px;border-radius:12px;font-weight:700;font-size:12.5px;padding:0 14px;border:1px solid transparent;white-space:nowrap}
+.btn.sm{height:30px;font-size:11.5px;border-radius:10px;padding:0 10px}
+.btn.accent{background:var(--d-accent);color:var(--d-onAccent)}
+.btn.primary{background:var(--d-primary);color:var(--d-onPrimary)}
+.btn.outline{background:transparent;color:var(--d-text);border-color:var(--d-lineS)}
+.btn.ghost{background:transparent;color:var(--d-primary)}
+.dz.dark .btn.ghost{color:var(--d-accent)}
+.btn.danger{background:var(--d-badc);color:var(--d-bad)}
+.btn.pressed.accent{background:var(--d-accentP)}.btn.pressed.primary{background:var(--d-primaryP)}.btn.pressed.outline{background:var(--d-sunken)}.btn.pressed.ghost{background:var(--d-pc)}
+.btn.disabled{background:var(--d-sunken)!important;color:var(--d-dis)!important;border-color:transparent!important}
+.btn.focus{box-shadow:0 0 0 2px var(--d-bg),0 0 0 4px var(--d-focus)}
+.spin{width:14px;height:14px;border-radius:50%;border:2px solid currentColor;border-top-color:transparent;animation:rot .8s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.fld{display:grid;gap:4px}
+.fld label{font-size:11px;font-weight:700}
+.inp{height:42px;border-radius:12px;background:var(--d-surface);border:1px solid var(--d-lineS);display:flex;align-items:center;gap:8px;padding:0 12px;color:var(--d-text);font-size:12px}
+.inp .ph{color:var(--d-dis)}
+.inp.focus{border:2px solid var(--d-primary);padding:0 11px}
+.dz.dark .inp.focus{border-color:var(--d-accent)}
+.inp.err{border:2px solid var(--d-bad);padding:0 11px}
+.inp.dis{background:var(--d-sunken);color:var(--d-dis);border-color:transparent}
+.help{font-size:10.5px;color:var(--d-muted)}
+.help.err{color:var(--d-bad);display:flex;gap:4px;align-items:center}
+.code8{display:flex;gap:3px;direction:ltr;justify-content:center;width:100%}
+.code8 span{flex:1;max-width:26px;min-width:0;height:36px;border-radius:9px;border:1px solid var(--d-lineS);background:var(--d-surface);display:grid;place-items:center;font-weight:800;font-size:15px}
+.code8 span.on{border:2px solid var(--d-primary)}
+.dz.dark .code8 span.on{border-color:var(--d-accent)}
+.code8 span.e{border-color:var(--d-bad);color:var(--d-bad)}
+.code8 i{width:6px}
+.amt{display:flex;align-items:baseline;gap:6px;justify-content:center;padding:6px 0}
+.amt b{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums}
+.amt span{color:var(--d-muted);font-weight:700}
+.chip{display:inline-flex;align-items:center;gap:3px;border-radius:999px;padding:1px 8px;font-size:10px;font-weight:700;white-space:nowrap}
+.chip svg.i{width:12px;height:12px;stroke-width:2.2}
+.chip.ok{background:var(--d-okc);color:var(--d-ok)}.chip.wait{background:var(--d-waitc);color:var(--d-wait)}.chip.bad{background:var(--d-badc);color:var(--d-bad)}.chip.neu{background:var(--d-sunken);color:var(--d-muted)}.chip.acc{background:var(--d-ac);color:var(--d-text)}
+.card{background:var(--d-surface);border:1px solid var(--d-line);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--d-shadow)}
+.card.flat{box-shadow:none}
+.hero{background:var(--d-hero);color:var(--d-onHero);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.hero .m{color:var(--d-onHeroM);font-size:10.5px}
+.hero .big{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.2}
+.bar{height:6px;border-radius:9px;background:var(--d-track);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--d-accent);border-radius:9px}
+.hero .bar{background:rgba(255,255,255,.18)}
+.av{width:30px;height:30px;border-radius:50%;background:var(--d-pc);color:var(--d-onPc);display:grid;place-items:center;font-weight:800;font-size:11px;flex:none}
+.av.me{background:var(--d-ac);color:var(--d-text)}
+.mem{display:flex;align-items:center;gap:8px}
+.mem .mid{flex:1;min-width:0}
+.mem .mid b{display:block;font-size:11.5px}
+.mem .mid small{display:block;color:var(--d-muted);font-size:10px}
+.div{height:1px;background:var(--d-line)}
+.tabs{display:flex;background:var(--d-sunken);border-radius:11px;padding:3px;gap:2px;font-size:10.5px;font-weight:700;flex:none}
+.tabs span{flex:1;text-align:center;padding:5px 0;border-radius:8px;color:var(--d-muted)}
+.tabs span.on{background:var(--d-surface);color:var(--d-text);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.nav{display:flex;justify-content:space-around;background:var(--d-surface);border-top:1px solid var(--d-line);padding:6px 4px 12px;flex:none}
+.nav div{display:grid;justify-items:center;gap:1px;font-size:9.5px;font-weight:700;color:var(--d-muted)}
+.nav div span.pill{width:44px;height:26px;border-radius:999px;display:grid;place-items:center;position:relative}
+.nav div.on{color:var(--d-text)}
+.nav div.on span.pill{background:var(--d-pc);color:var(--d-nav-on)}
+.badge{position:absolute;top:-2px;inset-inline-end:4px;min-width:15px;height:15px;border-radius:999px;background:var(--d-bad);color:#fff;font-size:9px;font-weight:800;display:grid;place-items:center;padding:0 3px;border:2px solid var(--d-surface)}
+.banner{display:flex;gap:8px;align-items:flex-start;border-radius:12px;padding:9px 10px;font-size:10.5px;line-height:1.5}
+.banner b{display:block;font-size:11px}
+.banner.info{background:var(--d-waitc);color:var(--d-text)}
+.banner.ok{background:var(--d-okc);color:var(--d-text)}
+.banner.bad{background:var(--d-badc);color:var(--d-text)}
+.banner.acc{background:var(--d-ac);color:var(--d-text)}
+.banner .i{color:var(--d-wait)}.banner.ok .i{color:var(--d-ok)}.banner.bad .i{color:var(--d-bad)}.banner.acc .i{color:var(--d-text)}
+.banner .act{font-weight:800;white-space:nowrap;color:var(--d-primary)}
+.dz.dark .banner .act{color:var(--d-accent)}
+.snack{display:flex;gap:8px;align-items:center;background:var(--d-text);color:var(--d-bg);border-radius:12px;padding:10px 12px;font-size:11px;font-weight:600}
+.snack .i{color:#5FD08F}.snack.err .i{color:#F38A80}
+.snack .act{margin-inline-start:auto;color:var(--d-accent);font-weight:800}
+.sheet{position:absolute;inset:auto 0 0 0;background:var(--d-surface);border-radius:22px 22px 0 0;padding:8px 14px 16px;display:flex;flex-direction:column;gap:10px;box-shadow:0 -8px 24px rgba(20,26,43,.12)}
+.sheet .grab{width:36px;height:4px;border-radius:9px;background:var(--d-lineS);margin:0 auto 4px}
+.scrim{position:absolute;inset:0;background:var(--d-scrim)}
+.dlg{position:absolute;inset:auto 16px 50% 16px;transform:translateY(50%);background:var(--d-surface);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.sk{background:linear-gradient(90deg,var(--d-sk) 25%,var(--d-skH) 50%,var(--d-sk) 75%);background-size:200% 100%;border-radius:8px;animation:shim 1.2s ease-in-out infinite}
+@keyframes shim{0%{background-position:100% 0}100%{background-position:-100% 0}}
+.illo{width:120px;height:96px}
+.steps{display:flex;gap:4px;flex:none}
+.steps i{flex:1;height:4px;border-radius:9px;background:var(--d-track)}
+.steps i.on{background:var(--d-accent)}
+.steps i.done{background:var(--d-primary)}
+.dz.dark .steps i.done{background:var(--d-primary)}
+.sw{position:relative;width:34px;height:20px;border-radius:999px;background:var(--d-lineS);flex:none}
+.sw::after{content:"";position:absolute;top:2px;inset-inline-start:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.sw.on{background:var(--d-primary)}.sw.on::after{inset-inline-start:16px}
+.dz.dark .sw.on{background:var(--d-accent)}.dz.dark .sw.on::after{background:var(--d-onAccent)}
+.list .li{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--d-line)}
+.list .li:last-child{border-bottom:0}
+.list .li .ic{width:30px;height:30px;border-radius:10px;background:var(--d-sunken);display:grid;place-items:center;color:var(--d-text);flex:none}
+.list .li .mid{flex:1;min-width:0}
+.list .li .mid b{display:block;font-size:11.5px}
+.list .li .mid small{display:block;color:var(--d-muted);font-size:10px}
+.tl{display:flex;flex-direction:column}
+.tl .r{display:flex;gap:10px;align-items:stretch}
+.tl .r .dot{display:flex;flex-direction:column;align-items:center;width:16px;flex:none}
+.tl .r .dot i{width:12px;height:12px;border-radius:50%;border:2px solid var(--d-lineS);background:var(--d-surface);margin-top:3px}
+.tl .r .dot i.done{background:var(--d-primary);border-color:var(--d-primary)}
+.tl .r .dot i.cur{background:var(--d-accent);border-color:var(--d-accent);box-shadow:0 0 0 4px var(--d-ac)}
+.tl .r .dot u{flex:1;width:2px;background:var(--d-line);text-decoration:none}
+.tl .r .c{flex:1;padding-bottom:10px;min-width:0}
+.fab{position:absolute;inset-inline-start:14px;bottom:76px;height:42px;border-radius:14px;background:var(--d-accent);color:var(--d-onAccent);display:flex;align-items:center;gap:6px;padding:0 14px;font-weight:800;font-size:12px;box-shadow:0 6px 16px rgba(20,26,43,.18)}
+.dots{display:flex;gap:5px;justify-content:center}
+.dots i{width:6px;height:6px;border-radius:9px;background:var(--d-lineS)}
+.dots i.on{width:18px;background:var(--d-accent)}
+
+/* foundations */
+.sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.swatch{border:1px solid var(--pg-line);border-radius:12px;overflow:hidden;background:var(--pg-panel)}
+.swatch .c{height:56px;display:flex;align-items:flex-end;padding:6px 8px;font-size:11px;font-weight:700}
+.swatch .t{padding:6px 8px;font-size:12px;display:grid}
+.swatch .t small{color:var(--pg-muted);font-size:11px}
+.typerow{display:grid;grid-template-columns:120px 1fr auto;gap:14px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--pg-line)}
+.typerow:last-child{border-bottom:0}
+.typerow .spec{color:var(--pg-muted);font-size:12px;direction:ltr;text-align:end}
+@media (max-width:560px){.typerow{grid-template-columns:1fr}.typerow .spec{text-align:start}}
+.scale{display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap}
+.scale div{display:grid;gap:4px;justify-items:center;font-size:11px;color:var(--pg-muted)}
+.scale i{display:block;background:var(--d-accent);border-radius:3px}
+.iconset{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px}
+.iconset div{border:1px solid var(--d-line);background:var(--d-surface);border-radius:12px;padding:10px;display:grid;gap:4px;justify-items:center;text-align:center;font-size:11px;color:var(--d-text)}
+.iconset div small{color:var(--d-muted);font-size:10px;font-family:var(--mono);direction:ltr}
+.iconset .pair{display:flex;gap:8px}
+.iconset .pair span{width:36px;height:36px;border-radius:10px;display:grid;place-items:center}
+.iconset .pair span.a{background:var(--d-pc);color:var(--d-nav-on)}
+.statesgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.st{display:grid;gap:6px;align-content:start}
+.st .lbl{color:var(--d-muted)}
+.logo-row{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end}
+.logo-row figure{display:grid;gap:6px;justify-items:center}
+.logo-row figcaption{font-size:12px;color:var(--pg-muted);text-align:center}
+.dont{position:relative}
+.dont::after{content:"";position:absolute;inset:-4px;border:2px solid #C23B3B;border-radius:18px}
+.x{color:#C23B3B;font-weight:700}
+
+/* backend mocks */
+.odoo{border-radius:14px;overflow:hidden;border:1px solid var(--d-line);background:var(--d-bg);color:var(--d-text);font-size:12px}
+.odoo .top{display:flex;align-items:center;gap:12px;background:var(--d-hero);color:#fff;padding:8px 14px;font-weight:700;font-size:12.5px}
+.odoo .top span{opacity:.75;font-weight:600}
+.odoo .main{padding:14px;display:grid;gap:12px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.kpi{background:var(--d-surface);border:1px solid var(--d-line);border-radius:12px;padding:10px 12px;display:grid;gap:2px}
+.kpi b{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+.kpi small{color:var(--d-muted);font-size:11px}
+.kpi.warn{border-color:var(--d-accent);box-shadow:inset 3px 0 0 var(--d-accent)}
+.otable{width:100%;border-collapse:collapse;background:var(--d-surface);border:1px solid var(--d-line);border-radius:12px;overflow:hidden;font-size:11.5px}
+.otable th,.otable td{text-align:start;padding:7px 10px;border-bottom:1px solid var(--d-line)}
+.otable th{color:var(--d-muted);font-weight:700;font-size:11px;background:var(--d-sunken)}
+.scrollx{overflow-x:auto}
+.mail{max-width:420px;margin:0 auto;background:var(--d-surface);border:1px solid var(--d-line);border-radius:14px;overflow:hidden}
+.mail .mh{background:var(--d-hero);padding:14px;display:flex;align-items:center;gap:10px;color:#fff;font-weight:800}
+.mail .mb{padding:16px;display:grid;gap:10px;font-size:12.5px}
+.files{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px}
+.files div{border:1px solid var(--pg-line);border-radius:10px;padding:8px 12px;background:var(--pg-panel);font-size:13px}
+.files div small{display:block;color:var(--pg-muted)}
+.ld .orb{transform-origin:256px 256px;transform-box:view-box}
+.ld.step .orb{animation:orbitStep 1.2s steps(8,end) infinite}
+.ld.smooth .orb{animation:orbitSmooth 1.1s cubic-bezier(.5,0,.5,1) infinite}
+@keyframes orbitStep{to{transform:rotate(360deg)}}
+@keyframes orbitSmooth{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.ld .orb{animation:pulse 1.4s ease-in-out infinite!important}}
+@keyframes pulse{50%{opacity:.35}}
+.motion{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.motion figure{display:grid;gap:8px;justify-items:center;align-content:start;text-align:center;padding:16px;border-radius:14px}
+.motion figcaption{font-size:12.5px;line-height:1.55}
+.motion figcaption b{display:block;font-size:13.5px}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;counter-reset:f}
+.flow div{border:1px solid var(--d-line);background:var(--d-surface);border-radius:14px;padding:12px;display:grid;gap:6px;align-content:start;font-size:12.5px;color:var(--d-text)}
+.flow div .n{width:26px;height:26px;border-radius:50%;background:var(--d-pc);color:var(--d-onPc);display:grid;place-items:center;font-weight:800}
+.flow div b{font-size:13.5px}
+.flow div small{color:var(--d-muted)}
+@media (prefers-reduced-motion:reduce){.sk,.spin{animation:none}}
+</style>
+
+<div class="wrap" dir="rtl">
+  <header class="top">
+    <span class="lbl">المرحلة 0 · للاعتماد</span>
+    <h1>دليل هوية دايرة — C1 كحلي ليلي وكهرماني</h1>
+    <p class="lead">كل ما يحتاجه التطبيق ولوحة التحكم ليبدوا كمنتج واحد: الشعار، الألوان، الخط، المسافات، الأيقونات، كل مكوّن بكل حالاته، حالات التحميل والفراغ والخطأ، وكل شاشات التطبيق، ثم هوية الباك اند. بدّل الوضع من الشريط بالأعلى لرؤية كل شيء بالفاتح والداكن.</p>
+  </header>
+
+  <nav class="toc" aria-label="الأقسام">
+    <a href="#logo">الشعار</a><a href="#motion">الحركة</a><a href="#pay">معنى الدفع</a><a href="#color">الألوان</a><a href="#type">الخط والمقاسات</a><a href="#icons">الأيقونات</a><a href="#comp">المكوّنات</a><a href="#states">حالات الشاشة</a><a href="#updates">التحديثات</a><a href="#screens">الشاشات</a><a href="#backend">الباك اند</a><a href="#files">الملفات</a>
+    <span class="sp"></span>
+    <div class="seg" role="group" aria-label="وضع العرض"><button id="mL" aria-pressed="true">فاتح</button><button id="mD" aria-pressed="false">داكن</button></div>
+  </nav>
+
+  <section class="s" id="logo"></section>
+  <section class="s" id="motion"></section>
+  <section class="s" id="pay"></section>
+  <section class="s" id="color"></section>
+  <section class="s" id="type"></section>
+  <section class="s" id="icons"></section>
+  <section class="s" id="comp"></section>
+  <section class="s" id="states"></section>
+  <section class="s" id="updates"></section>
+  <section class="s" id="screens"></section>
+  <section class="s" id="backend"></section>
+  <section class="s" id="files"></section>
+</div>
+<script>
+/* ================= icons ================= */
+const P = {
+  home:'<path d="M4 10.5 12 4l8 6.5V20h-5.5v-5h-5v5H4z"/>',
+  circles:'<circle cx="12" cy="12" r="7.5" stroke-dasharray="4.9 1" stroke-linecap="butt" transform="rotate(-90 12 12)"/><circle cx="12" cy="12" r="1.4"/>',
+  bell:'<path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/>',
+  user:'<circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/>',
+  pay:'<path d="M12 14V4M8 8l4-4 4 4"/><path d="M5 13v6h14v-6"/>',
+  receive:'<path d="M12 4v10M8 10l4 4 4-4"/><path d="M5 13v6h14v-6"/>',
+  review:'<rect x="5.5" y="4" width="13" height="16" rx="2"/><path d="M9 12l2 2 4-4"/>',
+  ok:'<circle cx="12" cy="12" r="8"/><path d="M8.5 12.2l2.4 2.4 4.6-5"/>',
+  check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  clock:'<circle cx="12" cy="12" r="8"/><path d="M12 8v4.2l2.8 1.6"/>',
+  alert:'<path d="M12 4 3.5 19h17z"/><path d="M12 10v4M12 16.8v.2"/>',
+  cash:'<rect x="3" y="6.5" width="18" height="11" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6.5 9.5v.01M17.5 14.5v.01"/>',
+  calendar:'<rect x="4" y="5.5" width="16" height="14.5" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>',
+  log:'<path d="M8 7h11M8 12h11M8 17h7"/><path d="M4.5 7v.01M4.5 12v.01M4.5 17v.01"/>',
+  invite:'<circle cx="10" cy="8.5" r="3.5"/><path d="M3.5 19.5a6.5 6.5 0 0 1 11-4.7"/><path d="M18 13.5v6M15 16.5h6"/>',
+  share:'<circle cx="6.5" cy="12" r="2.5"/><circle cx="17.5" cy="6" r="2.5"/><circle cx="17.5" cy="18" r="2.5"/><path d="M8.7 10.8l6.6-3.6M8.7 13.2l6.6 3.6"/>',
+  remind:'<path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/><path d="M3 9a9 9 0 0 1 2.5-4.5M21 9a9 9 0 0 0-2.5-4.5"/>',
+  lock:'<rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/>',
+  settings:'<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>',
+  back:'<path d="M9 5l7 7-7 7"/>',
+  next:'<path d="M15 5l-7 7 7 7"/>',
+  close:'<path d="M6 6l12 12M18 6 6 18"/>',
+  more:'<circle cx="12" cy="5.5" r=".9"/><circle cx="12" cy="12" r=".9"/><circle cx="12" cy="18.5" r=".9"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  search:'<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/>',
+  edit:'<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/>',
+  copy:'<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>',
+  eye:'<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/>',
+  logout:'<path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"/><path d="M10 8l-4 4 4 4M6 12h9"/>',
+  help:'<circle cx="12" cy="12" r="8"/><path d="M9.6 9.5a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2-2.4 3.5M12 16.8v.2"/>',
+  globe:'<circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c2.5 2.5 2.5 13.5 0 16M12 4c-2.5 2.5-2.5 13.5 0 16"/>',
+  moon:'<path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z"/>',
+  offline:'<path d="M3 3l18 18"/><path d="M8.5 16.5a5 5 0 0 1 7 0M5 13a10 10 0 0 1 4-2.4M19 13a10 10 0 0 0-2.3-1.7M2 9.5a14 14 0 0 1 4.6-2.9M22 9.5A14 14 0 0 0 11 6"/><path d="M12 20v.01"/>',
+  refresh:'<path d="M19 12a7 7 0 1 1-2.1-5"/><path d="M19 4v4h-4"/>',
+  device:'<rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/>',
+  trash:'<path d="M5 7h14M10 7V5h4v2M7 7l1 13h8l1-13"/>',
+  mail:'<rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/>',
+  key:'<circle cx="8" cy="15" r="4"/><path d="M11 12l8-8M16 7l2 2"/>',
+  info:'<circle cx="12" cy="12" r="8"/><path d="M12 11v5M12 7.8v.2"/>',
+  drag:'<circle cx="9" cy="6" r=".9"/><circle cx="15" cy="6" r=".9"/><circle cx="9" cy="12" r=".9"/><circle cx="15" cy="12" r=".9"/><circle cx="9" cy="18" r=".9"/><circle cx="15" cy="18" r=".9"/>',
+  filter:'<path d="M4 6h16M7 12h10M10 18h4"/>',
+  tools:'<path d="M14.5 6.5a4 4 0 0 0-5 5L4 17l3 3 5.5-5.5a4 4 0 0 0 5-5l-2.5 2.5-3-3z"/>',
+  update:'<path d="M12 4v11M8 11l4 4 4-4"/><rect x="4" y="18" width="16" height="2" rx="1"/>'
+};
+const I = (n, cls='') => `<svg class="i ${cls}" viewBox="0 0 24 24" aria-hidden="true">${P[n]}</svg>`;
+
+/* ================= logo glyph ================= */
+function seg(cx,cy,ro,ri,a0,a1){const r=a=>a*Math.PI/180,p=(R,a)=>[cx+R*Math.cos(r(a)),cy+R*Math.sin(r(a))];
+  const [x1,y1]=p(ro,a0),[x2,y2]=p(ro,a1),[x3,y3]=p(ri,a1),[x4,y4]=p(ri,a0);
+  return `M${x1.toFixed(1)} ${y1.toFixed(1)}A${ro} ${ro} 0 0 1 ${x2.toFixed(1)} ${y2.toFixed(1)}L${x3.toFixed(1)} ${y3.toFixed(1)}A${ri} ${ri} 0 0 0 ${x4.toFixed(1)} ${y4.toFixed(1)}Z`;}
+function glyph(cx,cy,ro,ri,fg,acc,gap=6){let s='';for(let i=0;i<8;i++){const a0=-90+i*45+gap/2;s+=`<path d="${seg(cx,cy,ro,ri,a0,a0+45-gap)}" fill="${i===0?acc:fg}"/>`;}return s;}
+function glyphMulti(){let s='';for(let i=0;i<8;i++){const a0=-90+i*45+3;s+=`<path d="${seg(512,512,346,218,a0,a0+39)}" fill="${[0,3,5].includes(i)?'#F0A202':'#fff'}"/>`;}return s;}
+const NAVY='#1E2A4A', AMBER='#F0A202';
+function appIcon(size, radius, bg=NAVY, fg='#fff', acc=AMBER){return `<svg viewBox="0 0 1024 1024" width="${size}" height="${size}" style="border-radius:${radius}px;display:block" aria-hidden="true"><rect width="1024" height="1024" fill="${bg}"/>${glyph(512,512,346,218,fg,acc)}</svg>`;}
+function mark(size, fg='var(--d-primary)', acc='var(--d-accent)'){return `<svg viewBox="0 0 512 512" width="${size}" height="${size}" aria-hidden="true" style="display:block">${glyph(256,256,240,152,fg,acc)}</svg>`;}
+
+
+/* animated loader: the amber round travels around the ring, one round at a time */
+function loader(size, track='var(--d-track)', acc='var(--d-accent)', mode='step'){
+  let s='';for(let i=0;i<8;i++){const a0=-90+i*45+3;s+=`<path d="${seg(256,256,240,152,a0,a0+39)}" fill="${track}"/>`;}
+  const a0=-90+3;
+  return `<svg class="ld ${mode}" viewBox="0 0 512 512" width="${size}" height="${size}" role="img" aria-label="جاري التحميل" style="display:block;flex:none">${s}<g class="orb"><path d="${seg(256,256,240,152,a0,a0+39)}" fill="${acc}"/></g></svg>`;}
+
+/* ================= helpers ================= */
+const sec = (id, title, lead, inner) => { document.getElementById(id).innerHTML = `<div class="s-head"><h2>${title}</h2>${lead?`<p class="lead">${lead}</p>`:''}</div>${inner}`; };
+const SB = '<div class="sb"><span>9:41</span><span>5G ▮▮▮</span></div>';
+const phone = (title, note, inner) => `<figure class="ph"><div class="dev"><div class="scr">${SB}${inner}</div></div><figcaption>${title}${note?`<small>${note}</small>`:''}</figcaption></figure>`;
+const appbar = (t, back=true, actions='') => `<div class="ab">${back?`<span class="ib">${I('back')}</span>`:''}<h4>${t}</h4>${actions}</div>`;
+const navbar = (on, badge=3) => { const items=[['home','الرئيسية'],['circles','جمعياتي'],['bell','الإشعارات'],['user','الحساب']];
+  return `<div class="nav">${items.map((it,i)=>`<div class="${i===on?'on':''}"><span class="pill">${I(it[0])}${i===2&&badge?`<span class="badge">${badge}</span>`:''}</span>${it[1]}</div>`).join('')}</div>`; };
+const chip = (k, t) => { const ic = {ok:'check', wait:'clock', bad:'alert', neu:'info', acc:'cash'}[k]; return `<span class="chip ${k}">${I(ic)}${t}</span>`; };
+const ring = (done, total, size=52) => { const r=21, c=2*Math.PI*r, d=c*done/total; return `<svg viewBox="0 0 52 52" width="${size}" height="${size}" aria-hidden="true" style="flex:none"><circle cx="26" cy="26" r="${r}" fill="none" stroke="var(--d-track)" stroke-width="6"/><circle cx="26" cy="26" r="${r}" fill="none" stroke="var(--d-accent)" stroke-width="6" stroke-linecap="round" stroke-dasharray="${d.toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 26 26)"/><text x="26" y="30.5" text-anchor="middle" font-size="12" font-weight="800" fill="var(--d-text)" font-family="Cairo">${done}/${total}</text></svg>`; };
+const mem = (l, n, s, st, me=false) => `<div class="mem"><span class="av ${me?'me':''}">${l}</span><div class="mid"><b>${n}</b><small class="num">${s}</small></div>${st}</div>`;
+const sk = (w, h, r=8) => `<span class="sk" style="display:block;width:${w};height:${h}px;border-radius:${r}px"></span>`;
+
+/* simple illustrations (brand shapes only) */
+const illo = {
+  empty: `<svg class="illo" viewBox="0 0 120 96" aria-hidden="true"><circle cx="60" cy="48" r="44" fill="var(--d-pc)"/>${(()=>{let s='';for(let i=0;i<8;i++){const a0=-90+i*45+3.5;s+=`<path d="${seg(60,48,34,22,a0,a0+38)}" fill="${i===0?'var(--d-accent)':i<3?'var(--d-primary)':'var(--d-lineS)'}"/>`;}return s;})()}<circle cx="60" cy="48" r="12" fill="var(--d-accent)"/><path d="M60 42v12M54 48h12" stroke="var(--d-onAccent)" stroke-width="2.6" stroke-linecap="round"/></svg>`,
+  bell: `<svg class="illo" viewBox="0 0 120 96" aria-hidden="true"><circle cx="60" cy="48" r="34" fill="var(--d-pc)"/><g transform="translate(42 30) scale(1.5)" fill="none" stroke="var(--d-primary)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">${P.bell}</g><circle cx="80" cy="30" r="6" fill="var(--d-accent)"/></svg>`,
+  error: `<svg class="illo" viewBox="0 0 120 96" aria-hidden="true"><circle cx="60" cy="48" r="34" fill="var(--d-badc)"/><g transform="translate(42 30) scale(1.5)" fill="none" stroke="var(--d-bad)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">${P.alert}</g></svg>`,
+  offline: `<svg class="illo" viewBox="0 0 120 96" aria-hidden="true"><circle cx="60" cy="48" r="34" fill="var(--d-waitc)"/><g transform="translate(42 30) scale(1.5)" fill="none" stroke="var(--d-wait)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">${P.offline}</g></svg>`,
+  tools: `<svg class="illo" viewBox="0 0 120 96" aria-hidden="true"><circle cx="60" cy="48" r="34" fill="var(--d-ac)"/><g transform="translate(42 30) scale(1.5)" fill="none" stroke="var(--d-text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">${P.tools}</g></svg>`,
+  update: `<svg class="illo" viewBox="0 0 120 96" aria-hidden="true"><circle cx="60" cy="48" r="34" fill="var(--d-pc)"/><g transform="translate(42 30) scale(1.5)" fill="none" stroke="var(--d-primary)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">${P.update}</g></svg>`,
+  done: `<svg class="illo" viewBox="0 0 120 96" aria-hidden="true"><circle cx="60" cy="48" r="34" fill="var(--d-okc)"/><g transform="translate(42 30) scale(1.5)" fill="none" stroke="var(--d-ok)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${P.check}</g></svg>`,
+  link: `<svg class="illo" viewBox="0 0 120 96" aria-hidden="true"><circle cx="60" cy="48" r="34" fill="var(--d-waitc)"/><g transform="translate(42 30) scale(1.5)" fill="none" stroke="var(--d-wait)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">${P.clock}</g></svg>`
+};
+</script>
+<script>
+/* ================= 1. Logo ================= */
+sec('logo','الشعار وأيقونة التطبيق','"حلقة الأدوار": ثمانية أدوار حول دائرة، ودور واحد كهرماني هو "دورك". شكل واحد يُستخدم في أيقونة التطبيق، وأيقونة تبويب "جمعياتي"، وحلقة التقدّم داخل التطبيق.',
+`<div class="panel">
+  <div class="logo-row">
+    <figure>${appIcon(160,36)}<figcaption>الأيقونة الأساسية · 1024px</figcaption></figure>
+    <figure>${appIcon(96,22)}<figcaption>الشاشة الرئيسية</figcaption></figure>
+    <figure>${appIcon(48,11)}<figcaption>الإعدادات · 48</figcaption></figure>
+    <figure>${appIcon(29,7)}<figcaption>Spotlight · 29</figcaption></figure>
+    <figure>${appIcon(96,48)}<figcaption>Android دائري</figcaption></figure>
+    <figure>${appIcon(96,22,AMBER,NAVY,'#fff')}<figcaption>معكوسة (للمناسبات)</figcaption></figure>
+    <figure><svg viewBox="0 0 1024 1024" width="96" height="96" style="border-radius:48px;display:block" aria-hidden="true"><rect width="1024" height="1024" fill="#DCE3F5"/>${glyph(512,512,300,190,'#2F3A5C','#2F3A5C')}</svg><figcaption>Android 13 Themed</figcaption></figure>
+    <figure><svg viewBox="0 0 96 96" width="36" height="36" style="display:block;background:#2b2f38;border-radius:8px;padding:6px" aria-hidden="true">${glyph(48,48,44,28,'#fff','#fff',8)}</svg><figcaption>أيقونة الإشعار</figcaption></figure>
+  </div>
+  <div class="grid2">
+    <div class="board dz" style="justify-items:center">
+      <span class="lbl" style="justify-self:start">الشعار الأفقي — على فاتح</span>
+      <div style="display:flex;align-items:center;gap:12px;direction:rtl">${mark(56,NAVY,AMBER)}<span style="font-size:40px;font-weight:800;color:${NAVY};line-height:1">دايرة</span></div>
+    </div>
+    <div class="board" style="background:${NAVY};justify-items:center;border-color:${NAVY}">
+      <span class="lbl" style="justify-self:start;color:#C3CADB">الشعار الأفقي — على داكن</span>
+      <div style="display:flex;align-items:center;gap:12px">${mark(56,'#fff',AMBER)}<span style="font-size:40px;font-weight:800;color:#fff;line-height:1">دايرة</span></div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="panel" style="padding:16px">
+      <h3>قواعد الاستخدام</h3>
+      <ul class="rule">
+        <li><b>المساحة الآمنة:</b> فراغ حول الشعار يساوي عرض دور واحد على الأقل.</li>
+        <li><b>أصغر مقاس:</b> 24px للعلامة وحدها، و 96px عرضًا للشعار الأفقي.</li>
+        <li><b>الدور الكهرماني دائمًا أعلى اليمين</b> (أول دور باتجاه عقارب الساعة).</li>
+        <li><b>أيقونة الإشعار</b> لون واحد أبيض (شرط Android)، بدون كهرماني.</li>
+      </ul>
+    </div>
+    <div class="panel" style="padding:16px">
+      <h3>ممنوع</h3>
+      <div class="logo-row">
+        <figure class="dont"><svg viewBox="0 0 1024 1024" width="64" height="64" style="border-radius:15px;display:block" aria-hidden="true"><rect width="1024" height="1024" fill="#356DF3"/>${glyph(512,512,346,218,'#fff','#7667F5')}</svg><figcaption class="x">ألوان أخرى</figcaption></figure>
+        <figure class="dont"><svg viewBox="0 0 1024 1024" width="64" height="64" style="border-radius:15px;display:block" aria-hidden="true"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0A202"/><stop offset="1" stop-color="#1E2A4A"/></linearGradient></defs><rect width="1024" height="1024" fill="url(#gg)"/>${glyph(512,512,346,218,'#fff','#fff')}</svg><figcaption class="x">تدرّجات</figcaption></figure>
+        <figure class="dont"><svg viewBox="0 0 1024 1024" width="64" height="64" style="border-radius:15px;display:block" aria-hidden="true"><rect width="1024" height="1024" fill="${NAVY}"/>${glyphMulti()}</svg><figcaption class="x">أكثر من دور ملوّن</figcaption></figure>
+        <figure class="dont"><svg viewBox="0 0 1024 1024" width="64" height="64" style="border-radius:15px;display:block" aria-hidden="true"><rect width="1024" height="1024" fill="${NAVY}"/><g transform="rotate(25 512 512) scale(1 .7) translate(0 220)">${glyph(512,512,346,218,'#fff',AMBER)}</g></svg><figcaption class="x">تمطيط أو تدوير</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</div>`);
+
+/* ================= 2. Colors ================= */
+const COLORS = [
+ ['primary','الأساسي','#1E2A4A','#C9D3EC','الأزرار العادية، العناوين المهمة'],
+ ['accent','الكهرماني','#F0A202','#F5B321','الفعل الأهم في الشاشة وتقدّم الأدوار فقط'],
+ ['onAccent','الكتابة على الكهرماني','#1E2A4A','#16141A','لا أبيض على الكهرماني أبدًا'],
+ ['primaryContainer','حاوية ناعمة','#E6E9F2','#1E2840','الأيقونة النشطة، الأفاتار، الخلفيات'],
+ ['accentContainer','كهرماني ناعم','#FFF3D6','#3A2F12','"أنت" ودورك القادم'],
+ ['hero','بطاقة الملخص','#1E2A4A','#1C2742','بطاقة "المطلوب منك الآن"'],
+ ['background','الخلفية','#F5F6F9','#0C111D','خلفية الشاشات'],
+ ['surface','السطح','#FFFFFF','#151C2C','البطاقات والقوائم والأوراق'],
+ ['sunken','سطح غائر','#ECEEF3','#10172A','التبويبات المقسّمة، الحقول المعطلة'],
+ ['text','النص','#141A2B','#EDF0F7','النص الأساسي'],
+ ['textMuted','نص ثانوي','#5F6779','#9AA4B8','التواريخ، الشرح'],
+ ['textDisabled','نص معطّل','#9AA1B0','#5E6880','الأزرار المعطلة'],
+ ['line','الحدود','#E3E6EE','#273047','حدود البطاقات والفواصل'],
+ ['lineStrong','حدود قوية','#CDD2DE','#34405C','حدود الحقول'],
+];
+const STAT = [['success','مؤكَّد / مكتمل','#1F7A47','#E3F3EA','#5FD08F','#16302A'],['pending','لم تدفع / بانتظار التأكيد','#4A5876','#E9ECF3','#AEB8D0','#232B3D'],['danger','متأخر / لم يصل / خطأ','#B4372F','#FBE7E5','#F38A80','#3A1F22']];
+function lum(h){const c=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)/255).map(v=>v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4));return .2126*c[0]+.7152*c[1]+.0722*c[2];}
+const ratio=(a,b)=>{const x=lum(a),y=lum(b);return ((Math.max(x,y)+.05)/(Math.min(x,y)+.05)).toFixed(1);};
+const fgOn=h=>lum(h)>.4?'#141A2B':'#FFFFFF';
+function swatches(){const dark=document.querySelector('.dz')?.classList.contains('dark');
+  return COLORS.map(c=>{const v=dark?c[3]:c[2];return `<div class="swatch"><div class="c" style="background:${v};color:${fgOn(v)}">${c[1]}</div><div class="t"><code>${c[0]} · ${v}</code><small>${c[4]}</small></div></div>`;}).join('');}
+sec('color','الألوان — C1','لون أساسي كحلي هادئ، ولون مميز كهرماني يظهر مرة واحدة في الشاشة. الحالات لها ألوانها الخاصة ولا تستخدم الكهرماني، وكل حالة معها أيقونة ونص.',
+`<div class="panel"><div class="sw-grid" id="swgrid"></div></div>
+<div class="grid2">
+  <div class="panel"><h3>ألوان الحالات</h3>
+    <div class="board dz" style="gap:10px">
+      ${STAT.map(s=>`<div class="row"><span>${chip({success:'ok',pending:'wait',danger:'bad'}[s[0]],s[1])}</span><code class="t-muted">${s[2]} / ${s[3]}</code></div>`).join('')}
+    </div>
+    <p class="lead" style="font-size:13px">نفس الحالات بالضبط في Odoo (badges في القوائم) حتى يرى الأدمن ما يراه المستخدم.</p>
+  </div>
+  <div class="panel"><h3>وضوح القراءة (WCAG)</h3>
+    <ul class="rule">
+      <li>أبيض على الكحلي: <b>${ratio('#FFFFFF','#1E2A4A')}:1</b> ✓</li>
+      <li>كحلي على الكهرماني: <b>${ratio('#1E2A4A','#F0A202')}:1</b> ✓</li>
+      <li>نص ثانوي على الخلفية: <b>${ratio('#5F6779','#F5F6F9')}:1</b> ✓</li>
+      <li>أبيض على الكهرماني: <b>${ratio('#FFFFFF','#F0A202')}:1</b> ✗ ولهذا ممنوع</li>
+      <li>نص داكن على خلفية داكنة: <b>${ratio('#EDF0F7','#0C111D')}:1</b> ✓</li>
+    </ul>
+  </div>
+</div>`);
+
+/* ================= 3. Type & spacing ================= */
+const TYPE=[['Display','عرض','28 / 36 · 800','<span style="font-size:28px;font-weight:800">أهلًا بك في دايرة</span>'],
+ ['Title','عنوان الشاشة','20 / 28 · 700','<span style="font-size:20px;font-weight:700">جمعية العيلة</span>'],
+ ['Heading','عنوان قسم','16 / 24 · 700','<span style="font-size:16px;font-weight:700">حالة الأعضاء</span>'],
+ ['Body','نص','14 / 22 · 400','<span style="font-size:14px">سجّل دفعتك بعد التحويل، وسيراجعها المنظّم.</span>'],
+ ['Label','زر وتسمية','13 / 18 · 600','<span style="font-size:13px;font-weight:600">دفعت القسط</span>'],
+ ['Caption','ملاحظة','12 / 16 · 400','<span style="font-size:12px;color:var(--pg-muted)">آخر تحديث منذ دقيقتين</span>'],
+ ['Amount L','مبلغ كبير','28 / 34 · 800 · tabular','<span style="font-size:28px;font-weight:800;font-variant-numeric:tabular-nums">20,000 ج.م</span>'],
+ ['Amount M','مبلغ في قائمة','16 / 22 · 700 · tabular','<span style="font-size:16px;font-weight:700;font-variant-numeric:tabular-nums">2,000.00 ج.م</span>']];
+sec('type','الخط والمقاسات','خط Cairo فقط بأربعة أوزان، وثمانية مقاسات لا غير. كل الأرقام والمبالغ بعرض ثابت حتى تصطف في القوائم.',
+`<div class="panel">${TYPE.map(t=>`<div class="typerow"><div><b>${t[1]}</b><div class="lbl" style="direction:ltr;text-align:right">${t[0]}</div></div><div>${t[3]}</div><div class="spec">${t[2]}</div></div>`).join('')}</div>
+<div class="grid2">
+  <div class="panel dz" style="background:var(--pg-panel)"><h3>المسافات (أساس 4)</h3>
+    <div class="scale">${[4,8,12,16,20,24,32,48].map(v=>`<div><i style="width:${v}px;height:${v}px"></i>${v}</div>`).join('')}</div>
+    <p class="lead" style="font-size:13px">هامش الشاشة 16 · بين البطاقات 12 · داخل البطاقة 12–16 · بين الأقسام 24.</p></div>
+  <div class="panel"><h3>الحواف والارتفاع والحركة</h3>
+    <ul class="rule">
+      <li><b>الحواف:</b> شارة 6 · حقل وزر 12 · بطاقة 16 · بطاقة ملخص 20 · ورقة سفلية 24 · كبسولة 999.</li>
+      <li><b>الظل:</b> البطاقات بحد رفيع فقط بدون ظل تقريبًا؛ الظل للأوراق والزر العائم فقط. في الداكن لا ظلال.</li>
+      <li><b>الحركة:</b> 120ms للضغط · 200ms للانتقالات · 320ms للأوراق. منحنى واحد، وعند "تقليل الحركة" تلاشي فقط.</li>
+      <li><b>اللمس:</b> كل عنصر قابل للضغط 48×48 على الأقل.</li>
+    </ul></div>
+</div>`);
+
+/* ================= 4. Icons ================= */
+const ICONS=[['home','الرئيسية'],['circles','جمعياتي'],['bell','الإشعارات'],['user','الحساب'],['pay','دفعت القسط'],['receive','قبض / استلام'],['review','مراجعة'],['ok','مؤكَّد'],['clock','بانتظار'],['alert','متأخر / خطأ'],['cash','المبلغ'],['calendar','الجدول'],['log','السجل'],['invite','دعوة عضو'],['share','مشاركة'],['remind','تذكير'],['lock','الأمان'],['settings','الإعدادات'],['back','رجوع'],['next','التالي'],['close','إغلاق'],['more','المزيد'],['plus','إضافة'],['search','بحث'],['filter','تصفية'],['edit','تعديل'],['copy','نسخ'],['eye','إظهار'],['refresh','تحديث'],['offline','بدون إنترنت'],['device','الأجهزة'],['globe','اللغة'],['moon','المظهر'],['help','المساعدة'],['mail','البريد'],['key','كلمة المرور'],['trash','حذف'],['logout','خروج'],['drag','سحب للترتيب'],['info','معلومة']];
+sec('icons','الأيقونات','مجموعة واحدة: شبكة 24، خط 1.75، أطراف مستديرة. الحالة النشطة نفس الأيقونة داخل كبسولة ناعمة. في التطبيق تأتي من Phosphor (Regular) بنفس الأسلوب، وأيقونة "جمعياتي" مرسومة خصيصًا من الشعار. في Odoo نستخدم أقرب أيقونة FontAwesome لنفس المعنى.',
+`<div class="board dz"><div class="iconset">${ICONS.map(i=>`<div><span class="pair"><span>${I(i[0])}</span><span class="a">${I(i[0])}</span></span>${i[1]}<small>${i[0]}</small></div>`).join('')}</div></div>`);
+
+/* ================= 5. Components ================= */
+const btnStates = (k, label) => `<div class="st"><span class="lbl">${label}</span>
+  <span class="btn ${k}">${k==='accent'?I('pay'):''}دفعت القسط</span>
+  <span class="btn ${k} pressed">مضغوط</span>
+  <span class="btn ${k} focus">تركيز (لوحة مفاتيح)</span>
+  <span class="btn ${k}">${loader(16,'rgba(128,128,128,.35)','currentColor')}جاري الإرسال…</span>
+  <span class="btn ${k} disabled">معطّل</span></div>`;
+sec('comp','المكوّنات وحالاتها','كل مكوّن معروض بكل حالة سيظهر بها. في Flutter كل واحد منها ملف واحد في lib/design/components.',
+`<div class="panel"><h3>الأزرار</h3>
+  <div class="board dz"><div class="statesgrid">${btnStates('accent','مميز — مرة واحدة في الشاشة')}${btnStates('primary','أساسي')}${btnStates('outline','ثانوي')}${btnStates('ghost','نصي')}${btnStates('danger','خطِر')}</div></div>
+  <ul class="rule"><li><b>زر واحد كهرماني في الشاشة كحد أقصى</b> = أهم شيء مطلوب من المستخدم الآن.</li><li>حالة "جاري الإرسال" تمنع الضغط المكرر، والنص يتغير ليشرح ما يحدث.</li></ul>
+</div>
+<div class="panel"><h3>حقول الإدخال</h3>
+  <div class="board dz"><div class="statesgrid">
+    <div class="st"><span class="lbl">فارغ</span><div class="fld"><label>البريد الإلكتروني</label><div class="inp">${I('mail')}<span class="ph">name@example.com</span></div></div></div>
+    <div class="st"><span class="lbl">تركيز</span><div class="fld"><label>البريد الإلكتروني</label><div class="inp focus">${I('mail')}<span>hossam@</span></div></div></div>
+    <div class="st"><span class="lbl">ممتلئ + مساعدة</span><div class="fld"><label>كلمة المرور</label><div class="inp">${I('key')}<span class="sp1">••••••••••</span>${I('eye')}</div><span class="help">8 أحرف على الأقل</span></div></div>
+    <div class="st"><span class="lbl">خطأ</span><div class="fld"><label>كلمة المرور</label><div class="inp err">${I('key')}<span class="sp1">••••</span></div><span class="help err">${I('alert')}قصيرة جدًا — 8 أحرف على الأقل</span></div></div>
+    <div class="st"><span class="lbl">معطّل</span><div class="fld"><label>العملة</label><div class="inp dis">${I('cash')}<span>EGP · جنيه مصري</span></div></div></div>
+    <div class="st"><span class="lbl">مبلغ</span><div class="fld"><label>قيمة القسط</label><div class="inp focus" style="justify-content:space-between"><b class="num" style="font-size:15px">2,000</b><span class="t-muted">ج.م</span></div></div></div>
+  </div>
+  <div class="statesgrid" style="margin-top:6px">
+    <div class="st"><span class="lbl">رمز التحقق — أثناء الكتابة</span><div class="code8"><span>4</span><span>8</span><span>2</span><span>1</span><i></i><span class="on"></span><span></span><span></span><span></span></div></div>
+    <div class="st"><span class="lbl">رمز التحقق — خطأ</span><div class="code8"><span class="e">4</span><span class="e">8</span><span class="e">2</span><span class="e">1</span><i></i><span class="e">0</span><span class="e">0</span><span class="e">7</span><span class="e">3</span></div><span class="help err">${I('alert')}الرمز غير صحيح أو انتهى</span></div>
+    <div class="st"><span class="lbl">اختيار متعدد</span><div class="tabs"><span class="on">شهري</span><span>أسبوعي</span><span>يومي</span></div></div>
+    <div class="st"><span class="lbl">مفتاح</span><div class="row"><span>الوضع الداكن</span><span class="sw on"></span></div><div class="row"><span>تذكير بالبريد</span><span class="sw"></span></div></div>
+  </div></div>
+</div>
+<div class="panel"><h3>الشارات والبطاقات والقوائم</h3>
+  <div class="board dz">
+    <div class="row" style="flex-wrap:wrap;justify-content:flex-start;gap:6px">${chip('ok','مؤكَّد')}${chip('ok','مكتمل التحصيل')}${chip('wait','بانتظار التأكيد')}${chip('wait','لم تدفع')}${chip('wait','جاري التحصيل')}${chip('bad','متأخر')}${chip('bad','لم يصل')}${chip('neu','مسودة')}${chip('neu','منتهية')}${chip('acc','دورك')}</div>
+    <div class="statesgrid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
+      <div class="hero"><span class="m">المطلوب منك الآن</span><span class="big">2,000 ج.م</span><div class="row m"><span>جمعية العيلة · الدور 4</span><span>قبل 15 نوفمبر</span></div><span class="btn accent">${I('pay')}دفعت القسط</span></div>
+      <div class="card"><div class="row"><b>جمعية العيلة</b>${chip('wait','جاري التحصيل')}</div><div class="bar"><i style="width:60%"></i></div><div class="row t-cap num"><span>6 من 10 دفعوا</span><span>القسط 2,000 ج.م</span></div></div>
+      <div class="card"><div class="row" style="justify-content:flex-start;gap:12px">${ring(4,10)}<div class="col" style="gap:0"><b>دورك في القبض</b><span class="t-cap">بعد 3 أدوار · فبراير 2027</span><b class="num">20,000 ج.م</b></div></div></div>
+      <div class="card">${mem('أ','أحمد علي','2,000 ج.م · 10 نوفمبر',chip('ok','مؤكَّد'))}<div class="div"></div>${mem('س','سارة محمود','سجّلت الدفع اليوم',chip('wait','بانتظار التأكيد'))}<div class="div"></div>${mem('ح','حسام (أنت)','قبل 15 نوفمبر',chip('wait','لم تدفع'),true)}</div>
+    </div>
+  </div>
+</div>
+<div class="panel"><h3>التنبيهات والرسائل</h3>
+  <div class="board dz"><div class="statesgrid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
+    <div class="banner info">${I('offline')}<div class="sp1"><b>أنت غير متصل</b>تعرض آخر بيانات محفوظة. الإجراءات المالية تحتاج اتصالًا.</div></div>
+    <div class="banner info">${I('clock')}<div class="sp1"><b>البيانات ليست محدّثة</b>آخر تحديث منذ 3 ساعات.</div><span class="act">تحديث</span></div>
+    <div class="banner acc">${I('info')}<div class="sp1"><b>إعلان من دايرة</b>صيانة مجدولة الجمعة 2–3 فجرًا.</div>${I('close')}</div>
+    <div class="banner bad">${I('alert')}<div class="sp1"><b>المنظّم لم يستلم دفعتك</b>السبب: المبلغ ناقص 200 ج.م.</div><span class="act">عرض</span></div>
+    <div class="banner ok">${I('ok')}<div class="sp1"><b>تم تأكيد دفعتك</b>شكرًا، تم تحديث الجمعية.</div></div>
+    <div class="snack">${I('ok')}تم إرسال الدفعة بانتظار التأكيد<span class="act">تراجع</span></div>
+    <div class="snack err">${I('alert')}تعذّر الاتصال<span class="act">إعادة</span></div>
+  </div></div>
+</div>
+<div class="panel"><h3>التنقل والتقدّم</h3>
+  <div class="board dz"><div class="statesgrid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
+    <div class="st"><span class="lbl">الشريط السفلي + شارة</span><div style="border-radius:12px;overflow:hidden;border:1px solid var(--d-line)">${navbar(0)}</div></div>
+    <div class="st"><span class="lbl">خطوات المعالج</span><div class="steps"><i class="done"></i><i class="on"></i><i></i><i></i></div><span class="t-cap">الخطوة 2 من 4 · الأعضاء</span></div>
+    <div class="st"><span class="lbl">التبويبات</span><div class="tabs"><span class="on">الحالي</span><span>الجدول</span><span>الأعضاء</span><span>السجل</span></div></div>
+    <div class="st"><span class="lbl">صفوف الإعدادات</span><div class="list"><div class="li"><span class="ic">${I('globe')}</span><div class="mid"><b>اللغة</b><small>العربية</small></div>${I('next')}</div><div class="li"><span class="ic">${I('device')}</span><div class="mid"><b>الأجهزة المتصلة</b><small>2 جهاز</small></div>${I('next')}</div></div></div>
+  </div></div>
+</div>`);
+</script>
+<script>
+/* ================= reusable screen bodies ================= */
+const homeBody = (banner='') => `<div class="body">
+  ${banner}
+  <div class="row"><div class="col" style="gap:0"><span class="t-cap">مساء الخير</span><span class="t-title">حسام</span></div><span class="av">ح</span></div>
+  <div class="hero"><span class="m">المطلوب منك الآن</span><span class="big">2,000 ج.م</span><div class="row m"><span>جمعية العيلة · الدور 4</span><span>قبل 15 نوفمبر</span></div><span class="btn accent">${I('pay')}دفعت القسط</span></div>
+  <div class="card"><div class="row" style="justify-content:flex-start;gap:10px">${ring(4,10,46)}<div class="col" style="gap:0"><b>دورك في القبض</b><span class="t-cap">بعد 3 أدوار · فبراير 2027</span><b class="num">20,000 ج.م</b></div></div></div>
+  <div class="row"><span class="t-head">جمعياتي</span><span class="t-cap" style="color:var(--d-primary);font-weight:700">عرض الكل</span></div>
+  <div class="card"><div class="row"><b>جمعية العيلة</b>${chip('wait','جاري التحصيل')}</div><div class="bar"><i style="width:60%"></i></div><div class="row t-cap num"><span>6 من 10 دفعوا</span><span>2,000 ج.م</span></div></div>
+</div>`;
+
+sec('states','حالات الشاشة','كل شاشة تمر بهذه الحالات. القاعدة: لا شاشة بيضاء ولا spinner وحده. التحميل بهيكل الشاشة نفسه، والفراغ والخطأ يشرحان ما حدث ويقدّمان خطوة واحدة واضحة.',
+`<div class="board dz"><div class="phones">
+${phone('التحميل','هيكل الشاشة يلمع بدل spinner',`<div class="body">
+  <div class="row"><div class="col">${sk('60px',10)}${sk('90px',16)}</div>${sk('30px',30,15)}</div>
+  ${sk('100%',150,18)}${sk('100%',70,16)}${sk('40%',12)}${sk('100%',62,16)}${sk('100%',62,16)}</div>${navbar(0,0)}`)}
+${phone('لا توجد جمعيات','أول مرة بعد التسجيل',`${appbar('جمعياتي',false)}<div class="body center">${illo.empty.replace('class="illo"','class="illo" style="width:150px;height:120px"')}<span class="t-head">ابدأ أول جمعية</span><span class="t-muted">أنشئ جمعية وادعُ أعضاءها، أو انضم بكود دعوة وصلك.</span><span class="btn accent" style="width:100%">${I('plus')}إنشاء جمعية</span><span class="btn outline" style="width:100%">لديّ كود دعوة</span></div>${navbar(1,0)}`)}
+${phone('لا توجد إشعارات','',`${appbar('الإشعارات',false)}<div class="body center">${illo.bell}<span class="t-head">لا جديد الآن</span><span class="t-muted">سنخبرك هنا عند طلب دفعة، أو تأكيدها، أو اقتراب دورك.</span></div>${navbar(2,0)}`)}
+${phone('خطأ من السيرفر','الكود: unavailable',`${appbar('جمعياتي',false)}<div class="body center">${illo.error}<span class="t-head">تعذّر تحميل الجمعيات</span><span class="t-muted">حدثت مشكلة عندنا وليست في جهازك. حاول بعد قليل.</span><span class="btn primary" style="width:100%">${I('refresh')}إعادة المحاولة</span></div>${navbar(1,0)}`)}
+${phone('بدون إنترنت','ولا توجد بيانات محفوظة',`<div class="body center">${illo.offline}<span class="t-head">لا يوجد اتصال</span><span class="t-muted">تأكد من الإنترنت ثم حاول مرة أخرى.</span><span class="btn primary" style="width:100%">${I('refresh')}إعادة المحاولة</span></div>`)}
+${phone('بيانات محفوظة قديمة','بدون اتصال، مع بيانات سابقة',homeBody(`<div class="banner info">${I('offline')}<div class="sp1"><b>أنت غير متصل</b>آخر تحديث 9:12 م</div><span class="act">تحديث</span></div>`)+navbar(0))}
+${phone('صيانة','يُفعَّل من لوحة التحكم',`<div class="body center">${illo.tools}<span class="t-head">دايرة في صيانة قصيرة</span><span class="t-muted">نعود خلال ساعة تقريبًا. بياناتك محفوظة ولن تتأثر.</span><span class="chip neu">${I('clock')}متوقع: 11:30 م</span></div>`)}
+${phone('تحديث إجباري','أقل إصدار مدعوم من لوحة التحكم',`<div class="body center">${illo.update}<span class="t-head">يتوفر إصدار جديد</span><span class="t-muted">هذا الإصدار لم يعد مدعومًا. حدّث التطبيق للمتابعة.</span><span class="btn accent" style="width:100%">تحديث الآن</span></div>`)}
+${phone('تحديث اختياري','يظهر مرة واحدة',homeBody(`<div class="banner acc">${I('update')}<div class="sp1"><b>إصدار جديد متاح</b>تحسينات في سرعة التطبيق.</div><span class="act">تحديث</span></div>`)+navbar(0))}
+${phone('تم بنجاح','بعد إنشاء جمعية',`<div class="body center">${illo.done}<span class="t-head">تم إنشاء جمعية العيلة</span><span class="t-muted">الخطوة التالية: ادعُ الأعضاء التسعة ليتابعوا دفعاتهم.</span><span class="btn accent" style="width:100%">${I('invite')}دعوة الأعضاء</span><span class="btn ghost" style="width:100%">لاحقًا</span></div>`)}
+${phone('دعوة منتهية','رابط دعوة قديم',`<div class="body center">${illo.link}<span class="t-head">انتهت صلاحية الدعوة</span><span class="t-muted">الدعوات صالحة 72 ساعة. اطلب من منظّم الجمعية دعوة جديدة.</span><span class="btn primary" style="width:100%">حسنًا</span></div>`)}
+${phone('انتهت الجلسة','بعد 30 يومًا بدون استخدام',`<div class="body" style="justify-content:center;gap:12px">
+  <div class="banner info">${I('lock')}<div class="sp1"><b>انتهت جلستك</b>سجّل الدخول مرة أخرى للمتابعة.</div></div>
+  <div class="fld"><label>البريد الإلكتروني</label><div class="inp">${I('mail')}<span>hossam@example.com</span></div></div>
+  <div class="fld"><label>كلمة المرور</label><div class="inp focus">${I('key')}<span class="ph">••••••••</span></div></div>
+  <span class="btn primary">تسجيل الدخول</span></div>`)}
+</div></div>`);
+
+/* ================= screens ================= */
+const S = [];
+S.push(['الدخول والتسجيل',[
+ phone('Splash','الدور الكهرماني يلف أثناء فتح التطبيق',`<div class="body center" style="background:var(--d-hero);color:#fff;margin:-30px 0 0;gap:14px">${loader(84,'#fff','var(--d-accent)')}<span style="font-size:26px;font-weight:800">دايرة</span><span style="color:var(--d-onHeroM)">جمعيتك منظمة وواضحة</span></div>`),
+ phone('Onboarding 1 من 3','النصوص من لوحة التحكم',`<div class="body" style="justify-content:space-between;padding-top:20px"><span class="t-cap" style="align-self:flex-end">تخطي</span><div class="col" style="align-items:center;text-align:center;gap:14px">${illo.empty.replace('class="illo"','class="illo" style="width:180px;height:140px"')}<span class="t-title">كل جمعياتك في مكان واحد</span><span class="t-muted">اعرف مين دفع، ومين باقي، وإمتى دورك — من غير ورق ولا رسائل كثيرة.</span></div><div class="col" style="gap:12px"><div class="dots"><i class="on"></i><i></i><i></i></div><span class="btn primary">التالي</span></div></div>`),
+ phone('تسجيل الدخول','',`<div class="body" style="gap:12px;padding-top:24px">${mark(44)}<span class="t-title">أهلًا بعودتك</span><span class="t-muted">سجّل الدخول لمتابعة جمعياتك.</span>
+   <div class="fld"><label>البريد الإلكتروني</label><div class="inp">${I('mail')}<span>hossam@example.com</span></div></div>
+   <div class="fld"><label>كلمة المرور</label><div class="inp">${I('key')}<span class="sp1">••••••••••</span>${I('eye')}</div></div>
+   <span class="t-cap" style="color:var(--d-primary);font-weight:700">نسيت كلمة المرور؟</span>
+   <span class="btn primary">تسجيل الدخول</span><span class="sp1"></span><span class="t-cap" style="text-align:center">ليس لديك حساب؟ <b style="color:var(--d-primary)">أنشئ حسابًا</b></span></div>`),
+ phone('حساب جديد','',`${appbar('حساب جديد')}<div class="body" style="gap:10px">
+   <div class="fld"><label>الاسم</label><div class="inp">${I('user')}<span>حسام محمد</span></div></div>
+   <div class="fld"><label>البريد الإلكتروني</label><div class="inp focus">${I('mail')}<span>hossam@</span></div></div>
+   <div class="fld"><label>كلمة المرور</label><div class="inp">${I('key')}<span class="sp1">••••••••</span>${I('eye')}</div><div class="bar" style="height:4px"><i style="width:66%;background:var(--d-ok)"></i></div><span class="help">قوية · 8 أحرف على الأقل</span></div>
+   <span class="t-cap">بالمتابعة أنت توافق على <b>الشروط</b> و<b>سياسة الخصوصية</b>.</span><span class="btn primary">إنشاء الحساب</span></div>`),
+ phone('تأكيد البريد','رمز من 8 أرقام',`${appbar('تأكيد البريد')}<div class="body" style="gap:12px;text-align:center"><span class="t-title">أدخل الرمز</span><span class="t-muted">أرسلنا رمزًا من 8 أرقام إلى<br><b class="num" style="color:var(--d-text)">hossam@example.com</b></span>
+   <div class="code8"><span>4</span><span>8</span><span>2</span><span>1</span><i></i><span>0</span><span class="on"></span><span></span><span></span></div>
+   <span class="t-cap">إعادة الإرسال بعد <b class="num">0:42</b></span><span class="sp1"></span><span class="btn primary disabled">تأكيد</span><span class="t-cap">أو افتح الرابط في البريد</span></div>`),
+ phone('نسيت كلمة المرور','بعد الإرسال',`${appbar('استعادة كلمة المرور')}<div class="body center">${illo.done.replace('var(--d-okc)','var(--d-pc)').replace('var(--d-ok)','var(--d-primary)').replace(P.check,P.mail)}<span class="t-head">راجع بريدك</span><span class="t-muted">لو البريد مسجّل عندنا، ستصلك رسالة فيها رابط لتعيين كلمة مرور جديدة خلال دقائق.</span><span class="btn primary" style="width:100%">العودة لتسجيل الدخول</span><span class="t-cap">لم تصلك؟ <b style="color:var(--d-primary)">إعادة الإرسال</b></span></div>`)
+]]);
+S.push(['الرئيسية والجمعيات',[
+ phone('الرئيسية','أهم شيء أولًا: المطلوب منك',homeBody()+navbar(0)),
+ phone('جمعياتي','بحث + تصفية + زر إنشاء',`${appbar('جمعياتي',false,`<span class="ib">${I('search')}</span>`)}<div class="body"><div class="tabs"><span class="on">النشطة 2</span><span>المسودات 1</span><span>المكتملة 3</span></div>
+   <div class="card"><div class="row"><b>جمعية العيلة</b>${chip('wait','جاري التحصيل')}</div><div class="bar"><i style="width:60%"></i></div><div class="row t-cap num"><span>الدور 4 من 10 · شهري</span><span>2,000 ج.م</span></div></div>
+   <div class="card"><div class="row"><b>جمعية الشغل</b>${chip('ok','جاهزة للصرف')}</div><div class="bar"><i style="width:100%"></i></div><div class="row t-cap num"><span>الدور 7 من 12 · شهري</span><span>1,500 ج.م</span></div></div>
+   <div class="card"><div class="row"><b>جمعية الأصحاب</b>${chip('acc','دورك')}</div><div class="bar"><i style="width:30%"></i></div><div class="row t-cap num"><span>الدور 3 من 8 · أسبوعي</span><span>500 ج.م</span></div></div>
+ </div><span class="fab">${I('plus')}جمعية جديدة</span>${navbar(1)}`),
+ phone('الجمعية — الحالي','عضو عادي',`${appbar('جمعية العيلة',true,`<span class="ib">${I('more')}</span>`)}<div class="body"><div class="tabs"><span class="on">الحالي</span><span>الجدول</span><span>الأعضاء</span><span>السجل</span></div>
+   <div class="card"><div class="row t-cap"><span>الدور 4 من 10 · يقبض</span><span>15 نوفمبر</span></div><div class="row"><b style="font-size:13px">منى السيد</b><b class="num" style="font-size:13px">20,000 ج.م</b></div><div class="bar"><i style="width:60%"></i></div><div class="row t-cap num"><span>تم تحصيل 12,000</span><span>باقي 8,000</span></div></div>
+   <div class="card">${mem('أ','أحمد علي','2,000 ج.م · 10 نوفمبر',chip('ok','مؤكَّد'))}<div class="div"></div>${mem('س','سارة محمود','سجّلت الدفع اليوم',chip('wait','بانتظار التأكيد'))}<div class="div"></div>${mem('ك','كريم حسن','متأخر يومين',chip('bad','متأخر'))}<div class="div"></div>${mem('ح','حسام (أنت)','قبل 15 نوفمبر',chip('wait','لم تدفع'),true)}</div>
+   <span class="btn accent">${I('pay')}دفعت القسط 2,000 ج.م</span></div>`),
+ phone('الجمعية — المنظّم','نفس الشاشة بصلاحيات المنظّم',`${appbar('جمعية العيلة',true,`<span class="ib">${I('more')}</span>`)}<div class="body"><div class="tabs"><span class="on">الحالي</span><span>الجدول</span><span>الأعضاء</span><span>السجل</span></div>
+   <div class="banner acc">${I('review')}<div class="sp1"><b>دفعتان تنتظران تأكيدك</b>سارة محمود · ياسر فؤاد</div></div>
+   <div class="card">${mem('س','سارة محمود','2,000 ج.م · سجّلت الدفع 4:20 م',chip('wait','بانتظار التأكيد'))}<div class="row" style="gap:6px"><span class="btn outline sm" style="flex:1">لم يصلني</span><span class="btn primary sm" style="flex:1">${I('check')}وصلني</span></div></div>
+   <div class="card">${mem('ك','كريم حسن','متأخر يومين',chip('bad','متأخر'))}<span class="btn ghost sm">${I('remind')}تذكير</span></div>
+   <span class="btn outline">${I('remind')}تذكير كل المتأخرين</span></div>`),
+ phone('الجمعية — الجدول','ترتيب الأدوار والتواريخ',`${appbar('جمعية العيلة')}<div class="body"><div class="tabs"><span>الحالي</span><span class="on">الجدول</span><span>الأعضاء</span><span>السجل</span></div>
+   <div class="card"><div class="tl">
+   ${[['1','أحمد علي','15 أغسطس','done'],['2','سارة محمود','15 سبتمبر','done'],['3','ياسر فؤاد','15 أكتوبر','done'],['4','منى السيد','15 نوفمبر','cur'],['5','كريم حسن','15 ديسمبر',''],['6','حسام (أنت)','15 يناير','']].map((r,i,a)=>`<div class="r"><span class="dot"><i class="${r[3]}"></i>${i<a.length-1?'<u></u>':''}</span><div class="c"><div class="row"><b>${r[0]}. ${r[1]}</b><span class="t-cap num">${r[2]}</span></div>${r[3]==='cur'?`<span class="t-cap">جاري التحصيل · 12,000 من 20,000</span>`:r[3]==='done'?`<span class="t-cap">استلم 20,000 ج.م</span>`:''}</div></div>`).join('')}
+   </div></div></div>`),
+ phone('الجمعية — الأعضاء','ربط الأعضاء والدعوات',`${appbar('جمعية العيلة')}<div class="body"><div class="tabs"><span>الحالي</span><span>الجدول</span><span class="on">الأعضاء</span><span>السجل</span></div>
+   <div class="card">${mem('م','منى السيد','المنظّمة · سهم واحد',chip('ok','مرتبط'))}<div class="div"></div>${mem('أ','أحمد علي','سهم واحد',chip('ok','مرتبط'))}<div class="div"></div>${mem('ك','كريم حسن','سهمان',chip('wait','مدعو · 48 س'))}<div class="div"></div>${mem('ي','ياسر فؤاد','سهم واحد',`<span class="btn ghost sm">${I('invite')}دعوة</span>`)}</div>
+   <span class="t-cap">الأعضاء غير المرتبطين يظهرون في الجمعية، لكن لا يستطيعون الإبلاغ عن دفعاتهم حتى يقبلوا الدعوة.</span></div>`),
+ phone('الجمعية — السجل','سجل غير قابل للتعديل',`${appbar('جمعية العيلة')}<div class="body"><div class="tabs"><span>الحالي</span><span>الجدول</span><span>الأعضاء</span><span class="on">السجل</span></div>
+   <div class="card list">${[['ok','أكدت منى استلام دفعة أحمد','اليوم 5:02 م'],['pay','سجّلت سارة دفع 2,000 ج.م','اليوم 4:20 م'],['alert','لم تصل دفعة كريم كاملة: المبلغ ناقص','أمس 8:10 م'],['receive','أكد ياسر استلام 20,000 ج.م','15 أكتوبر'],['invite','انضم أحمد بدعوة','2 أغسطس']].map(r=>`<div class="li"><span class="ic">${I(r[0])}</span><div class="mid"><b>${r[1]}</b><small>${r[2]}</small></div></div>`).join('')}</div></div>`)
+]]);
+S.push(['إنشاء جمعية — 4 خطوات',[
+ phone('1. الأساسيات','العملة مقترحة حسب الدولة',`${appbar('جمعية جديدة',true,`<span class="ib">${I('close')}</span>`)}<div class="body" style="gap:10px"><div class="steps"><i class="on"></i><i></i><i></i><i></i></div><span class="t-head">الأساسيات</span>
+   <div class="fld"><label>اسم الجمعية</label><div class="inp focus"><span>جمعية العيلة</span></div></div>
+   <div class="fld"><label>قيمة القسط للسهم</label><div class="inp" style="justify-content:space-between"><b class="num">2,000</b><span class="t-muted">ج.م ▾</span></div><span class="help">اقترحنا الجنيه المصري حسب دولة جهازك</span></div>
+   <div class="fld"><label>كل</label><div class="tabs"><span class="on">شهر</span><span>أسبوع</span><span>يوم</span></div></div>
+   <div class="fld"><label>أول موعد</label><div class="inp">${I('calendar')}<span class="num">15 أغسطس 2026</span></div></div>
+   <span class="sp1"></span><span class="btn primary">التالي</span></div>`),
+ phone('2. الأعضاء','الأسهم لكل عضو',`${appbar('جمعية جديدة',true,`<span class="ib">${I('close')}</span>`)}<div class="body" style="gap:8px"><div class="steps"><i class="done"></i><i class="on"></i><i></i><i></i></div><div class="row"><span class="t-head">الأعضاء</span><span class="t-cap num">10 أسهم</span></div>
+   <div class="card" style="gap:6px">${mem('ح','حسام (أنت)','المنظّم',`<span class="chip neu num">− 1 +</span>`,true)}<div class="div"></div>${mem('أ','أحمد علي','',`<span class="chip neu num">− 1 +</span>`)}<div class="div"></div>${mem('ك','كريم حسن','',`<span class="chip neu num">− 2 +</span>`)}<div class="div"></div>${mem('س','سارة محمود','',`<span class="chip neu num">− 1 +</span>`)}</div>
+   <div class="inp"><span class="ph sp1">اسم عضو جديد</span>${I('plus')}</div><span class="sp1"></span><span class="btn primary">التالي</span></div>`),
+ phone('3. ترتيب الأدوار','اسحب لتغيير الترتيب',`${appbar('جمعية جديدة',true,`<span class="ib">${I('close')}</span>`)}<div class="body" style="gap:8px"><div class="steps"><i class="done"></i><i class="done"></i><i class="on"></i><i></i></div><div class="row"><span class="t-head">ترتيب القبض</span><span class="t-cap" style="color:var(--d-primary);font-weight:700">ترتيب عشوائي</span></div>
+   <div class="card list">${[['1','أحمد علي','15 أغسطس'],['2','سارة محمود','15 سبتمبر'],['3','كريم حسن','15 أكتوبر'],['4','كريم حسن','15 نوفمبر'],['5','حسام (أنت)','15 ديسمبر']].map(r=>`<div class="li"><span class="ic num" style="font-weight:800">${r[0]}</span><div class="mid"><b>${r[1]}</b><small class="num">${r[2]}</small></div><span class="t-muted">${I('drag')}</span></div>`).join('')}</div>
+   <span class="sp1"></span><span class="btn primary">التالي</span></div>`),
+ phone('4. المراجعة','ملخص قبل التفعيل',`${appbar('جمعية جديدة',true,`<span class="ib">${I('close')}</span>`)}<div class="body" style="gap:8px"><div class="steps"><i class="done"></i><i class="done"></i><i class="done"></i><i class="on"></i></div><span class="t-head">راجع قبل التفعيل</span>
+   <div class="hero"><span class="m">كل عضو يقبض</span><span class="big">20,000 ج.م</span><span class="m num">10 أدوار · شهريًا · من 15 أغسطس 2026 إلى 15 مايو 2027</span></div>
+   <div class="card list"><div class="li"><div class="mid"><b>القسط للسهم</b></div><b class="num">2,000 ج.م</b></div><div class="li"><div class="mid"><b>الأعضاء</b></div><b class="num">9 · 10 أسهم</b></div><div class="li"><div class="mid"><b>دورك</b></div>${chip('acc','الدور 5 · ديسمبر')}</div></div>
+   <span class="sp1"></span><span class="btn accent">تفعيل الجمعية</span><span class="btn ghost sm">حفظ كمسودة</span></div>`)
+]]);
+const detailBg = `${appbar('جمعية العيلة')}<div class="body"><div class="tabs"><span class="on">الحالي</span><span>الجدول</span><span>الأعضاء</span><span>السجل</span></div><div class="card">${mem('أ','أحمد علي','',chip('ok','مؤكَّد'))}${mem('س','سارة','',chip('wait','بانتظار التأكيد'))}</div></div><div class="scrim"></div>`;
+S.push(['الدفع والصرف',[
+ phone('الإبلاغ بالدفع','ورقة سفلية بتأكيد واضح',`${detailBg}<div class="sheet"><span class="grab"></span><span class="t-head">هل دفعت القسط؟</span><div class="amt"><b>2,000</b><span>ج.م</span></div><div class="card flat list" style="padding:6px 12px"><div class="li"><div class="mid"><b>الجمعية</b></div><span>جمعية العيلة · الدور 4</span></div><div class="li"><div class="mid"><b>إلى</b></div><span>منى السيد (المنظّمة)</span></div></div><span class="t-cap">الدفع يتم خارج التطبيق. هنا تسجّل فقط أنك دفعت، والمنظّمة تؤكد أنها استلمت.</span><span class="btn accent">${I('pay')}نعم، دفعت</span><span class="btn ghost">إلغاء</span></div>`),
+ phone('تأكيد دفعة','للمنظّم: هل وصلك المبلغ؟',`${detailBg}<div class="sheet"><span class="grab"></span>${mem('س','سارة محمود','سجّلت الدفع اليوم 4:20 م',chip('wait','بانتظار التأكيد'))}<div class="amt"><b>2,000</b><span>ج.م</span></div><span class="t-cap">أكّد فقط إذا وصلك المبلغ فعلًا. التأكيد يُسجَّل باسمك ولا يمكن التراجع عنه.</span><div class="row" style="gap:8px"><span class="btn outline" style="flex:1">لم يصلني</span><span class="btn primary" style="flex:1">${I('check')}وصلني</span></div></div>`),
+ phone('لم يصلني — السبب','السبب إلزامي ويصل للعضو',`${detailBg}<div class="sheet"><span class="grab"></span><span class="t-head">سبب الرفض</span><div class="row" style="flex-wrap:wrap;gap:6px;justify-content:flex-start"><span class="chip wait">لم يصلني</span><span class="chip acc">المبلغ ناقص</span><span class="chip wait">دفعة مكررة</span></div><div class="inp focus" style="height:auto;min-height:60px;align-items:flex-start;padding-top:8px">وصلني 1,800 فقط، باقي 200 ج.م</div><span class="help num">34 / 500</span><span class="btn danger">إرسال للعضو</span><span class="btn ghost">رجوع</span></div>`),
+ phone('الصرف للمستلم','للمنظّم بعد اكتمال التحصيل',`${appbar('جمعية العيلة')}<div class="body"><div class="tabs"><span class="on">الحالي</span><span>الجدول</span><span>الأعضاء</span><span>السجل</span></div>
+   <div class="banner ok">${I('ok')}<div class="sp1"><b>اكتمل التحصيل</b>كل الأعضاء دفعوا الدور 4.</div></div>
+   <div class="hero"><span class="m">ادفع للمستلمة</span><span class="big">20,000 ج.م</span><span class="m">منى السيد · الدور 4</span><div class="bar"><i style="width:100%"></i></div></div>
+   <span class="t-cap">بعد ما تسلّم منى المبلغ، اضغط «سلّمت المبلغ» لتؤكد هي أنها استلمت.</span><span class="sp1"></span><span class="btn accent">${I('receive')}سلّمت المبلغ</span></div>`),
+ phone('تأكيد الاستلام','للمستلم — آخر خطوة في الدور',`${appbar('جمعية العيلة')}<div class="body"></div><div class="scrim"></div><div class="dlg"><span class="av me" style="width:44px;height:44px;margin:0 auto">${I('receive')}</span><span class="t-head" style="text-align:center">هل استلمت 20,000 ج.م؟</span><span class="t-muted" style="text-align:center">سجّل حسام أنه سلّمك مبلغ دورك. أكّد فقط إذا وصلك المبلغ كاملًا.</span><span class="btn accent">نعم، استلمت</span><span class="btn ghost">لم يصلني بعد</span></div>`),
+ phone('دعوة عضو','رابط + كود',`${appbar('دعوة ياسر فؤاد')}<div class="body" style="gap:12px"><div class="card" style="align-items:center;text-align:center"><span class="t-cap">كود الدعوة</span><b class="num" style="font-size:17px;letter-spacing:1px;direction:ltr;white-space:nowrap">7KQM-4XPR-2HTA</b><span class="chip wait">${I('clock')}صالح 72 ساعة</span></div><span class="btn accent">${I('share')}مشاركة الدعوة</span><span class="btn outline">${I('copy')}نسخ الكود</span><span class="t-cap">الدعوة لعضو واحد فقط وتُستخدم مرة واحدة. يمكنك إلغاؤها في أي وقت.</span><span class="sp1"></span><span class="btn ghost" style="color:var(--d-bad)">إلغاء الدعوة</span></div>`),
+ phone('قبول دعوة','بعد فتح الرابط',`<div class="body center">${mark(56)}<span class="t-cap">دعتك منى السيد إلى</span><span class="t-title">جمعية العيلة</span><div class="card list" style="width:100%;text-align:start"><div class="li"><div class="mid"><b>ستنضم باسم</b></div><span>ياسر فؤاد</span></div><div class="li"><div class="mid"><b>القسط</b></div><span class="num">2,000 ج.م شهريًا</span></div><div class="li"><div class="mid"><b>دورك</b></div><span class="num">الدور 7 · فبراير</span></div></div><span class="btn accent" style="width:100%">قبول والانضمام</span><span class="btn ghost" style="width:100%">ليس الآن</span></div>`)
+]]);
+S.push(['الإشعارات والحساب',[
+ phone('الإشعارات','ما يحتاج إجراء أولًا',`${appbar('الإشعارات',false,`<span class="t-cap" style="font-weight:700;color:var(--d-primary)">قراءة الكل</span>`)}<div class="body"><span class="lbl t-cap">يحتاج إجراء</span>
+   <div class="card list" style="padding:4px 12px">${[['review','سارة دفعت القسط 2,000 ج.م','جمعية العيلة · منذ 5 د',1],['pay','موعد قسطك بعد يومين','جمعية العيلة · 15 نوفمبر',1]].map(r=>`<div class="li"><span class="ic" style="background:var(--d-ac)">${I(r[0])}</span><div class="mid"><b>${r[1]}</b><small>${r[2]}</small></div><span style="width:8px;height:8px;border-radius:9px;background:var(--d-accent)"></span></div>`).join('')}</div>
+   <span class="lbl t-cap">سابقًا</span>
+   <div class="card list" style="padding:4px 12px">${[['ok','تم تأكيد دفعتك','جمعية الشغل · أمس'],['alert','دفعتك لم تصل كاملة: المبلغ ناقص','جمعية الأصحاب · الاثنين'],['invite','انضم أحمد لجمعية العيلة','2 أغسطس']].map(r=>`<div class="li"><span class="ic">${I(r[0])}</span><div class="mid"><b>${r[1]}</b><small>${r[2]}</small></div></div>`).join('')}</div></div>${navbar(2,2)}`),
+ phone('الحساب','',`${appbar('الحساب',false)}<div class="body"><div class="card" style="flex-direction:row;align-items:center;gap:10px"><span class="av" style="width:44px;height:44px;font-size:15px">ح</span><div class="col sp1" style="gap:0"><b style="font-size:13px">حسام محمد</b><span class="t-cap">hossam@example.com</span></div><span class="t-muted">${I('edit')}</span></div>
+   <div class="card list" style="padding:2px 12px">${[['globe','اللغة','العربية'],['moon','المظهر','تلقائي'],['bell','الإشعارات','مفعّلة'],['device','الأجهزة المتصلة','2'],['key','تغيير كلمة المرور','']].map(r=>`<div class="li"><span class="ic">${I(r[0])}</span><div class="mid"><b>${r[1]}</b></div><span class="t-cap">${r[2]}</span>${I('next')}</div>`).join('')}</div>
+   <div class="card list" style="padding:2px 12px">${[['help','المساعدة والأسئلة'],['info','الشروط والخصوصية']].map(r=>`<div class="li"><span class="ic">${I(r[0])}</span><div class="mid"><b>${r[1]}</b></div>${I('next')}</div>`).join('')}</div>
+   <span class="btn outline">${I('logout')}تسجيل الخروج</span><span class="t-cap" style="text-align:center">الإصدار 2.0.0</span></div>${navbar(3)}`),
+ phone('الأجهزة المتصلة','',`${appbar('الأجهزة المتصلة')}<div class="body"><div class="card list" style="padding:2px 12px"><div class="li"><span class="ic">${I('device')}</span><div class="mid"><b>Samsung A54 · Android</b><small>هذا الجهاز · نشط الآن</small></div>${chip('ok','الحالي')}</div><div class="li"><span class="ic">${I('device')}</span><div class="mid"><b>iPhone 13 · iOS</b><small>آخر استخدام منذ 3 أيام</small></div><span class="btn ghost sm" style="color:var(--d-bad)">إنهاء</span></div></div><span class="btn outline">إنهاء كل الجلسات الأخرى</span></div>`),
+ phone('حذف الحساب','مطلوب من المتاجر',`${appbar('حذف الحساب')}<div class="body" style="gap:10px"><div class="banner bad">${I('alert')}<div class="sp1"><b>لا يمكن التراجع</b>سيُحذف حسابك وبياناتك الشخصية.</div></div><span class="t-muted">لن تتمكن من الحذف وأنت عضو في جمعية نشطة لم تنتهِ. يبقى سجل الدفعات في الجمعيات المكتملة باسم مجهول حفاظًا على حقوق باقي الأعضاء.</span><div class="fld"><label>اكتب كلمة المرور للتأكيد</label><div class="inp">${I('key')}<span class="ph">••••••••</span></div></div><span class="sp1"></span><span class="btn danger">حذف حسابي نهائيًا</span><span class="btn ghost">رجوع</span></div>`)
+]]);
+sec('screens','كل الشاشات','الشاشات النهائية بالمحتوى الحقيقي. الترتيب داخل كل شاشة: ما المطلوب منك ← التفاصيل ← الإجراءات الأقل أهمية.',
+  S.map(g=>`<div class="panel"><h3>${g[0]}</h3><div class="board dz"><div class="phones">${g[1].join('')}</div></div></div>`).join(''));
+
+/* ================= backend ================= */
+sec('backend','هوية الباك اند (Odoo)','نفس الألوان والشارات والأيقونات داخل Odoo، حتى يرى الأدمن ما يراه المستخدم. شريط علوي كحلي، الكهرماني فقط لما يحتاج تدخّل.',
+`<div class="panel"><h3>لوحة التحكم</h3><div class="odoo dz">
+  <div class="top">${mark(22,'#fff',AMBER)}دايرة<span>لوحة التحكم</span><span>العمليات</span><span>المستخدمون</span><span>التواصل</span><span>الإعدادات</span></div>
+  <div class="main">
+    <div class="kpis"><div class="kpi"><small>حسابات مؤكدة</small><b>1,284</b><small>+36 هذا الأسبوع</small></div><div class="kpi"><small>نشط آخر 30 يوم</small><b>842</b><small>66%</small></div><div class="kpi"><small>جمعيات نشطة</small><b>213</b><small>18 مسودة</small></div><div class="kpi warn"><small>أدوار متأخرة</small><b>7</b><small>تحتاج متابعة</small></div><div class="kpi"><small>دفعات بانتظار التأكيد</small><b>45</b><small>متوسط 6 ساعات</small></div><div class="kpi"><small>تحصيل هذا الشهر (EGP)</small><b>3.2M</b><small>لكل عملة على حدة</small></div></div>
+    <div class="scrollx"><table class="otable"><thead><tr><th>يحتاج تدخّل</th><th>الجمعية</th><th>المنظّم</th><th>الحالة</th><th></th></tr></thead><tbody>
+      <tr><td>دور متأخر 9 أيام</td><td>جمعية الشغل</td><td>محمود ع.</td><td>${chip('bad','متأخر')}</td><td style="color:var(--d-primary);font-weight:700">فتح</td></tr>
+      <tr><td>بريد تأكيد فشل 3 مرات</td><td>—</td><td>nour@…</td><td>${chip('bad','فشل')}</td><td style="color:var(--d-primary);font-weight:700">إعادة إرسال</td></tr>
+      <tr><td>دفعة بانتظار التأكيد منذ 4 أيام</td><td>جمعية الأصحاب</td><td>رانيا ح.</td><td>${chip('wait','بانتظار التأكيد')}</td><td style="color:var(--d-primary);font-weight:700">فتح</td></tr>
+    </tbody></table></div>
+  </div></div>
+  <ul class="rule"><li>القائمة والأيقونة: أيقونة "حلقة الأدوار" في قائمة تطبيقات Odoo.</li><li>الشارات في القوائم (<code>widget="badge"</code> + <code>decoration-*</code>) مطابقة لألوان الحالات أعلاه.</li><li>الإجراءات الخطِرة (إيقاف حساب، إلغاء جمعية) تفتح نافذة تطلب السبب.</li></ul>
+</div>
+<div class="grid2">
+  <div class="panel"><h3>بريد التأكيد</h3><div class="dz" style="background:transparent"><div class="mail">
+    <div class="mh">${mark(26,'#fff',AMBER)}دايرة</div>
+    <div class="mb"><b style="font-size:15px">أكّد بريدك الإلكتروني</b><span>أهلًا حسام، أدخل هذا الرمز في التطبيق:</span>
+      <div style="background:var(--d-sunken);border-radius:12px;padding:12px;text-align:center;font-size:24px;font-weight:800;letter-spacing:6px;direction:ltr" class="num">4821 0739</div>
+      <span class="t-muted">الرمز صالح 10 دقائق. أو استخدم الزر:</span><span class="btn primary">تأكيد البريد</span>
+      <span class="t-cap">لم تطلب ذلك؟ تجاهل الرسالة.</span></div></div></div></div>
+  <div class="panel"><h3>صفحة تأكيد البريد (من Odoo)</h3><div class="board dz" style="justify-items:center;padding:24px">
+    <div class="card" style="width:100%;max-width:320px;align-items:center;text-align:center;gap:10px">${mark(48)}<b style="font-size:16px">تم تأكيد بريدك</b><span class="t-muted">ارجع للتطبيق وسجّل الدخول.</span><span class="btn accent" style="width:100%">فتح دايرة</span></div></div></div>
+</div>`);
+
+/* ================= files ================= */
+sec('files','ملفات المرحلة 0','محفوظة في مجلد التطبيق: design/identity-v2. تصميم فقط، لا تغيير في كود التطبيق أو الباك اند.',
+`<div class="files">
+ <div><code>design-tokens.json</code><small>كل الألوان والمقاسات والحركة — مصدر واحد للتطبيق وOdoo</small></div>
+ <div><code>logo/daira-icon.svg · .png</code><small>الأيقونة الأساسية 1024 + 512 للمتجر</small></div>
+ <div><code>logo/daira-icon-foreground / background / monochrome</code><small>أيقونة Android المتكيّفة + Themed</small></div>
+ <div><code>logo/daira-icon-inverse</code><small>النسخة المعكوسة</small></div>
+ <div><code>logo/daira-mark-on-light / on-dark</code><small>العلامة وحدها للـ splash وداخل التطبيق</small></div>
+ <div><code>logo/daira-logo-horizontal-light / dark</code><small>الشعار مع كلمة دايرة</small></div>
+ <div><code>logo/daira-notification</code><small>أيقونة الإشعار (أبيض فقط)</small></div>
+ <div><code>logo/odoo-icon.svg · icon.png</code><small>أيقونة الموديول في Odoo</small></div>
+ <div><code>guide.html</code><small>نسخة محلية من هذا الدليل</small></div>
+</div>`);
+
+
+/* ================= motion ================= */
+sec('motion','حركة الشعار','الدور الكهرماني يتنقّل حول الحلقة دورًا بعد دور، كأن القبض ينتقل بين الأعضاء. هو مؤشر التحميل الوحيد في التطبيق، بحجم ولون يناسب مكانه.',
+`<div class="board dz"><div class="motion">
+  <figure style="background:var(--d-hero);color:#fff">${loader(96,'#fff','var(--d-accent)')}<figcaption><b>فتح التطبيق</b><span style="color:var(--d-onHeroM)">على الـ splash أثناء استرجاع الجلسة وأول تحميل</span></figcaption></figure>
+  <figure style="background:var(--d-surface)">${loader(56)}<figcaption><b>تحميل لا نعرف شكله</b><span class="t-muted">فتح رابط دعوة، تحويل بين الحسابات</span></figcaption></figure>
+  <figure style="background:var(--d-surface)"><div class="row" style="gap:8px;border-radius:999px;background:var(--d-surface);box-shadow:0 2px 8px rgba(20,26,43,.12);padding:6px 12px">${loader(22)}<span class="t-cap">جاري التحديث…</span></div><figcaption><b>السحب للتحديث</b><span class="t-muted">بدل الدائرة الافتراضية</span></figcaption></figure>
+  <figure style="background:var(--d-surface)"><span class="btn accent" style="width:100%">${loader(16,'rgba(30,42,74,.25)','currentColor')}جاري الإرسال…</span><span class="btn primary" style="width:100%">${loader(16,'rgba(255,255,255,.3)','#fff')}جاري التأكيد…</span><figcaption><b>داخل الأزرار</b><span class="t-muted">أي إجراء ينتظر السيرفر</span></figcaption></figure>
+  <figure style="background:var(--d-surface)">${loader(56,'var(--d-track)','var(--d-accent)','smooth')}<figcaption><b>بديل: حركة ناعمة</b><span class="t-muted">لو حسيت الخطوات حادة. المقترح هو الخطوات.</span></figcaption></figure>
+</div></div>
+<div class="grid2">
+  <div class="panel"><h3>أين تُستخدم وأين لا</h3><ul class="rule">
+    <li><b>نعم:</b> فتح التطبيق، السحب للتحديث، الأزرار أثناء الإرسال، التحميل الذي لا نعرف شكله، وصفحة تأكيد البريد في Odoo.</li>
+    <li><b>لا:</b> تحميل محتوى شاشة معروفة (الرئيسية، الجمعيات، الإشعارات). هنا نستخدم هيكل الشاشة اللامع، لأنه يوضح ما سيظهر ولا يشتّت.</li>
+    <li><b>لا تظهر لأقل من 400ms</b> حتى لا ترمش الشاشة، وتختفي بتلاشي 120ms.</li>
+    <li><b>حركة واحدة على الشاشة</b> في أي وقت.</li>
+  </ul></div>
+  <div class="panel"><h3>المواصفات</h3><ul class="rule">
+    <li>8 خطوات × 150ms = لفّة كاملة كل 1.2 ثانية، تتكرر.</li>
+    <li>على الخلفية الفاتحة: الأدوار بلون المسار، والكهرماني يتحرك. على الكحلي: الأدوار بيضاء.</li>
+    <li>"تقليل الحركة" مفعّل في الجهاز ← بدل الدوران نبض هادئ في الدور الكهرماني.</li>
+    <li>في Flutter: <code>CustomPainter</code> + <code>AnimationController</code> (بدون Lottie أو مكتبات). في Odoo وصفحة البريد: SVG + CSS.</li>
+  </ul></div>
+</div>`);
+
+/* ================= payment meaning ================= */
+sec('pay','معنى «دفعت القسط»','دايرة لا تحوّل فلوسًا. الدفع يتم بينكم كالعادة (كاش، إنستاباي، فودافون كاش…)، والتطبيق يسجّل ما حدث حتى يرى الجميع الحقيقة نفسها. لذلك غيّرنا الكلمات لتكون كلام الناس العادي.',
+`<div class="board dz"><div class="flow">
+  <div><span class="n">1</span><b>تدفع خارج التطبيق</b><small>تسلّم القسط للمنظّم بالطريقة المتفق عليها.</small></div>
+  <div><span class="n">2</span><b>تضغط «دفعت القسط»</b><small>حالتك تصبح ${chip('wait','بانتظار التأكيد')} ويصل إشعار للمنظّم.</small></div>
+  <div><span class="n">3</span><b>المنظّم يضغط «وصلني»</b><small>حالتك تصبح ${chip('ok','مؤكَّد')}. لو ضغط «لم يصلني» يكتب السبب وترجع ${chip('wait','لم تدفع')}.</small></div>
+  <div><span class="n">4</span><b>«سلّمت المبلغ» ثم «استلمت»</b><small>لما يتأكد الكل، المنظّم يسلّم صاحب الدور ويسجّل، وصاحب الدور يؤكد أنه استلم. هنا يقفل الدور.</small></div>
+</div></div>
+<div class="panel"><h3>الكلمات الجديدة</h3><div class="scrollx"><table class="otable dz" style="min-width:520px">
+  <thead><tr><th>قبل</th><th>الآن</th><th>من يراها</th></tr></thead><tbody>
+  <tr><td>أبلغت بالدفع</td><td><b>دفعت القسط</b></td><td>العضو</td></tr>
+  <tr><td>للمراجعة</td><td><b>بانتظار التأكيد</b></td><td>الكل</td></tr>
+  <tr><td>اعتماد / رفض</td><td><b>وصلني / لم يصلني</b></td><td>المنظّم</td></tr>
+  <tr><td>معتمد / مرفوض</td><td><b>مؤكَّد / لم يصل</b></td><td>الكل</td></tr>
+  <tr><td>سجّلت الصرف</td><td><b>سلّمت المبلغ</b></td><td>المنظّم</td></tr>
+  <tr><td>تأكيد الاستلام</td><td><b>استلمت</b></td><td>صاحب الدور</td></tr>
+  </tbody></table></div></div>`);
+
+/* ================= updates ================= */
+sec('updates','التحديثات: اختياري أم إجباري','كل إصدار جديد يُسجَّل في Odoo، والأدمن يحدد بعلامة واحدة هل هو إجباري. التطبيق يسأل السيرفر عند الفتح وعند الرجوع إليه، والسيرفر نفسه يرفض الإصدارات القديمة جدًا.',
+`<div class="grid2">
+  <div class="panel"><h3>كيف يعمل</h3><ol class="rule">
+    <li>الأدمن يضيف الإصدار في <b>دايرة ← الإعدادات ← إصدارات التطبيق</b>: رقم الإصدار، المنصة، ملاحظات بالعربي والإنجليزي، و<b>☐ إجباري</b>.</li>
+    <li>التطبيق يرسل رقم إصداره مع كل طلب، ويقرأ <code>GET /app/config</code> عند الفتح والرجوع.</li>
+    <li><b>أقدم من آخر إصدار إجباري</b> ← شاشة "تحديث إجباري" ولا يكمل. والسيرفر يرد على أي طلب منه بـ <code>update_required</code>، فلا يمكن تجاوزها.</li>
+    <li><b>أقدم من آخر إصدار فقط</b> ← شريط "إصدار جديد متاح" مرة واحدة لكل إصدار، ويمكن إغلاقه.</li>
+    <li><b>مهلة اختيارية:</b> "إجباري ابتداءً من تاريخ" ← قبلها شريط تحذير بعدد الأيام، وبعدها إجباري.</li>
+  </ol></div>
+  <div class="panel"><h3>متى نجعله إجباريًا؟</h3><ul class="rule">
+    <li><b>الافتراضي: اختياري.</b> أغلب التحديثات تحسينات.</li>
+    <li><b>إجباري فقط عند:</b> تغيير في الـ API لا يعمل مع الإصدار القديم، إصلاح أمني، أو خطأ يؤثر على أرقام الجمعيات.</li>
+    <li>كل منصة لها إصداراتها (Android و iOS) لأن مراجعة المتاجر تختلف في المدة.</li>
+    <li>زر التحديث يفتح صفحة التطبيق في المتجر، والرابط من الإعدادات.</li>
+  </ul></div>
+</div>
+<div class="panel"><h3>في Odoo</h3><div class="odoo dz">
+  <div class="top">${mark(22,'#fff',AMBER)}دايرة<span>الإعدادات</span><span>إصدارات التطبيق</span></div>
+  <div class="main"><div class="scrollx"><table class="otable"><thead><tr><th>الإصدار</th><th>المنصة</th><th>النوع</th><th>إجباري من</th><th>الملاحظات</th><th>المستخدمون عليه</th></tr></thead><tbody>
+    <tr><td class="num"><b>2.1.0</b> (21)</td><td>Android</td><td>${chip('neu','اختياري')}</td><td>—</td><td>تحسينات في السرعة</td><td class="num">38%</td></tr>
+    <tr><td class="num"><b>2.0.3</b> (19)</td><td>Android</td><td>${chip('bad','إجباري')}</td><td class="num">20 نوفمبر</td><td>إصلاح أمني في الجلسات</td><td class="num">55%</td></tr>
+    <tr><td class="num"><b>2.0.0</b> (15)</td><td>Android</td><td>${chip('neu','اختياري')}</td><td>—</td><td>الهوية الجديدة</td><td class="num">7%</td></tr>
+  </tbody></table></div>
+  <div class="banner acc">${I('info')}<div class="sp1"><b>7% من المستخدمين سيُطلب منهم التحديث يوم 20 نوفمبر</b>يظهر لهم الآن شريط بعدد الأيام المتبقية.</div></div></div></div>
+</div>
+<div class="board dz"><div class="phones">
+${phone('قبل المهلة','إجباري من تاريخ قادم',homeBody(`<div class="banner bad">${I('update')}<div class="sp1"><b>حدّث التطبيق خلال 5 أيام</b>بعدها لن يعمل هذا الإصدار.</div><span class="act">تحديث</span></div>`)+navbar(0))}
+${phone('تحديث إجباري','بعد المهلة أو فورًا',`<div class="body center">${illo.update}<span class="t-head">يتوفر إصدار جديد</span><span class="t-muted">هذا الإصدار لم يعد مدعومًا. حدّث التطبيق للمتابعة.</span><div class="card flat" style="width:100%;text-align:start"><b>الجديد في 2.0.3</b><span class="t-cap">إصلاح أمني في الجلسات</span></div><span class="btn accent" style="width:100%">تحديث الآن</span></div>`)}
+</div></div>`);
+
+/* ================= mode ================= */
+let dark=false;
+try{dark=localStorage.getItem('daira-guide-mode')==='D';}catch(e){}
+function setMode(d){dark=d;document.querySelectorAll('.dz').forEach(e=>e.classList.toggle('dark',d));
+  document.getElementById('mL').setAttribute('aria-pressed',String(!d));document.getElementById('mD').setAttribute('aria-pressed',String(d));
+  document.getElementById('swgrid').innerHTML=swatches();try{localStorage.setItem('daira-guide-mode',d?'D':'L');}catch(e){}}
+document.getElementById('mL').onclick=()=>setMode(false);document.getElementById('mD').onclick=()=>setMode(true);
+setMode(dark);
+</script>
+
+</body></html>

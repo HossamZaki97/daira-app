@@ -1,308 +1,87 @@
 {
   "@@locale": "ar",
   "appName": "دايرة",
-  "home": "الرئيسية",
-  "circles": "جمعياتي",
-  "actions": "الإجراءات",
-  "settings": "الإعدادات",
+  "retry": "حاول مجددًا",
+  "cancel": "إلغاء",
+  "close": "إغلاق",
+  "later": "لاحقًا",
+  "ok": "حسنًا",
+  "continueAction": "متابعة",
+  "loading": "جارٍ التحميل…",
   "signIn": "تسجيل الدخول",
-  "signUp": "إنشاء حساب",
-  "name": "الاسم",
+  "signOut": "تسجيل الخروج",
+  "signInTitle": "أهلًا بعودتك",
+  "signInBody": "سجّل الدخول لمتابعة جمعياتك.",
   "email": "البريد الإلكتروني",
   "password": "كلمة المرور",
+  "showPassword": "إظهار كلمة المرور",
+  "hidePassword": "إخفاء كلمة المرور",
   "forgotPassword": "نسيت كلمة المرور؟",
-  "sendReset": "إرسال رابط الاستعادة",
-  "confirmEmail": "تأكيد البريد الإلكتروني",
-  "neutralEmail": "إذا كان البريد مؤهلًا للتأكيد، تصلك رسالة برابط ورمز. يمكنك استخدام أيهما. إن كان لديك حساب مؤكد، سجّل الدخول أو استعد كلمة المرور.",
-  "resetSent": "إذا كان البريد مؤهلًا، تصلك رسالة لاستعادة كلمة المرور أو لاستكمال تأكيد البريد أولًا.",
-  "resend": "إعادة إرسال رسالة التأكيد",
-  "useAnotherEmail": "استخدام بريد آخر",
-  "waitToResend": "انتظر 60 ثانية قبل إعادة الإرسال.",
-  "passwordHint": "استخدم 8 أحرف على الأقل.",
   "requiredField": "أكمل هذا الحقل.",
   "invalidEmail": "أدخل بريدًا إلكترونيًا صحيحًا.",
-  "errorOffline": "تعذر الاتصال. راجع اتصالك وحاول مجددًا.",
-  "errorCredentials": "راجع بيانات الدخول، وتأكد من تأكيد بريدك قبل الدخول.",
-  "errorConflict": "تغيرت البيانات. تم تحديثها؛ راجع الحالة وحاول مجددًا.",
-  "errorForbidden": "هذا الإجراء غير متاح لعضويتك.",
-  "errorRate": "انتظر قليلًا قبل المحاولة مجددًا.",
-  "errorGeneric": "تعذر إكمال الطلب. حاول مجددًا.",
-  "invalidCode": "الرمز غير صالح أو منتهي أو ملغى أو مستخدم.",
-  "alreadyMember": "الحساب عضو بالفعل في الجمعية، أو العضوية مرتبطة بحساب.",
-  "retry": "إعادة المحاولة",
-  "cancel": "إلغاء",
-  "confirm": "تأكيد",
-  "close": "إغلاق",
-  "welcome": "جمعياتك، بوضوح",
-  "homeBody": "تابع المساهمات ودور كل عضو. الأموال تتحرك خارج دايرة.",
-  "createCircle": "إنشاء جمعية",
-  "joinInvite": "الانضمام بدعوة",
-  "noCircles": "ستظهر جمعياتك هنا. أنشئ جمعية أو انضم بدعوة.",
-  "nothingRequired": "لا توجد إجراءات مطلوبة منك الآن.",
-  "requiredActions": "مطلوب منك",
-  "waitingOthers": "بانتظار الآخرين",
-  "recentlyCompleted": "اعتُمد مؤخرًا",
-  "allActions": "عرض كل الإجراءات",
-  "circleName": "اسم الجمعية",
-  "installment": "قيمة القسط لكل سهم",
-  "currency": "العملة",
-  "cadence": "الدورية",
-  "days": "أيام",
-  "weeks": "أسابيع",
-  "months": "أشهر",
-  "interval": "كل",
-  "startDate": "موعد أول استحقاق",
-  "members": "الأعضاء",
-  "addMember": "إضافة عضو",
-  "memberName": "اسم العضو",
-  "shares": "الأسهم",
-  "organizerShares": "أسهمك",
-  "orderHint": "الأدوار حسب ترتيب الأعضاء، دور لكل سهم؛ أدوارك تأتي أخيرًا.",
-  "saveDraft": "حفظ كمسودة",
-  "saveCircle": "حفظ الجمعية",
-  "activate": "تفعيل الجمعية",
-  "draft": "مسودة",
-  "active": "نشطة",
-  "completed": "مكتملة",
-  "you": "أنت",
-  "organizer": "المنظم",
-  "round": "الدور",
-  "rounds": "الأدوار",
-  "beneficiary": "المستفيد",
-  "dueDate": "الاستحقاق",
-  "expected": "قيمة الاستحقاق",
-  "collected": "المعتمد تحصيله",
-  "remaining": "المتبقي للاعتماد",
-  "collecting": "جارٍ تحصيل الأقساط",
-  "readyForPayout": "اكتمل التحصيل، بانتظار تسجيل التسليم",
-  "payoutReported": "أقر المنظم بالتسليم، بانتظار تأكيد المستفيد",
-  "historical": "دور تاريخي؛ لم يتحقق دايرة من التسليم",
-  "pending": "لم يُبلغ بالدفع",
-  "reported": "بانتظار اعتماد المنظم",
-  "approved": "معتمد",
-  "report": "أبلغت بالدفع",
-  "paymentNotice": "الدفع يتم خارج دايرة. هذا تسجيل لإقرارك فقط.",
-  "review": "مراجعة الإقرار",
-  "reportedAt": "وقت الإبلاغ",
-  "approve": "اعتماد",
-  "reject": "رفض وطلب تصحيح",
-  "reason": "السبب (إلزامي، حتى 500 حرف)",
-  "payout": "تسجيل تسليم الدور",
-  "payoutNotice": "هذا تسجيل لإقرار المنظم، وليس تحويلًا بنكيًا أو تأكيد استلام من المستفيد.",
-  "receipt": "تأكيد الاستلام",
-  "receiptNotice": "أكد فقط بعد استلام قيمة الدور كاملة خارج التطبيق.",
-  "audit": "سجل النشاط",
-  "saved": "تم الحفظ بنجاح.",
-  "invite": "دعوة",
-  "manageInvite": "إدارة الدعوة",
-  "activeInvite": "دعوة فعالة",
-  "expires": "تنتهي في",
-  "invitationCode": "رمز الدعوة",
-  "copy": "نسخ الرمز",
-  "share": "مشاركة الدعوة",
-  "copied": "تم نسخ الرمز.",
-  "revoke": "إلغاء الدعوة",
-  "replace": "إلغاء وإصدار رمز جديد",
-  "replaceNotice": "سيتوقف الرمز السابق عن العمل. شارك الرمز البديل مع العضو مجددًا.",
-  "codeLost": "الدعوة ما زالت صالحة لمن استلمها. لا يمكن استرجاع الرمز بعد انتهاء هذه الجلسة.",
-  "checkCode": "فحص الرمز",
-  "acceptInvite": "قبول الدعوة",
-  "inviteShare": "انضم إلى جمعيتي في دايرة باستخدام رمز الدعوة:",
-  "logout": "تسجيل الخروج",
-  "darkMode": "المظهر الداكن",
+  "errorOffline": "لا يوجد اتصال. تحقّق من الإنترنت وحاول مجددًا.",
+  "errorUnavailable": "دايرة لا تستجيب الآن. حاول بعد قليل.",
+  "errorCredentials": "راجع البريد وكلمة المرور. الحساب الجديد يحتاج تأكيد البريد أولًا.",
+  "errorSuspended": "هذا الحساب موقوف. تواصل مع دعم دايرة.",
+  "errorSessionEnded": "انتهت جلستك. سجّل الدخول مجددًا.",
+  "errorConflict": "تغيّرت البيانات في الأثناء. حدّثناها — راجعها وحاول مجددًا.",
+  "errorForbidden": "لا يمكنك تنفيذ هذا الإجراء في هذه الجمعية.",
+  "errorRateLimited": "محاولات كثيرة. انتظر قليلًا ثم حاول مجددًا.",
+  "errorInvalidInput": "راجع البيانات المحددة.",
+  "errorNotFound": "هذا العنصر لم يعد متاحًا.",
+  "errorCircleSuspended": "هذه الجمعية موقوفة من دعم دايرة.",
+  "errorGeneric": "حدث خطأ. حاول مجددًا.",
+  "maintenanceTitle": "دايرة تحت الصيانة",
+  "maintenanceBody": "نحسّن الخدمة الآن. بياناتك في أمان — عُد بعد قليل.",
+  "maintenanceUntil": "العودة المتوقعة: {until}",
+  "updateRequiredTitle": "حدّث دايرة للمتابعة",
+  "updateRequiredBody": "هذا الإصدار لم يعد مدعومًا. حدّث التطبيق من المتجر لتواصل استخدام دايرة.",
+  "updateAvailableTitle": "يتوفر إصدار جديد",
+  "updateAvailableBody": "الإصدار {version} متاح الآن في المتجر.",
+  "updateRequiredFrom": "سيصبح إلزاميًا من {date}",
+  "updateNow": "تحديث",
+  "whatsNew": "الجديد",
+  "offlineTitle": "لا يوجد اتصال",
+  "offlineBody": "دايرة تحتاج الإنترنت لتبقى جمعياتك محدّثة.",
+  "unavailableTitle": "تعذّر الوصول إلى دايرة",
+  "unavailableBody": "لم تستجب الخدمة. حاول مجددًا بعد لحظات.",
+  "obligationPending": "مستحق",
+  "obligationReported": "بانتظار التأكيد",
+  "obligationApproved": "مؤكَّد",
+  "obligationOverdue": "متأخر",
+  "actionPaid": "دفعت القسط",
+  "actionReceived": "وصلني",
+  "actionNotReceived": "لم يصلني",
+  "actionPayout": "سلّمت المبلغ",
+  "actionReceipt": "استلمت",
+  "circleDraft": "مسودة",
+  "circleActive": "نشطة",
+  "circleSuspended": "موقوفة",
+  "circleCompleted": "مكتملة",
+  "circleCancelled": "ملغاة",
+  "roundCollecting": "جارٍ التحصيل",
+  "roundReady": "جاهزة للتسليم",
+  "roundPayoutReported": "بانتظار الاستلام",
+  "roundCompleted": "مكتملة",
   "language": "اللغة",
   "arabic": "العربية",
   "english": "English",
-  "greeting": "أهلًا، {name}",
-  "@greeting": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
+  "appearance": "المظهر",
+  "themeSystem": "حسب الجهاز",
+  "themeLight": "فاتح",
+  "themeDark": "داكن",
+  "previewTitle": "أساس دايرة",
+  "previewBody": "هذه النسخة لاختبار التصميم الجديد والاتصال بالخادم. الشاشات الكاملة في المرحلة القادمة.",
+  "signedInAs": "مسجّل باسم {name}",
+  "serverStatus": "الخادم",
+  "connected": "متصل",
+  "activeCirclesCount": "{count, plural, =0{لا توجد جمعيات نشطة} =1{جمعية نشطة واحدة} =2{جمعيتان نشطتان} few{{count} جمعيات نشطة} many{{count} جمعية نشطة} other{{count} جمعية نشطة}}",
+  "actionsCount": "{count, plural, =0{لا شيء مطلوب منك الآن} =1{إجراء واحد مطلوب منك} =2{إجراءان مطلوبان منك} few{{count} إجراءات مطلوبة منك} many{{count} إجراءً مطلوبًا منك} other{{count} إجراء مطلوب منك}}",
+  "componentsTitle": "المكوّنات",
+  "emptyCirclesTitle": "لا توجد جمعيات بعد",
+  "emptyCirclesBody": "أنشئ جمعية لمجموعتك، أو انضم لجمعية برمز دعوة.",
+  "createCircle": "إنشاء جمعية",
+  "joinWithCode": "الانضمام برمز",
   "roundOf": "الدور {number} من {total}",
-  "@roundOf": {
-    "placeholders": {
-      "number": {
-        "type": "int"
-      },
-      "total": {
-        "type": "int"
-      }
-    }
-  },
-  "currentRound": "الدور الحالي",
-  "currentRecipient": "مستفيد الدور",
-  "yourReceivingTurn": "دور استلامك الآن",
-  "nextRound": "الدور التالي",
-  "upcoming": "قادم",
-  "overdue": "متأخر",
-  "ownContribution": "قسطك",
-  "roundAmount": "قيمة الدور",
-  "yourTurns": "أدوار استلامك",
-  "receivingTurns": "أدوار الاستلام",
-  "latestActivity": "أحدث النشاط",
-  "allCircles": "عرض الكل ({count})",
-  "@allCircles": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "filterCount": "{label} ({count})",
-  "@filterCount": {
-    "placeholders": {
-      "label": {
-        "type": "String"
-      },
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "allFilter": "الكل",
-  "memberCount": "{count, plural, =1{عضو واحد} =2{عضوان} few{{count} أعضاء} many{{count} عضوًا} other{{count} عضو}}",
-  "@memberCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "shareCount": "{count, plural, =1{سهم واحد} =2{سهمان} few{{count} أسهم} other{{count} سهم}}",
-  "@shareCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "approvalCount": "أقساط معتمدة {approved} من {total}",
-  "@approvalCount": {
-    "placeholders": {
-      "approved": {
-        "type": "int"
-      },
-      "total": {
-        "type": "int"
-      }
-    }
-  },
-  "collectionDone": "اكتمل التحصيل",
-  "awaitingReceipt": "بانتظار تأكيد الاستلام",
-  "lastSync": "آخر تحديث {time}",
-  "@lastSync": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
-  "updating": "جارٍ التحديث",
-  "syncPending": "تعذر تحديث البيانات. المعروض هو آخر تحديث متاح.",
-  "unknownOutcome": "لم نتمكن من تأكيد نتيجة الطلب. أعد المحاولة للتحقق دون تكرار العملية.",
-  "resolveRequest": "تحقق وأعد المحاولة",
-  "actionSuccess": "تم تسجيل الإجراء.",
-  "roundFinished": "اكتمل الدور وأصبح الدور التالي متاحًا.",
-  "circleFinished": "اكتملت الجمعية.",
-  "approveNotice": "اعتمد الإقرار بعد التحقق من وصول القسط خارج التطبيق.",
-  "reportedToday": "أبلغ {name} اليوم، {time}",
-  "@reportedToday": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      },
-      "time": {
-        "type": "String"
-      }
-    }
-  },
-  "reportedOn": "أبلغ {name} في {date}، {time}",
-  "@reportedOn": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      },
-      "date": {
-        "type": "String"
-      },
-      "time": {
-        "type": "String"
-      }
-    }
-  },
-  "basicsStep": "الأساسيات",
-  "membersStep": "الأعضاء والأسهم",
-  "scheduleStep": "المواعيد",
-  "reviewStep": "المراجعة",
-  "stepOf": "الخطوة {number} من {total}",
-  "@stepOf": {
-    "placeholders": {
-      "number": {
-        "type": "int"
-      },
-      "total": {
-        "type": "int"
-      }
-    }
-  },
-  "continueLabel": "متابعة",
-  "back": "رجوع",
-  "edit": "تعديل",
-  "schedulePreview": "جدول الاستلام",
-  "viewSchedule": "عرض الجدول الكامل",
-  "hideSchedule": "اختصار الجدول",
-  "deleteMember": "حذف العضو",
-  "amountInvalid": "أدخل مبلغًا موجبًا يناسب دقة العملة.",
-  "countInvalid": "أدخل عددًا من {min} إلى {max}.",
-  "@countInvalid": {
-    "placeholders": {
-      "min": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
-  "activationNotice": "بعد التفعيل تثبت المبالغ والأسهم والجدول. راجع البيانات قبل المتابعة.",
-  "continueSetup": "متابعة الإعداد",
-  "noActivity": "لا نشاط حتى الآن.",
-  "linked": "مرتبط بحساب",
-  "notLinked": "لم ينضم بعد",
-  "inviteRecipient": "دعوة المستفيد",
-  "recipientNeedsAccount": "يلزم انضمام المستفيد لتأكيد الاستلام.",
-  "joinSuccess": "تم الانضمام إلى الجمعية.",
-  "emptyTitle": "نبدأ أول دايرة؟",
-  "settingsAccount": "الحساب",
-  "appearance": "المظهر واللغة",
-  "roundCompleted": "الدور مكتمل",
-  "noActionsTitle": "كل شيء واضح",
-  "startDateInvalid": "اختر موعد بداية اليوم أو بعده.",
-  "activeFilter": "النشطة",
-  "draftFilter": "المسودات",
-  "completedFilter": "المكتملة",
-  "thisIsYou": "هذا أنت",
-  "continueVerification": "استكمال تأكيد البريد",
-  "emailVerificationCode": "رمز تأكيد البريد",
-  "verifyCode": "تأكيد الرمز",
-  "codeValidity": "8 أرقام · صالح 10 دقائق",
-  "codeFormat": "أدخل الرمز المكون من 8 أرقام.",
-  "verificationCodeInvalid": "الرمز غير صحيح أو انتهت صلاحيته أو استُخدم. استخدم أحدث رسالة أو اطلب رسالة جديدة.",
-  "emailVerifiedLogin": "تم تأكيد بريدك. سجّل الدخول بكلمة مرور حسابك.",
-  "resendCountdown": "إعادة إرسال التأكيد ({seconds})",
-  "@resendCountdown": {
-    "placeholders": {
-      "seconds": {
-        "type": "int"
-      }
-    }
-  },
-  "signInTitle": "أهلًا بعودتك",
-  "signUpTitle": "ابدأ مع دايرة",
-  "recoveryTitle": "استعادة كلمة المرور",
-  "noCirclesTitle": "لا توجد جمعيات بعد",
-  "memberContributions": "أقساط الأعضاء"
+  "dueOn": "يستحق {date}"
 }

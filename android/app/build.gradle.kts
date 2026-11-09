@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.daira.daira"
+    namespace = "com.daira.circles"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.daira.daira"
+        applicationId = "com.daira.circles"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

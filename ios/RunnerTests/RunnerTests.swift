@@ -7,7 +7,7 @@ class RunnerTests: XCTestCase {
   func testDairaCallbackSchemeIsRegistered() {
     let types = Bundle.main.object(forInfoDictionaryKey: "CFBundleURLTypes") as? [[String: Any]]
     let schemes = types?.flatMap { $0["CFBundleURLSchemes"] as? [String] ?? [] } ?? []
-    XCTAssertTrue(schemes.contains("daira-odoo"))
+    XCTAssertTrue(schemes.contains("daira"))
   }
 
 }

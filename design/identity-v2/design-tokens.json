@@ -1,0 +1,122 @@
+{
+  "$name": "Daira identity v2 — C1 (Night navy + Amber)",
+  "$version": "2.0.0",
+  "$note": "Single source of truth for the Flutter app (lib/design/tokens) and the Odoo backend (static/src/scss). Accent is for the one primary action and round progress only; text on accent is always dark. Status never uses accent.",
+  "color": {
+    "light": {
+      "primary": "#1E2A4A",
+      "primaryPressed": "#151E36",
+      "onPrimary": "#FFFFFF",
+      "primaryContainer": "#E6E9F2",
+      "onPrimaryContainer": "#1E2A4A",
+      "accent": "#F0A202",
+      "accentPressed": "#D68F00",
+      "onAccent": "#1E2A4A",
+      "accentContainer": "#FFF3D6",
+      "hero": "#1E2A4A",
+      "onHero": "#FFFFFF",
+      "onHeroMuted": "#C3CADB",
+      "background": "#F5F6F9",
+      "surface": "#FFFFFF",
+      "surfaceSunken": "#ECEEF3",
+      "track": "#ECEEF3",
+      "text": "#141A2B",
+      "textMuted": "#5F6779",
+      "textDisabled": "#9AA1B0",
+      "line": "#E3E6EE",
+      "lineStrong": "#CDD2DE",
+      "focus": "#F0A202",
+      "scrim": "#0C111D99",
+      "skeleton": "#E9EBF1",
+      "skeletonHighlight": "#F4F5F9"
+    },
+    "dark": {
+      "primary": "#C9D3EC",
+      "primaryPressed": "#AEBBDD",
+      "onPrimary": "#0C111D",
+      "primaryContainer": "#1E2840",
+      "onPrimaryContainer": "#C9D3EC",
+      "accent": "#F5B321",
+      "accentPressed": "#E0A010",
+      "onAccent": "#16141A",
+      "accentContainer": "#3A2F12",
+      "hero": "#1C2742",
+      "onHero": "#FFFFFF",
+      "onHeroMuted": "#AEB8D0",
+      "background": "#0C111D",
+      "surface": "#151C2C",
+      "surfaceSunken": "#10172A",
+      "track": "#222B3F",
+      "text": "#EDF0F7",
+      "textMuted": "#9AA4B8",
+      "textDisabled": "#5E6880",
+      "line": "#273047",
+      "lineStrong": "#34405C",
+      "focus": "#F5B321",
+      "scrim": "#000000B3",
+      "skeleton": "#1D2537",
+      "skeletonHighlight": "#263049"
+    },
+    "status": {
+      "light": {
+        "success": "#1F7A47", "successContainer": "#E3F3EA",
+        "pending": "#4A5876", "pendingContainer": "#E9ECF3",
+        "danger": "#B4372F", "dangerContainer": "#FBE7E5",
+        "info": "#4A5876", "infoContainer": "#E9ECF3"
+      },
+      "dark": {
+        "success": "#5FD08F", "successContainer": "#16302A",
+        "pending": "#AEB8D0", "pendingContainer": "#232B3D",
+        "danger": "#F38A80", "dangerContainer": "#3A1F22",
+        "info": "#AEB8D0", "infoContainer": "#232B3D"
+      },
+      "mapping": {
+        "obligation.pending": "pending",
+        "obligation.reported": "pending",
+        "obligation.approved": "success",
+        "obligation.overdue": "danger",
+        "round.collecting": "pending",
+        "round.readyForPayout": "success",
+        "round.payoutReported": "pending",
+        "round.completed": "success",
+        "circle.draft": "info",
+        "circle.active": "success",
+        "circle.completed": "info",
+        "circle.suspended": "danger",
+        "circle.cancelled": "danger"
+      }
+    }
+  },
+  "font": {
+    "family": "Cairo",
+    "weights": { "regular": 400, "semibold": 600, "bold": 700, "extrabold": 800 },
+    "numerals": "tabular-nums for every amount, date and counter"
+  },
+  "type": {
+    "display": { "size": 28, "line": 36, "weight": 800 },
+    "title":   { "size": 20, "line": 28, "weight": 700 },
+    "heading": { "size": 16, "line": 24, "weight": 700 },
+    "body":    { "size": 14, "line": 22, "weight": 400 },
+    "label":   { "size": 13, "line": 18, "weight": 600 },
+    "caption": { "size": 12, "line": 16, "weight": 400 },
+    "amountL": { "size": 28, "line": 34, "weight": 800 },
+    "amountM": { "size": 16, "line": 22, "weight": 700 }
+  },
+  "space": { "xxs": 4, "xs": 8, "sm": 12, "md": 16, "lg": 20, "xl": 24, "xxl": 32, "xxxl": 48, "screenGutter": 16 },
+  "radius": { "xs": 6, "sm": 10, "md": 12, "lg": 16, "xl": 20, "sheet": 24, "pill": 999 },
+  "elevation": {
+    "none": "none",
+    "card": "0 1px 2px rgba(20,26,43,.04)",
+    "raised": "0 6px 16px rgba(20,26,43,.08)",
+    "sheet": "0 -8px 24px rgba(20,26,43,.12)"
+  },
+  "size": { "touchTarget": 48, "button": 48, "buttonSmall": 36, "input": 52, "icon": 24, "iconSmall": 18, "avatar": 36, "navBar": 72 },
+  "icon": { "grid": 24, "stroke": 1.75, "cap": "round", "join": "round", "activeStyle": "same glyph inside primaryContainer pill" },
+  "motion": {
+    "fast": 120, "standard": 200, "emphasis": 320,
+    "easing": "cubic-bezier(.2,0,0,1)",
+    "skeletonPulse": 1200,
+    "reducedMotion": "fade only, no movement"
+  },
+  "breakpoint": { "compact": 360, "medium": 600, "expanded": 900 }
+}
