@@ -255,12 +255,6 @@ abstract final class DairaTheme {
         decoration: BoxDecoration(color: c.hero, borderRadius: BorderRadius.circular(Radii.xs)),
         textStyle: DairaType.caption.copyWith(color: c.onHero),
       ),
-      pageTransitionsTheme: const PageTransitionsTheme(
-        builders: {
-          TargetPlatform.android: FadeForwardsPageTransitionsBuilder(),
-          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-        },
-      ),
     );
   }
 
