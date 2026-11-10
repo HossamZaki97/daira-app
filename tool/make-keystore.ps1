@@ -33,7 +33,7 @@ $secure = Read-Host 'Choose a key password (at least 8 characters)' -AsSecureStr
 $password = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure))
 if ($password.Length -lt 8) { throw 'Password too short.' }
 
-& $keytool -genkeypair -v -keystore $jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 `
+& $keytool -genkeypair -v -keystore $jks -storetype PKCS12 -keyalg RSA -keysize 2048 -validity 10000 `
   -alias upload -storepass $password -keypass $password -dname 'CN=Daira, O=Daira, C=EG'
 if ($LASTEXITCODE -ne 0 -or -not (Test-Path $jks)) { throw 'keytool could not create the key.' }
 @"
