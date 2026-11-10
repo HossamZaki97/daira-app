@@ -4,21 +4,34 @@ Flutter app for rotating savings circles (جمعيات), backed only by the Odoo
 module `daira_backend`. Package `com.daira.circles`, links `daira://`
 (the previous app uses `daira-legacy://`).
 
-## Run locally
+## Two apps: dev and prod
+
+| | dev | prod |
+|---|---|---|
+| Android id | `com.daira.circles.dev` ("Daira Dev", grey icon) | `com.daira.circles` ("Daira") |
+| Server | local Odoo (`config/local.json`) | production HTTPS (`config/prod.json`) |
+| Links | `daira-dev://` | `daira://` |
+
+Both install side by side. Each Odoo database has its own users, settings and
+App Releases; set the backend setting "App link scheme" to `daira-dev` on the
+dev database. Push uses one Firebase project with both apps.
+
+Files kept out of git: `android/app/google-services.json` (Firebase),
+`android/key.properties` and the `.jks` upload key, `config/local.json`.
+
+## Run locally (dev)
 
 1. In PyCharm run Odoo with `D:\odoo19\conf\daira.conf` (database `19_daira`, port `8019`).
-2. Connect an Android phone with USB debugging, then:
+2. Connect the phone with USB debugging and run `.\tool\run.ps1`
+   (opens the adb tunnel, checks Odoo, runs the dev flavor).
 
-```powershell
-flutter pub get
-flutter gen-l10n
-& "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe" reverse tcp:8019 tcp:8019
-flutter run --dart-define-from-file=config/local.json
-```
+## Release (prod)
 
-`config/local.json` (ignored) holds `ODOO_URL`, e.g. `http://127.0.0.1:8019` over
-USB or `http://10.0.2.2:8019` on the emulator. Plain HTTP is accepted only for a
-private address in debug builds; release builds require HTTPS.
+1. Once: `.\tool\make-keystore.ps1` (back up the key and password).
+2. Set `ODOO_URL` in `config/prod.json`, raise `version:` in `pubspec.yaml`.
+3. `.\tool\release.ps1` builds `build\app\outputs\bundle\prodRelease\app-prod-release.aab`.
+4. Upload to Google Play, then add the build in Odoo (Daira → App Releases)
+   and choose optional or mandatory.
 
 ## Structure
 

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../core/config.dart';
 import '../core/providers.dart';
+import '../core/push.dart';
 import '../design/design.dart';
 import '../features/state.dart';
 import '../l10n/messages.dart';
@@ -21,6 +22,7 @@ class AppShell extends ConsumerStatefulWidget {
 
 class _AppShellState extends ConsumerState<AppShell> {
   late final AppLifecycleListener _lifecycle;
+  late final PushController _push;
 
   @override
   void initState() {
@@ -30,11 +32,23 @@ class _AppShellState extends ConsumerState<AppShell> {
       ref.read(startupProvider.notifier).load(quiet: true);
     });
     WidgetsBinding.instance.addPostFrameCallback((_) => _openLink(ref.read(pendingLinkProvider)));
+    _push = PushController(
+      ref,
+      onOpenCircle: (id) {
+        if (mounted) context.push(Routes.circle(id));
+      },
+      onForeground: (title) {
+        refreshLists(ref.invalidate);
+        if (mounted && title != null) showToast(context, title);
+      },
+    );
+    _push.start();
   }
 
   @override
   void dispose() {
     _lifecycle.dispose();
+    _push.dispose();
     super.dispose();
   }
 
@@ -47,6 +61,7 @@ class _AppShellState extends ConsumerState<AppShell> {
   @override
   Widget build(BuildContext context) {
     ref.listen(pendingLinkProvider, (_, next) => _openLink(next));
+    ref.listen(localeProvider, (_, _) => _push.languageChanged());
     final t = context.l10n;
     final unread = ref.watch(unreadProvider).valueOrNull ?? 0;
     final badge = unread > 99 ? '99+' : '$unread';

@@ -1,7 +1,8 @@
 import 'dart:io';
 
-/// Deep-link scheme of this app (daira://). The previous app uses daira-legacy://.
-const appLinkScheme = 'daira';
+/// Deep-link scheme of this build: daira:// (prod) or daira-dev:// (dev), set
+/// with --dart-define=APP_SCHEME and matching the Android flavor.
+const appLinkScheme = String.fromEnvironment('APP_SCHEME', defaultValue: 'daira');
 
 final _inviteCode = RegExp(r'^[23456789ABCDEFGHJKLMNPQRSTUVWXYZ]{12}$');
 

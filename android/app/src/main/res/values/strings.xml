@@ -1,1 +1,4 @@
-<resources><string name="app_name">Daira</string></resources>
+<resources>
+    <string name="app_name">Daira</string>
+    <string name="notification_channel">Daira updates</string>
+</resources>

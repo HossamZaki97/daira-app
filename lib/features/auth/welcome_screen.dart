@@ -40,9 +40,9 @@ class WelcomeScreen extends StatelessWidget {
                   _Point(icon: AppIcons.confirmed, text: t.welcomePoint2),
                   _Point(icon: AppIcons.turn, text: t.welcomePoint3),
                   const Spacer(flex: 2),
-                  AppButton(label: t.createAccount, onPressed: () => context.push(Routes.signUp)),
+                  AppButton(label: t.signIn, onPressed: () => context.push(Routes.signIn)),
                   const SizedBox(height: Space.sm),
-                  AppButton.secondary(label: t.signIn, onPressed: () => context.push(Routes.signIn)),
+                  AppButton.secondary(label: t.createAccount, onPressed: () => context.push(Routes.signUp)),
                   const SizedBox(height: Space.md),
                   Text.rich(
                     TextSpan(

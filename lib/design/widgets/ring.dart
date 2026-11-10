@@ -84,10 +84,8 @@ class _RingLoaderState extends State<RingLoader> with SingleTickerProviderStateM
                 child: CustomPaint(painter: RingPainter(ring: ring, accent: accent, position: 0)),
               );
             }
-            // Each step glides to the next segment with the standard easing.
-            final steps = t * RingPainter.segments;
-            final step = steps.floor();
-            final position = step + Motion.easing.transform(steps - step);
+            // The amber light moves from one segment to the next, in order.
+            final position = t * RingPainter.segments;
             return CustomPaint(
               painter: RingPainter(ring: widget.fadedRing ? ring.withValues(alpha: 0.28) : ring, accent: accent, position: position),
             );
@@ -102,41 +100,64 @@ class RingPainter extends CustomPainter {
   const RingPainter({required this.ring, required this.accent, required this.position});
 
   static const segments = 8;
-  static const _outer = 240 / 256;
-  static const _inner = 152 / 256;
-  static const _gap = 3 * math.pi / 180;
+  // Geometry of the A2 mark (design/identity-v2/tool), relative to the radius.
+  static const _outer = 0.94;
+  static const _inner = 0.561;
+  static const _soft = 0.0606; // corner softening
+  static const _gap = 3.6 * math.pi / 180;
 
   final Color ring;
   final Color accent;
 
-  /// Where the accent segment sits, in segments from the top (0..8, fractional while moving).
+  /// Which segment is lit, counted from the top clockwise (0..8). Between two
+  /// whole numbers the light hands over: the current segment stays lit for the
+  /// first half of the step, then fades while the next one lights up.
   final double position;
 
   @override
   void paint(Canvas canvas, Size size) {
     final center = size.center(Offset.zero);
     final radius = size.shortestSide / 2;
-    final paint = Paint()..isAntiAlias = true;
+    final soft = radius * _soft;
+    final paint = Paint()
+      ..isAntiAlias = true
+      ..style = PaintingStyle.fill;
+    final edge = Paint()
+      ..isAntiAlias = true
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = soft * 2
+      ..strokeJoin = StrokeJoin.round;
     const step = 2 * math.pi / segments;
-    final accentIndex = position == position.roundToDouble() ? position.round() % segments : -1;
+    final current = position.floor();
+    final f = position - current;
+    final handover = f < 0.5 ? 0.0 : Motion.easing.transform((f - 0.5) * 2);
     for (var i = 0; i < segments; i++) {
-      if (i == accentIndex) continue;
-      paint.color = ring;
-      canvas.drawPath(_segment(center, radius, -math.pi / 2 + i * step), paint);
+      final light = i == current % segments
+          ? 1 - handover
+          : i == (current + 1) % segments
+          ? handover
+          : 0.0;
+      final color = Color.lerp(ring, accent, light)!;
+      final path = _segment(center, radius, soft, -math.pi / 2 + i * step);
+      canvas
+        ..drawPath(path, paint..color = color)
+        ..drawPath(path, edge..color = color);
     }
-    paint.color = accent;
-    canvas.drawPath(_segment(center, radius, -math.pi / 2 + position * step), paint);
   }
 
-  Path _segment(Offset c, double r, double start) {
+  /// One segment, shrunk by [soft] so the round-joined stroke brings it back
+  /// to full size with softened corners.
+  Path _segment(Offset c, double r, double soft, double start) {
     const step = 2 * math.pi / segments;
+    final outer = r * _outer - soft;
+    final inner = r * _inner + soft;
+    final da = math.asin(soft / outer);
+    final db = math.asin(soft / inner);
     final from = start + _gap;
-    const sweep = step - 2 * _gap;
-    final outer = Rect.fromCircle(center: c, radius: r * _outer);
-    final inner = Rect.fromCircle(center: c, radius: r * _inner);
+    final to = start + step - _gap;
     return Path()
-      ..arcTo(outer, from, sweep, true)
-      ..arcTo(inner, from + sweep, -sweep, false)
+      ..arcTo(Rect.fromCircle(center: c, radius: outer), from + da, (to - da) - (from + da), true)
+      ..arcTo(Rect.fromCircle(center: c, radius: inner), to - db, (from + db) - (to - db), false)
       ..close();
   }
 

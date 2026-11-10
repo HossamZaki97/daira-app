@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -5,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/router.dart';
 import '../../core/api/api_exception.dart';
 import '../../core/providers.dart';
+import '../../core/push.dart';
 import '../../design/design.dart';
 import '../../l10n/messages.dart';
 import '../common.dart';
@@ -90,6 +92,13 @@ class AccountScreen extends ConsumerWidget {
           ]),
           const SizedBox(height: Space.lg),
           Center(child: Text(t.versionLabel(info.versionHeader), style: context.text.bodySmall)),
+          if (kDebugMode)
+            ValueListenableBuilder<String>(
+              valueListenable: pushStatus,
+              builder: (context, value, _) => Center(
+                child: Text('DEBUG push: $value', style: context.text.bodySmall, textDirection: TextDirection.ltr),
+              ),
+            ),
         ],
       ),
     );

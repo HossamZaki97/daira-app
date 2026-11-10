@@ -16,7 +16,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
     // Same size and colors as the Android launch screen (splash_mark), so the
     // static mark simply starts to turn.
-    body: Center(child: RingLoader(size: 168, fadedRing: false, semanticLabel: context.l10n.loading)),
+    body: Center(child: RingLoader(size: 126, fadedRing: false, semanticLabel: context.l10n.loading)),
   );
 }
 

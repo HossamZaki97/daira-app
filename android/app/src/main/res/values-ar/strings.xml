@@ -1,1 +1,4 @@
-<resources><string name="app_name">دايرة</string></resources>
+<resources>
+    <string name="app_name">دايرة</string>
+    <string name="notification_channel">تحديثات دايرة</string>
+</resources>

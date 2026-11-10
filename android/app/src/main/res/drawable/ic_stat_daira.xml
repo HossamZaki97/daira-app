@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Notification icon: white silhouette of the Daira mark (A2). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="100" android:viewportHeight="100">
+  <path android:fillColor="#FFFFFFFF" android:strokeColor="#FFFFFFFF" android:strokeWidth="6.065" android:strokeLineJoin="round" android:pathData="M55.780 6.414A43.968 43.968 0 0 1 76.733 15.093L68.181 24.792A31.081 31.081 0 0 0 54.969 19.319Z"/>
+  <path android:fillColor="#FFFFFFFF" android:strokeColor="#FFFFFFFF" android:strokeWidth="6.065" android:strokeLineJoin="round" android:pathData="M84.907 23.267A43.968 43.968 0 0 1 93.586 44.220L80.681 45.031A31.081 31.081 0 0 0 75.208 31.819Z"/>
+  <path android:fillColor="#FFFFFFFF" android:strokeColor="#FFFFFFFF" android:strokeWidth="6.065" android:strokeLineJoin="round" android:pathData="M93.586 55.780A43.968 43.968 0 0 1 84.907 76.733L75.208 68.181A31.081 31.081 0 0 0 80.681 54.969Z"/>
+  <path android:fillColor="#FFFFFFFF" android:strokeColor="#FFFFFFFF" android:strokeWidth="6.065" android:strokeLineJoin="round" android:pathData="M76.733 84.907A43.968 43.968 0 0 1 55.780 93.586L54.969 80.681A31.081 31.081 0 0 0 68.181 75.208Z"/>
+  <path android:fillColor="#FFFFFFFF" android:strokeColor="#FFFFFFFF" android:strokeWidth="6.065" android:strokeLineJoin="round" android:pathData="M44.220 93.586A43.968 43.968 0 0 1 23.267 84.907L31.819 75.208A31.081 31.081 0 0 0 45.031 80.681Z"/>
+  <path android:fillColor="#FFFFFFFF" android:strokeColor="#FFFFFFFF" android:strokeWidth="6.065" android:strokeLineJoin="round" android:pathData="M15.093 76.733A43.968 43.968 0 0 1 6.414 55.780L19.319 54.969A31.081 31.081 0 0 0 24.792 68.181Z"/>
+  <path android:fillColor="#FFFFFFFF" android:strokeColor="#FFFFFFFF" android:strokeWidth="6.065" android:strokeLineJoin="round" android:pathData="M6.414 44.220A43.968 43.968 0 0 1 15.093 23.267L24.792 31.819A31.081 31.081 0 0 0 19.319 45.031Z"/>
+  <path android:fillColor="#FFFFFFFF" android:strokeColor="#FFFFFFFF" android:strokeWidth="6.065" android:strokeLineJoin="round" android:pathData="M23.267 15.093A43.968 43.968 0 0 1 44.220 6.414L45.031 19.319A31.081 31.081 0 0 0 31.819 24.792Z"/>
+</vector>

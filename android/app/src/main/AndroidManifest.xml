@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <application
         android:label="@string/app_name"
         android:allowBackup="false"
@@ -24,7 +25,7 @@
               android:resource="@style/NormalTheme"
               />
             <meta-data android:name="flutter_deeplinking_enabled" android:value="false" />
-            <intent-filter><action android:name="android.intent.action.VIEW"/><category android:name="android.intent.category.DEFAULT"/><category android:name="android.intent.category.BROWSABLE"/><data android:scheme="daira" android:host="join"/><data android:scheme="daira" android:host="auth-callback"/></intent-filter>
+            <intent-filter><action android:name="android.intent.action.VIEW"/><category android:name="android.intent.category.DEFAULT"/><category android:name="android.intent.category.BROWSABLE"/><data android:scheme="${appScheme}" android:host="join"/><data android:scheme="${appScheme}" android:host="auth-callback"/></intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -32,6 +33,10 @@
         </activity>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <!-- Push notifications: small icon, color and channel (created in MainActivity). -->
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_stat_daira" />
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/daira_accent" />
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="daira" />
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
