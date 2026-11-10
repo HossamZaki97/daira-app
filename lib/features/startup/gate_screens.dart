@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -13,7 +14,9 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    body: Center(child: RingLoader(size: 72, semanticLabel: context.l10n.loading)),
+    // Same size and colors as the Android launch screen (splash_mark), so the
+    // static mark simply starts to turn.
+    body: Center(child: RingLoader(size: 168, fadedRing: false, semanticLabel: context.l10n.loading)),
   );
 }
 
@@ -75,6 +78,8 @@ class OfflineScreen extends ConsumerWidget {
         icon: offline ? AppIcons.offline : AppIcons.warning,
         title: offline ? t.offlineTitle : t.unavailableTitle,
         body: offline ? t.offlineBody : t.unavailableBody,
+        // Developers only: which server the app tried, and the usual USB fix.
+        extra: kDebugMode ? _DebugServer(ref.read(apiProvider).config.baseUrl) : null,
         primary: _RetryButton(label: t.retry),
       ),
     );
@@ -193,4 +198,32 @@ class _Notes extends StatelessWidget {
       ],
     ),
   );
+}
+
+class _DebugServer extends StatelessWidget {
+  const _DebugServer(this.url);
+  final String url;
+
+  @override
+  Widget build(BuildContext context) {
+    final port = Uri.tryParse(url)?.port ?? 8019;
+    final local = url.contains('127.0.0.1') || url.contains('localhost');
+    return AppCard(
+      color: context.colors.surfaceSunken,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('DEBUG · $url', style: context.text.labelMedium, textDirection: TextDirection.ltr),
+          if (local) ...[
+            const SizedBox(height: Space.xxs),
+            SelectableText(
+              'USB: adb reverse tcp:$port tcp:$port',
+              style: context.text.bodySmall,
+              textDirection: TextDirection.ltr,
+            ),
+          ],
+        ],
+      ),
+    );
+  }
 }

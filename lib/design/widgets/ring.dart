@@ -32,12 +32,23 @@ class DairaMark extends StatelessWidget {
 /// The loader: the amber segment orbits the ring, one segment at a time.
 /// With "reduce motion" on, the mark only fades in and out.
 class RingLoader extends StatefulWidget {
-  const RingLoader({this.size = 40, this.ringColor, this.accentColor, this.semanticLabel, super.key});
+  const RingLoader({
+    this.size = 40,
+    this.ringColor,
+    this.accentColor,
+    this.semanticLabel,
+    this.fadedRing = true,
+    super.key,
+  });
 
   final double size;
   final Color? ringColor;
   final Color? accentColor;
   final String? semanticLabel;
+
+  /// Soft ring under the moving segment (inline loaders). The splash keeps
+  /// the full ring so it continues the system launch screen without a jump.
+  final bool fadedRing;
 
   @override
   State<RingLoader> createState() => _RingLoaderState();
@@ -78,7 +89,7 @@ class _RingLoaderState extends State<RingLoader> with SingleTickerProviderStateM
             final step = steps.floor();
             final position = step + Motion.easing.transform(steps - step);
             return CustomPaint(
-              painter: RingPainter(ring: ring.withValues(alpha: 0.28), accent: accent, position: position),
+              painter: RingPainter(ring: widget.fadedRing ? ring.withValues(alpha: 0.28) : ring, accent: accent, position: position),
             );
           },
         ),

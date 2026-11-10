@@ -105,6 +105,7 @@ class StartupState {
 }
 
 const _skippedBuildKey = 'skipped_update_build';
+const _splashMinimum = Duration(milliseconds: 1400);
 
 /// Loads /app/config and decides which gate the app shows: maintenance,
 /// forced update, offline, or the app itself. Any API call that hits
@@ -126,8 +127,11 @@ class StartupController extends Notifier<StartupState> {
   /// unless the backend now blocks the app.
   Future<void> load({bool quiet = false}) async {
     if (!quiet && state.status != StartupStatus.loading) state = state.copyWith(status: StartupStatus.loading);
+    // The splash stays long enough to read as one calm turn, not a flash.
+    final minimum = quiet ? null : Future<void>.delayed(_splashMinimum);
     try {
       final settings = await ref.read(appRepositoryProvider).config();
+      await minimum;
       state = state.copyWith(
         settings: settings,
         status: settings.update.required
@@ -142,8 +146,10 @@ class StartupController extends Notifier<StartupState> {
         unawaited(ref.read(accountRepositoryProvider).me().then((_) {}, onError: (_) {}));
       }
     } on ApiException catch (error) {
+      await minimum;
       if (!quiet) state = state.copyWith(status: error.isOffline ? StartupStatus.offline : StartupStatus.unavailable);
     } catch (_) {
+      await minimum;
       if (!quiet) state = state.copyWith(status: StartupStatus.unavailable);
     }
   }
