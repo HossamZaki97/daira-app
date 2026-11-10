@@ -238,9 +238,15 @@ class _ActionCard extends StatelessWidget {
           const SizedBox(height: Space.sm),
           Row(
             children: [
-              if (action.dueDate != null)
-                StatusChip(dueLabel(t, action.dueDate!), tone: late ? Tone.danger : Tone.pending, icon: AppIcons.calendar),
-              const Spacer(),
+              Expanded(
+                child: Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: action.dueDate == null
+                      ? const SizedBox.shrink()
+                      : StatusChip(dueLabel(t, action.dueDate!), tone: late ? Tone.danger : Tone.pending, icon: AppIcons.calendar),
+                ),
+              ),
+              const SizedBox(width: Space.xs),
               Text(cta, style: context.text.labelLarge?.copyWith(color: colors.primary)),
               const SizedBox(width: Space.xxs),
               DirectionalIcon(AppIcons.forward, size: 16, color: colors.primary),

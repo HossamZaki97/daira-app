@@ -321,12 +321,9 @@ class _MyPayment extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            children: [
-              Expanded(child: AmountText(o.amount, large: true)),
-              ObligationChip(o.state, overdue: o.overdue),
-            ],
-          ),
+          Align(alignment: AlignmentDirectional.centerStart, child: ObligationChip(o.state, overdue: o.overdue)),
+          const SizedBox(height: Space.xs),
+          AmountText(o.amount, large: true),
           if (o.state == ObligationState.pending && o.reason != null) ...[
             const SizedBox(height: Space.sm),
             InlineBanner(title: t.notReceivedReason(o.reason!), body: t.notReceivedHint, tone: Tone.danger),
@@ -382,10 +379,11 @@ class _ObligationRow extends StatelessWidget {
                   children: [
                     Text(isMe ? t.youName(o.member) : o.member, style: context.text.titleSmall),
                     AmountText(o.amount),
+                    const SizedBox(height: Space.xxs),
+                    ObligationChip(o.state, overdue: o.overdue),
                   ],
                 ),
               ),
-              ObligationChip(o.state, overdue: o.overdue),
             ],
           ),
           if (o.state == ObligationState.reported) ...[
