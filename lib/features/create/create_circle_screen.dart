@@ -16,6 +16,8 @@ import '../../l10n/messages.dart';
 import '../common.dart';
 import '../state.dart';
 
+const _lastCurrencyKey = 'last_currency';
+
 class _MemberDraft {
   _MemberDraft(this.id, {String name = '', this.shares = 1}) : name = TextEditingController(text: name);
   final int id;
@@ -101,7 +103,10 @@ class _CreateCircleScreenState extends ConsumerState<CreateCircleScreen> {
 
   Currency get _currencyInfo {
     final settings = _settings;
-    final code = _currency ?? settings?.suggestedCurrency ?? 'EGP';
+    // The person's choice > last currency they used > server suggestion (phone country) > default.
+    final last = ref.read(preferencesProvider).getString(_lastCurrencyKey);
+    final remembered = last != null && settings?.currency(last) != null ? last : null;
+    final code = _currency ?? remembered ?? settings?.suggestedCurrency ?? 'EGP';
     return settings?.currency(code) ?? Currency(code: code, decimals: 2);
   }
 
@@ -262,6 +267,7 @@ class _CreateCircleScreenState extends ConsumerState<CreateCircleScreen> {
       refreshLists(ref.invalidate);
       ref.invalidate(circleProvider(circle.id));
       if (!mounted) return;
+      ref.read(preferencesProvider).setString(_lastCurrencyKey, _currencyInfo.code);
       showToast(context, activate ? t.circleStarted : t.draftSaved, tone: Tone.success);
       context.pushReplacement(Routes.circle(circle.id));
     } on ApiException catch (error) {
